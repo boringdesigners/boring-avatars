@@ -14,17 +14,8 @@ const colors = [
     '#DEEDCF',
   ];
 
-const colors2 = [
-  '#182C32',
-  '#284251',
-  '#3A546E',
-  '#4D648B',
-  '#6071A6',
-  '#757DC0',
-  '#A2AED5',
-  '#CFD9EA',
-];
-
+const colors2 = ["#fce762","#fffded","#ffb17a","#4f4789","#201335","#d64550","#1c2826","#558564"]
+const colors3 = ["#4e4187","#3083dc","#f8ffe5","#7dde92","#2ebfa5"]
 
 function GenerateColors(colors) {
   let GColors = new  Array(12).fill('transparent')
@@ -34,28 +25,27 @@ function GenerateColors(colors) {
   const ColoredCell1 = Math.floor(Math.random() * range)
   const ColoredCell2 = Math.floor(Math.random() * range)
   const ColoredCell3 = Math.floor(Math.random() * range)
-  const ColoredCell4 = Math.floor(Math.random() * range)
-  const ColoredCell5 = Math.floor(Math.random() * range)
-  const ColoredCell6 = Math.floor(Math.random() * range)
-  const ColoredCell7 = Math.floor(Math.random() * range)
-  const ColoredCell8 = Math.floor(Math.random() * range)
-  const ColoredCell9 = Math.floor(Math.random() * range)
-  const ColoredCell10 = Math.floor(Math.random() * range)
-  const ColoredCell11 = Math.floor(Math.random() * range)
+  const ColoredLevel2 = Math.floor(Math.random() * range)
+  const ColoredLevel3 = Math.floor(Math.random() * range)
+
 
   GColors[0] = colors[ColoredCell0];
   GColors[1] = colors[ColoredCell1];
   GColors[2] = colors[ColoredCell2];
   GColors[3] = colors[ColoredCell3];
-  GColors[4] = colors[ColoredCell4];
-  GColors[5] = colors[ColoredCell5];
-  GColors[6] = colors[ColoredCell6];
-  GColors[7] = colors[ColoredCell7];
-  GColors[8] = colors[ColoredCell8];
-  GColors[9] = colors[ColoredCell9];
-  GColors[10] = colors[ColoredCell10];
-  GColors[11] = colors[ColoredCell11];
 
+  const StartingCell = Math.floor(Math.random() * 4)
+
+  GColors[StartingCell + 4] = colors[ColoredLevel2];
+  GColors[GColors.length - StartingCell] = colors[ColoredLevel3];
+
+  if (StartingCell === 3) {
+    GColors[4] = colors[ColoredLevel2];
+    //GColors[GColors.length - StartingCell] = colors[ColoredLevel3];
+  } else {
+    GColors[StartingCell + 5] = colors[ColoredLevel2];
+    GColors[GColors.length - StartingCell -1] = colors[ColoredLevel3];
+  }
 
   return GColors
 }
@@ -64,10 +54,10 @@ console.log(GenerateColors(colors))
 
 function AvatarGeometric(props) {
 
-  const AvatarColors = GenerateColors(colors2)
+  const AvatarColors = GenerateColors(colors3)
 
   return (
-    <div style={{display: 'inline-block', width: '80px', height: '80px'}}>
+    <div style={{display: 'inline-block', width: '32px', height: '32px'}}>
       <svg
         viewBox="0 0 80 80"
         fill="none"
