@@ -1,25 +1,11 @@
 import * as React from "react"
 
-const colors = [
-    '#0A2F51',
-    '#0E4D64',
-    '#137177',
-    '#188977',
-    '#1D9A6C',
-    '#39A96B',
-    '#56B870',
-    '#74C67A',
-    '#99D492',
-    '#BFE1B0',
-    '#DEEDCF',
-  ];
-
 const colors2 = ["#fce762","#fffded","#ffb17a","#4f4789","#201335","#d64550","#1c2826","#558564"]
-const colors3 = ["#4e4187","#3083dc","#f8ffe5","#7dde92","#2ebfa5"]
+const colors = ["#4e4187","#3083dc","#f8ffe5","#7dde92","#2ebfa5"]
 
 function GenerateColors(colors) {
   let GColors = new  Array(12).fill('transparent')
-  const range = colors.length
+  const range = colors && colors.length
 
   const ColoredCell0 = Math.floor(Math.random() * range)
   const ColoredCell1 = Math.floor(Math.random() * range)
@@ -50,11 +36,8 @@ function GenerateColors(colors) {
   return GColors
 }
 
-console.log(GenerateColors(colors))
-
 function AvatarGeometric(props) {
-
-  const AvatarColors = GenerateColors(colors3)
+  const AvatarColors = GenerateColors(props.colors)
 
   return (
     <div style={{display: 'inline-block', width: '32px', height: '32px'}}>

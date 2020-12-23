@@ -42,7 +42,8 @@ const AvatarWrapper = ({ name, playgroundColors }) => {
   )
 }
 
-const defaultPlaygroundColors = colors[97]
+const randomPalette = Math.floor(Math.random() * colors.length)
+const defaultPlaygroundColors = colors[randomPalette]
 
 const Playground = () => {
   const [playgroundColors, setPlaygroundColors] = useState(defaultPlaygroundColors)
@@ -70,8 +71,8 @@ const Playground = () => {
       </Header>
 
       <ContentSection>
-        <AvatarWrapper name="Brian" color={playgroundColors} />
-        <AvatarWrapper name="Mike" color={playgroundColors} />
+        <AvatarWrapper name="Brian" playgroundColors={playgroundColors} />
+        <AvatarWrapper name="Mike" playgroundColors={playgroundColors} />
       </ContentSection>
     </>
   )
