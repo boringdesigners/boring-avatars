@@ -4,6 +4,8 @@ import AvatarGeometric from '../avatar/components/avatar-geometric'
 import { SegmentGroup, Segment, Button, BaseStyles, ColorDot } from './ui-system'
 import colors from 'nice-color-palettes'
 
+const paletteColors = colors
+
 const Header = styled.header`
   display: grid;
   grid-template-columns: 1fr auto;
@@ -42,11 +44,16 @@ const AvatarWrapper = ({ name, playgroundColors }) => {
   )
 }
 
-const randomPalette = Math.floor(Math.random() * colors.length)
-const defaultPlaygroundColors = colors[randomPalette]
+const getRandomPaletteIndex = () => Math.floor(Math.random() * paletteColors.length)
 
 const Playground = () => {
+  const defaultPlaygroundColors = paletteColors[31]
   const [playgroundColors, setPlaygroundColors] = useState(defaultPlaygroundColors)
+  
+  const handleRandomColors = () => {
+    setPlaygroundColors(paletteColors[getRandomPaletteIndex()])
+  }
+
   return (
     <>
       <BaseStyles />
@@ -65,7 +72,11 @@ const Playground = () => {
         </SettingsSection>
 
         <div>
-          <Button>Random colors</Button>
+          <Button
+            onClick={() => handleRandomColors()}
+          >
+            Random colors
+          </Button>
           <Button>Random names</Button>
         </div>
       </Header>
