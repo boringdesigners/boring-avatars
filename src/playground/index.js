@@ -34,7 +34,7 @@ const AvatarWrapper = ({ name, playgroundColors }) => {
   return (
     <>
       <div>
-        <AvatarGeometric name={name} colors={playgroundColors} />
+        <AvatarGeometric name={name} colors={playgroundColors} size={80}/>
       </div>
       <div>
         {avatarName}
