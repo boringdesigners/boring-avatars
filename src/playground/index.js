@@ -32,7 +32,7 @@ const AvatarWrapper = ({ name, playgroundColors }) => {
   return (
     <>
       <div>
-        <AvatarGeometric name={name} colors={playgroundColors} />
+        <AvatarGeometric name={name} colors={playgroundColors} size={80}/>
       </div>
       <div>
         {avatarName}
@@ -46,7 +46,7 @@ const randomPalette = Math.floor(Math.random() * colors.length)
 const defaultPlaygroundColors = colors[randomPalette]
 
 const Playground = () => {
-  const [playgroundColors, setPlaygroundColors] = useState(defaultPlaygroundColors)
+const [playgroundColors, setPlaygroundColors] = useState(defaultPlaygroundColors)
   return (
     <>
       <BaseStyles />

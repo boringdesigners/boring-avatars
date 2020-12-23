@@ -37,7 +37,7 @@ function AvatarGeometric(props) {
   const AvatarColors = GenerateColors(props.colors)
 
   return (
-    <div style={{display: 'inline-block', width: '32px', height: '32px'}}>
+    <div style={{display: 'inline-block', width: props.size, height: props.size}}>
       <svg
         viewBox="0 0 80 80"
         fill="none"
