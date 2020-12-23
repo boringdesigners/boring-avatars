@@ -1,6 +1,3 @@
-
-
-import AvatarGeometric from './avatar/components/avatar-geometric';
 import Playground from './playground';
 
 function App() {
