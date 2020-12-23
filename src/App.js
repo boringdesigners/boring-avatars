@@ -1,12 +1,17 @@
 import AvatarGeometric from './avatar/components/avatar-geometric';
+import Playground from './playground';
 
 function App() {
   return (
-    <>
-      <article>
-        <AvatarGeometric/>
-      </article>
-    </>
+    <div>
+      <Playground />
+      <AvatarGeometric
+        colors={['red', 'blue']}
+        size={24}
+        variant="geometric"
+        name="Amanda"
+      />
+    </div>
   );
 }
 
