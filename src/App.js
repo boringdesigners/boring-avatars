@@ -5,6 +5,12 @@ function App() {
     <>
       <article>
         <AvatarGeometric/>
+        <AvatarGeometric/>
+        <AvatarGeometric/>
+        <AvatarGeometric/>
+        <AvatarGeometric/>
+        <AvatarGeometric/>
+        <AvatarGeometric/>
       </article>
     </>
   );
