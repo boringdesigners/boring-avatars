@@ -1,8 +1,5 @@
 import * as React from "react"
 
-const colors2 = ["#fce762","#fffded","#ffb17a","#4f4789","#201335","#d64550","#1c2826","#558564"]
-const colors = ["#4e4187","#3083dc","#f8ffe5","#7dde92","#2ebfa5"]
-
 function GenerateColors(colors) {
   let GColors = new  Array(12).fill('transparent')
   const range = colors && colors.length
