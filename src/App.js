@@ -7,15 +7,6 @@ function App() {
   return (
     <div>
       <Playground />
-      
-
-      <AvatarGeometric/>
-        <AvatarGeometric/>
-        <AvatarGeometric/>
-        <AvatarGeometric/>
-        <AvatarGeometric/>
-        <AvatarGeometric/>
-        <AvatarGeometric/>
     </div>
   );
 }

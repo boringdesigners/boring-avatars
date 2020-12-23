@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import AvatarGeometric from '../avatar/components/avatar-geometric'
 import { SegmentGroup, Segment, Button, BaseStyles, ColorDot } from './ui-system'
 
 const Header = styled.header`
@@ -40,6 +41,14 @@ const Playground = () => {
           <Button>Random names</Button>
         </div>
       </Header>
+
+      <AvatarGeometric/>
+      <AvatarGeometric/>
+      <AvatarGeometric/>
+      <AvatarGeometric/>
+      <AvatarGeometric/>
+      <AvatarGeometric/>
+      <AvatarGeometric/>
     </>
   )
 }
