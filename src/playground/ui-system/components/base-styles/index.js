@@ -6,6 +6,8 @@ const cssVariables = css`
   --sp-l: 1.5rem;
   --sp-xl: 3rem;
 
+  --textbox: 0.4rem;
+
   --pagePadding: var(--sp-xl);
 `
 

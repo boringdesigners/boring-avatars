@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import AvatarGeometric from '../avatar/components/avatar-geometric'
 import { SegmentGroup, Segment, Button, BaseStyles, ColorDot } from './ui-system'
 import colors from 'nice-color-palettes'
+import { exampleNames } from './example-names'
 
 const paletteColors = colors
 
@@ -25,22 +26,56 @@ const ColorsSection = styled.div`
   grid-template-columns: repeat(5, 1fr);
 `
 
-const ContentSection = styled.div`
+const AvatarsGrid = styled.div`
+  display: grid;
+  grid-gap: var(--sp-l) var(--sp-s);
+  grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
   padding: var(--pagePadding);
+`
+
+const AvatarContainer = styled.div`
+  display: grid;
+  grid-gap: var(--sp-s);
+  padding: 0 var(--sp-m);
+  font-size: 0.8rem;
+`
+
+const AvatarSection = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+const Input = styled.input`
+  padding: var(--textbox);
+  font: inherit;
+  color: inherit;
+  border: 1px solid transparent;
+  transition: 0.5s;
+  width: 100%;
+  text-align: center;
+  border-radius: 100rem;
+
+  &:hover {
+    border-color: hsla(0,0%,0%,0.1);
+    transition: 0.2s;
+  }
+  
+  &:focus {
+    border-color: hsla(0,0%,0%,0.3);
+    outline: none;
+  }
 `
 
 const AvatarWrapper = ({ name, playgroundColors }) => {
   const [avatarName, setAvatarName] = useState(name)
   return (
-    <>
-      <div>
+    <AvatarContainer>
+      <AvatarSection>
         <AvatarGeometric name={name} colors={playgroundColors} size={80}/>
-      </div>
-      <div>
-        {avatarName}
-      </div>
-      <input value={avatarName} onChange={e => setAvatarName(e.target.value)}/>
-    </>
+      </AvatarSection>
+      <Input value={avatarName} onChange={e => setAvatarName(e.target.value)}/>
+    </AvatarContainer>
   )
 }
 
@@ -81,10 +116,11 @@ const Playground = () => {
         </div>
       </Header>
 
-      <ContentSection>
-        <AvatarWrapper name="Brian" playgroundColors={playgroundColors} />
-        <AvatarWrapper name="Mike" playgroundColors={playgroundColors} />
-      </ContentSection>
+      <AvatarsGrid>
+        {exampleNames.map((exampleName) => (
+          <AvatarWrapper name={exampleName} playgroundColors={playgroundColors} />
+        ))}
+      </AvatarsGrid>
     </>
   )
 }
