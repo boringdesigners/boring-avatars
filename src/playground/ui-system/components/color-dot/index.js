@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { ChromePicker } from 'react-color'
 
 const Wrapper = styled.div`
   background-color: ${p => p.color};
@@ -10,7 +11,10 @@ const Wrapper = styled.div`
 
 const ColorDot = ({ color }) => {
   return (
-    <Wrapper color={color} />
+    <>
+      <Wrapper color={color} />
+      {/* <ChromePicker /> */}
+    </>
   )
 }
 

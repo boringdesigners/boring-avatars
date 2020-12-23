@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import AvatarGeometric from '../avatar/components/avatar-geometric'
 import { SegmentGroup, Segment, Button, BaseStyles, ColorDot } from './ui-system'
+import colors from 'nice-color-palettes'
 
 const Header = styled.header`
   display: grid;
@@ -19,7 +20,7 @@ const SettingsSection = styled.div`
 
 const ColorsSection = styled.div`
   display: inline-grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
 `
 
 const ContentSection = styled.div`
@@ -41,7 +42,7 @@ const AvatarWrapper = ({ name, playgroundColors }) => {
   )
 }
 
-const defaultPlaygroundColors = ['red', 'blue', 'grey', 'yellow']
+const defaultPlaygroundColors = colors[97]
 
 const Playground = () => {
   const [playgroundColors, setPlaygroundColors] = useState(defaultPlaygroundColors)
