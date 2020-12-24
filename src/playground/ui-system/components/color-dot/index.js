@@ -19,19 +19,19 @@ const PickerWrapper = styled.div`
   top: 2rem;
 `
 
-const ColorDot = ({ color }) => {
+const ColorDot = ({ value, onChange }) => {
   const [pickerIsOpen, setPickerIsOpen] = useState(false)
-  const [selectedColor, setSelectedColor] = useState(color)
 
   return (
     <DotWrapper>
       <Wrapper
-        color={selectedColor}
+        color={value}
         onClick={() => setPickerIsOpen(!pickerIsOpen)}
+        style={{ background: value }}
       />
       {pickerIsOpen && (
         <PickerWrapper>
-          <ChromePicker color={selectedColor} onChange={(value) => setSelectedColor(value.hex)} />
+          <ChromePicker color={value} onChange={(v) => onChange(v.hex)}/>
         </PickerWrapper>
       )}
     </DotWrapper>

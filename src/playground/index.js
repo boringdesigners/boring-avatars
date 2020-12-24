@@ -92,11 +92,25 @@ const Playground = () => {
   const defaultPlaygroundColors = paletteColors[31]
   const [playgroundColors, setPlaygroundColors] = useState(defaultPlaygroundColors)
   
-  const handleRandomColors = () => {
-    setPlaygroundColors(paletteColors[getRandomPaletteIndex()])
-  }
+  
   
   const [darkMode, setDarkMode] = useState(false)
+  const [dotColor0, setDotColor0] = useState(playgroundColors[0])
+  const [dotColor1, setDotColor1] = useState(playgroundColors[1])
+  const [dotColor2, setDotColor2] = useState(playgroundColors[2])
+  const [dotColor3, setDotColor3] = useState(playgroundColors[3])
+  const [dotColor4, setDotColor4] = useState(playgroundColors[4])
+  
+  const filteredColors = [dotColor0, dotColor1, dotColor2, dotColor3, dotColor4]
+  
+  const handleRandomColors = () => {
+    setPlaygroundColors(paletteColors[getRandomPaletteIndex()])
+    setDotColor0(playgroundColors[0])
+    setDotColor1(playgroundColors[1])
+    setDotColor2(playgroundColors[2])
+    setDotColor3(playgroundColors[3])
+    setDotColor4(playgroundColors[4])
+  }
 
   return (
     <>
@@ -109,9 +123,11 @@ const Playground = () => {
             <Segment>Abstract</Segment>
           </SegmentGroup>
           <ColorsSection>
-            {playgroundColors.map((playgroundColor, index) => (
-              <ColorDot color={playgroundColor} key={index} />
-            ))}
+            <ColorDot value={dotColor0} onChange={(color) => setDotColor0(color)} />
+            <ColorDot value={dotColor1} onChange={(color) => setDotColor1(color)} />
+            <ColorDot value={dotColor2} onChange={(color) => setDotColor2(color)} />
+            <ColorDot value={dotColor3} onChange={(color) => setDotColor3(color)} />
+            <ColorDot value={dotColor4} onChange={(color) => setDotColor4(color)} />
           </ColorsSection>
         </SettingsSection>
 
@@ -124,7 +140,7 @@ const Playground = () => {
 
       <AvatarsGrid>
         {exampleNames.map((exampleName) => (
-          <AvatarWrapper name={exampleName} playgroundColors={playgroundColors} />
+          <AvatarWrapper name={exampleName} playgroundColors={filteredColors} />
         ))}
       </AvatarsGrid>
     </>
