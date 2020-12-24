@@ -9,9 +9,10 @@ const paletteColors = colors
 
 const Header = styled.header`
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: auto 1fr auto auto auto auto;
   padding: var(--pagePadding);
   align-items: center;
+  grid-gap: var(--sp-s);
 `
 
 const SettingsSection = styled.div`
@@ -24,6 +25,8 @@ const SettingsSection = styled.div`
 const ColorsSection = styled.div`
   display: inline-grid;
   grid-template-columns: repeat(5, 1fr);
+  max-width: max-content;
+  grid-gap: var(--sp-xs);
 `
 
 const AvatarsGrid = styled.div`
@@ -122,29 +125,28 @@ const Playground = () => {
     <>
       <BaseStyles darkMode={darkMode} />
       <Header>
-        <SettingsSection>
-          <SegmentGroup>
-            <Segment>Geometric</Segment>
-            <Segment>Texture</Segment>
-            <Segment>Abstract</Segment>
-          </SegmentGroup>
-          <ColorsSection>
-            <ColorDot value={dotColor0} onChange={(color) => setDotColor0(color)} />
-            <ColorDot value={dotColor1} onChange={(color) => setDotColor1(color)} />
-            <ColorDot value={dotColor2} onChange={(color) => setDotColor2(color)} />
-            <ColorDot value={dotColor3} onChange={(color) => setDotColor3(color)} />
-            <ColorDot value={dotColor4} onChange={(color) => setDotColor4(color)} />
-          </ColorsSection>
-        </SettingsSection>
+        <SegmentGroup>
+          <Segment isSelected>Geometric</Segment>
+          <Segment>Texture</Segment>
+          <Segment>Abstract</Segment>
+        </SegmentGroup>
+        <ColorsSection>
+          <ColorDot value={dotColor0} onChange={(color) => setDotColor0(color)} />
+          <ColorDot value={dotColor1} onChange={(color) => setDotColor1(color)} />
+          <ColorDot value={dotColor2} onChange={(color) => setDotColor2(color)} />
+          <ColorDot value={dotColor3} onChange={(color) => setDotColor3(color)} />
+          <ColorDot value={dotColor4} onChange={(color) => setDotColor4(color)} />
+        </ColorsSection>
 
-        <div>
-          <Button onClick={() => setAvatarSize(avatarSizes.small)}>Small</Button>
-          <Button onClick={() => setAvatarSize(avatarSizes.medium)}>Medium</Button>
-          <Button onClick={() => setAvatarSize(avatarSizes.large)}>Large</Button>
-          <Button onClick={() => handleRandomColors()}>Random colors</Button>
-          <Button>Random names</Button>
-          <Button onClick={() => setDarkMode(!darkMode)}>Mode</Button>
-        </div>
+        <SegmentGroup>
+          <Segment onClick={() => setAvatarSize(avatarSizes.small)}>Small</Segment>
+          <Segment onClick={() => setAvatarSize(avatarSizes.medium)}>Medium</Segment>
+          <Segment onClick={() => setAvatarSize(avatarSizes.large)}>Large</Segment>
+        </SegmentGroup>
+
+        <Button onClick={() => handleRandomColors()}>Random colors</Button>
+        <Button>Random names</Button>
+        <Button onClick={() => setDarkMode(!darkMode)}>Mode</Button>
       </Header>
 
       <AvatarsGrid>
