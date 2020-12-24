@@ -2,10 +2,19 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import AvatarGeometric from '../avatar/components/avatar-geometric'
 import { SegmentGroup, Segment, Button, BaseStyles, ColorDot } from './ui-system'
-import colors from 'nice-color-palettes'
+// import colors from 'nice-color-palettes'
 import { exampleNames } from './example-names'
 
-const paletteColors = colors
+const paletteColors = [
+  ['#8ecae6','#219ebc','#126782','#023047','#ffb703','#fb8500'],
+  ['#006d77','#42999b','#83c5be','#edf6f9','#ffddd2','#e29578'],
+  ['#d6d6d6','#ebe284','#ffee32','#ffd100','#202020','#333533'],
+  ['#0b090a','#161a1d','#660708','#a4161a','#ba181b','#e5383b','#b1a7a6','#d3d3d3','#f5f3f4','#ffffff'],
+  ['#54478c','#2c699a','#048ba8','#0db39e','#16db93','#83e377','#b9e769','#efea5a','#f1c453','#f29e4c'],
+  ['#586ba4','#324376','#949083','#f5dd90','#f68e5f','#f76c5e'],
+  ['#f6f6f6','#e8e8e8','#8e8e8e','#333333','#990100','#b90504'],
+  ['#1c77c3','#39a9db','#40bcd8','#49523d','#f39237','#d63230'],
+]
 
 const Header = styled.header`
   display: grid;
@@ -23,7 +32,7 @@ const SettingsSection = styled.div`
 
 const ColorsSection = styled.div`
   display: inline-grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
 `
 
 const AvatarsGrid = styled.div`
@@ -104,6 +113,7 @@ const Playground = () => {
   const [dotColor2, setDotColor2] = useState(playgroundColors[2])
   const [dotColor3, setDotColor3] = useState(playgroundColors[3])
   const [dotColor4, setDotColor4] = useState(playgroundColors[4])
+  const [dotColor5, setDotColor5] = useState(playgroundColors[5])
 
   const filteredColors = [dotColor0, dotColor1, dotColor2, dotColor3, dotColor4]
 
@@ -114,6 +124,7 @@ const Playground = () => {
     setDotColor2(playgroundColors[2])
     setDotColor3(playgroundColors[3])
     setDotColor4(playgroundColors[4])
+    setDotColor4(playgroundColors[5])
   }
 
   const [avatarSize, setAvatarSize] = useState(avatarSizes.medium)
@@ -134,6 +145,7 @@ const Playground = () => {
             <ColorDot value={dotColor2} onChange={(color) => setDotColor2(color)} />
             <ColorDot value={dotColor3} onChange={(color) => setDotColor3(color)} />
             <ColorDot value={dotColor4} onChange={(color) => setDotColor4(color)} />
+            <ColorDot value={dotColor5} onChange={(color) => setDotColor5(color)} />
           </ColorsSection>
         </SettingsSection>
 
