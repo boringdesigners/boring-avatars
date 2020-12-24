@@ -10,7 +10,6 @@ export const exampleNames = [
   `Britta`,
   `Paŭlo`,
   `Օհաննես`,
-  `和崎 早咲`,
   `Diwata`,
   `영수, 永壽`,
   `ანდრია`,

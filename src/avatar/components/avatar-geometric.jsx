@@ -8,7 +8,9 @@ function getRandomColor(colors, range) {
   return colors[Math.floor(Math.random() * range)]
 }
 
-function oddCells(cellColors, color, startingCell) {
+function oddCells(color, invertedColor, startingCell) {
+
+  let cellColors = new Array(CELLS_LAYER).fill(invertedColor)
   cellColors[startingCell] = color
 
   if (startingCell === (CELLS_LAYER - 1)) {
@@ -16,39 +18,20 @@ function oddCells(cellColors, color, startingCell) {
   } else {
     cellColors[startingCell + 1] = color
   }
-
   return cellColors
 }
 
-function level1(colors, range) {
+function fillCells(colors, range) {
   return Array.from({length: CELLS_LAYER}, () => getRandomColor(colors, range));
-}
-
-function level2(colors, range, startingCell) {
-
-  const levelColor = getRandomColor(colors, range)
-  let cellColors = new Array(CELLS_LAYER).fill('transparent')
-
-  return oddCells(cellColors, levelColor, startingCell)
-
-}
-
-function level3(colors, range, startingCell) {
-
-  const levelColor = getRandomColor(colors, range)
-  let cellColors = new Array(CELLS_LAYER).fill(levelColor)
-
-  return oddCells(cellColors, 'transparent', startingCell)
-
 }
 
 function generateColors(colors) {
   const range = colors && colors.length
   const startingCell = Math.floor(Math.random() * CELLS_LAYER)
 
-  let level1Colors = level1(colors, range);
-  const level2Colors = level2(colors, range, startingCell)
-  const level3Colors = level3(colors, range, startingCell)
+  let level1Colors = fillCells(colors, range);
+  const level2Colors = oddCells(getRandomColor(colors, range), 'transparent', startingCell)
+  const level3Colors = oddCells('transparent', getRandomColor(colors, range), startingCell)
 
   return level1Colors.concat(level2Colors, level3Colors);
 }

@@ -61,7 +61,7 @@ const Input = styled.input`
     border-color: var(--c-fieldHover);
     transition: 0.2s;
   }
-  
+
   &:focus {
     border-color: var(--c-fieldFocus);
     outline: none;
@@ -95,18 +95,18 @@ const avatarSizes = {
 }
 
 const Playground = () => {
-  const defaultPlaygroundColors = paletteColors[31]
+  const defaultPlaygroundColors = paletteColors[getRandomPaletteIndex()]
   const [playgroundColors, setPlaygroundColors] = useState(defaultPlaygroundColors)
-    
+
   const [darkMode, setDarkMode] = useState(false)
   const [dotColor0, setDotColor0] = useState(playgroundColors[0])
   const [dotColor1, setDotColor1] = useState(playgroundColors[1])
   const [dotColor2, setDotColor2] = useState(playgroundColors[2])
   const [dotColor3, setDotColor3] = useState(playgroundColors[3])
   const [dotColor4, setDotColor4] = useState(playgroundColors[4])
-  
+
   const filteredColors = [dotColor0, dotColor1, dotColor2, dotColor3, dotColor4]
-  
+
   const handleRandomColors = () => {
     setPlaygroundColors(paletteColors[getRandomPaletteIndex()])
     setDotColor0(playgroundColors[0])
@@ -115,7 +115,7 @@ const Playground = () => {
     setDotColor3(playgroundColors[3])
     setDotColor4(playgroundColors[4])
   }
-  
+
   const [avatarSize, setAvatarSize] = useState(avatarSizes.small)
 
   return (
@@ -124,8 +124,8 @@ const Playground = () => {
       <Header>
         <SettingsSection>
           <SegmentGroup>
-            <Segment>Texture</Segment>
             <Segment>Geometric</Segment>
+            <Segment>Texture</Segment>
             <Segment>Abstract</Segment>
           </SegmentGroup>
           <ColorsSection>
@@ -148,8 +148,8 @@ const Playground = () => {
       </Header>
 
       <AvatarsGrid>
-        {exampleNames.map((exampleName) => (
-          <AvatarWrapper size={avatarSize} name={exampleName} playgroundColors={filteredColors} />
+        {exampleNames.map((name, exampleName) => (
+          <AvatarWrapper key={name} size={avatarSize} name={exampleName} playgroundColors={filteredColors} />
         ))}
       </AvatarsGrid>
     </>
