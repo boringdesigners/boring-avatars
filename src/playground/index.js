@@ -116,7 +116,7 @@ const Playground = () => {
     setDotColor4(playgroundColors[4])
   }
 
-  const [avatarSize, setAvatarSize] = useState(avatarSizes.small)
+  const [avatarSize, setAvatarSize] = useState(avatarSizes.medium)
 
   return (
     <>
