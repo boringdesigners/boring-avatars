@@ -7,7 +7,9 @@ const ButtonWrapper = styled.div`
   color: inherit;
   display: inline-flex;
   align-items: center;
-  padding: var(--textbox);
+  justify-content: center;
+  padding: 0 ${p => p.hasChildren && `var(--textbox-x)`};
+  width: ${p => !p.hasChildren && p.icon && `var(--buttonHeight)`};
   background: var(--c-button);
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -17,12 +19,15 @@ const ButtonWrapper = styled.div`
   font-weight: 700;
   cursor: pointer;
   user-select: none;
-  min-height: 2rem;
+  min-height: var(--buttonHeight);
 `
 
-const Button = ({ children, ...props }) => {
+const Button = ({ children, icon, ...props }) => {
   return (
-    <ButtonWrapper {...props}>{children}</ButtonWrapper>
+    <ButtonWrapper icon={icon} hasChildren={children} {...props}>
+      {children}
+      {icon && icon}
+    </ButtonWrapper>
   )
 }
 

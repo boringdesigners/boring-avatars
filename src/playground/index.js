@@ -15,13 +15,6 @@ const Header = styled.header`
   grid-gap: var(--sp-s);
 `
 
-const SettingsSection = styled.div`
-  display: inline-grid;
-  align-items: center;
-  grid-template-columns: auto 1fr;
-  max-width: max-content;
-`
-
 const ColorsSection = styled.div`
   display: inline-grid;
   grid-template-columns: repeat(5, 1fr);
@@ -97,6 +90,53 @@ const avatarSizes = {
   large: 128,
 }
 
+const SizeDotWrapper = styled.button`
+  width: var(--buttonHeight);
+  height: var(--buttonHeight);
+  color: currentColor;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--c-button);
+  ${p => p.isSelected && `background-color: var(--c-background)`};
+  ${p => !p.isSelected && `color: var(--c-fade)`};
+  appearance: none;
+  display: inline-flex;
+  border: none;
+  vertical-align: middle;
+  border-radius: 10rem;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+`
+
+const Dot = styled.div`
+  width: ${p => p.size}px;
+  height: ${p => p.size}px;
+  background-color: currentColor;
+  border-radius: 10rem;
+`
+
+const SizeDot = ({size, isSelected, ...props}) => {
+  const getSize = () => {
+    switch(size) {
+      case avatarSizes.small:
+        return 20
+      case avatarSizes.medium:
+        return 14
+      case avatarSizes.large:
+        return 8
+      default:
+        return 0
+    }
+  }
+  return(
+    <SizeDotWrapper isSelected={isSelected} {...props}><Dot size={getSize()}/></SizeDotWrapper>
+  )
+}
+
 const Playground = () => {
   const defaultPlaygroundColors = paletteColors[getRandomPaletteIndex()]
   const [playgroundColors, setPlaygroundColors] = useState(defaultPlaygroundColors)
@@ -138,15 +178,28 @@ const Playground = () => {
           <ColorDot value={dotColor4} onChange={(color) => setDotColor4(color)} />
         </ColorsSection>
 
-        <SegmentGroup>
-          <Segment onClick={() => setAvatarSize(avatarSizes.small)}>Small</Segment>
-          <Segment onClick={() => setAvatarSize(avatarSizes.medium)}>Medium</Segment>
-          <Segment onClick={() => setAvatarSize(avatarSizes.large)}>Large</Segment>
-        </SegmentGroup>
-
         <Button onClick={() => handleRandomColors()}>Random colors</Button>
         <Button>Random names</Button>
-        <Button onClick={() => setDarkMode(!darkMode)}>Mode</Button>
+        <SegmentGroup>
+          {Object.entries(avatarSizes).map(([key, value], index) => (
+            <SizeDot
+              key={index}
+              onClick={() => setAvatarSize(value)}
+              isSelected={value === avatarSize}
+              size={value}
+            />
+          ))}
+        </SegmentGroup>
+
+        <Button
+          onClick={() => setDarkMode(!darkMode)}
+          icon={
+            <svg width={20} height={20} fill="none">
+              <circle cx={10} cy={10} r={9} stroke="currentColor" strokeWidth={2} />
+              <path d="M10 0a10 10 0 000 20V0z" fill="currentColor" />
+            </svg>
+          }
+        />
       </Header>
 
       <AvatarsGrid>

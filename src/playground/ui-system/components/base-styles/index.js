@@ -7,9 +7,13 @@ const cssVariables = css`
   --sp-l: 1.5rem;
   --sp-xl: 3rem;
 
+  --textbox-x: 0.8rem;
+  --textbox-y: 0.4rem;
   --textbox: 0.4rem 1rem;
 
   --pagePadding: var(--sp-xl);
+  
+  --buttonHeight: 1.75rem;
 
   --c-fieldHover: hsla(0,0%,0%,0.15);
   --c-fieldFocus: hsla(0,0%,0%,0.3);

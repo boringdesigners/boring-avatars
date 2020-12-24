@@ -7,9 +7,9 @@ const DotWrapper = styled.div`
 `
 
 const Wrapper = styled.div`
-  width: 2rem;
-  height: 2rem;
-  border-radius: 2rem;
+  width: var(--buttonHeight);
+  height: var(--buttonHeight);
+  border-radius: 10rem;
   cursor: pointer;
 `
 
