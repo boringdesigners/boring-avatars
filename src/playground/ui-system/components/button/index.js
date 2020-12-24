@@ -20,6 +20,10 @@ const ButtonWrapper = styled.div`
   cursor: pointer;
   user-select: none;
   min-height: var(--buttonHeight);
+
+  &:hover {
+    background-color: var(--c-buttonHover);
+  }
 `
 
 const Button = ({ children, icon, ...props }) => {

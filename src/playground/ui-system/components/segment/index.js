@@ -6,7 +6,7 @@ const SegmentGroupWrapper = styled.div`
   background-color: var(--c-button);
   padding: 0.2rem;
   border-radius: 10rem;
-  display: inline-block;
+  display: inline-flex;
 `
 
 const SegmentWrapper = styled(Button)`

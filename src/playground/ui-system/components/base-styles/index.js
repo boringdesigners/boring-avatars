@@ -13,13 +13,14 @@ const cssVariables = css`
 
   --pagePadding: var(--sp-xl);
   
-  --buttonHeight: 1.75rem;
+  --buttonHeight: 1.8rem;
 
   --c-fieldHover: hsla(0,0%,0%,0.15);
   --c-fieldFocus: hsla(0,0%,0%,0.3);
   --c-background: hsl(0,0%,100%);
   --c-body: hsl(0,0%,20%);
   --c-button: hsla(0,0%,0%,0.1);
+  --c-buttonHover: hsla(0,0%,0%,0.2);
   --c-fade: hsla(0,0%,0%,0.4);
 
   ${p => p.darkMode && css`
@@ -28,6 +29,7 @@ const cssVariables = css`
     --c-background: hsl(0,0%,3%);
     --c-body: hsl(0,0%,80%);
     --c-button: hsla(0,0%,100%,0.1);
+    --c-buttonHover: hsla(0,0%,100%,0.2);
     --c-fade: hsla(0,0%,100%,0.4);
   `};
 `
