@@ -123,11 +123,11 @@ const SizeDot = ({size, isSelected, ...props}) => {
   const getSize = () => {
     switch(size) {
       case avatarSizes.small:
-        return 20
+        return 8
       case avatarSizes.medium:
         return 14
       case avatarSizes.large:
-        return 8
+        return 20
       default:
         return 0
     }

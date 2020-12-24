@@ -12,7 +12,7 @@ const ButtonWrapper = styled.div`
   width: ${p => !p.hasChildren && p.icon && `var(--buttonHeight)`};
   background: var(--c-button);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   border-radius: 20rem;
   font-size: 0.7rem;
   line-height: 1.3;
