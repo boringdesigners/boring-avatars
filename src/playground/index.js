@@ -148,7 +148,7 @@ const Playground = () => {
       </Header>
 
       <AvatarsGrid>
-        {exampleNames.map((name, exampleName) => (
+        {exampleNames.map((exampleName, name) => (
           <AvatarWrapper key={name} size={avatarSize} name={exampleName} playgroundColors={filteredColors} />
         ))}
       </AvatarsGrid>
