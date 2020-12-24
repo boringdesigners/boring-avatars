@@ -68,14 +68,14 @@ const Input = styled.input`
   }
 `
 
-const AvatarWrapper = ({ name, playgroundColors }) => {
+const AvatarWrapper = ({ name, playgroundColors, size }) => {
   const [avatarName, setAvatarName] = useState(name)
   const handleFocus = (event) => event.target.select()
 
   return (
     <AvatarContainer>
       <AvatarSection>
-        <AvatarGeometric name={name} colors={playgroundColors} size={80}/>
+        <AvatarGeometric name={name} colors={playgroundColors} size={size}/>
       </AvatarSection>
       <Input
         value={avatarName}
@@ -88,12 +88,16 @@ const AvatarWrapper = ({ name, playgroundColors }) => {
 
 const getRandomPaletteIndex = () => Math.floor(Math.random() * paletteColors.length)
 
+const avatarSizes = {
+  small: 32,
+  medium: 80,
+  large: 128,
+}
+
 const Playground = () => {
   const defaultPlaygroundColors = paletteColors[31]
   const [playgroundColors, setPlaygroundColors] = useState(defaultPlaygroundColors)
-  
-  
-  
+    
   const [darkMode, setDarkMode] = useState(false)
   const [dotColor0, setDotColor0] = useState(playgroundColors[0])
   const [dotColor1, setDotColor1] = useState(playgroundColors[1])
@@ -111,6 +115,8 @@ const Playground = () => {
     setDotColor3(playgroundColors[3])
     setDotColor4(playgroundColors[4])
   }
+  
+  const [avatarSize, setAvatarSize] = useState(avatarSizes.small)
 
   return (
     <>
@@ -132,6 +138,9 @@ const Playground = () => {
         </SettingsSection>
 
         <div>
+          <Button onClick={() => setAvatarSize(avatarSizes.small)}>Small</Button>
+          <Button onClick={() => setAvatarSize(avatarSizes.medium)}>Medium</Button>
+          <Button onClick={() => setAvatarSize(avatarSizes.large)}>Large</Button>
           <Button onClick={() => handleRandomColors()}>Random colors</Button>
           <Button>Random names</Button>
           <Button onClick={() => setDarkMode(!darkMode)}>Mode</Button>
@@ -140,7 +149,7 @@ const Playground = () => {
 
       <AvatarsGrid>
         {exampleNames.map((exampleName) => (
-          <AvatarWrapper name={exampleName} playgroundColors={filteredColors} />
+          <AvatarWrapper size={avatarSize} name={exampleName} playgroundColors={filteredColors} />
         ))}
       </AvatarsGrid>
     </>
