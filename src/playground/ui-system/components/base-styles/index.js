@@ -9,6 +9,18 @@ const cssVariables = css`
   --textbox: 0.4rem;
 
   --pagePadding: var(--sp-xl);
+
+  --c-fieldHover: hsla(0,0%,0%,0.15);
+  --c-fieldFocus: hsla(0,0%,0%,0.3);
+  --c-background: hsl(0,0%,100%);
+  --c-body: hsl(0,0%,20%);
+
+  ${p => p.darkMode && css`
+    --c-fieldHover: hsla(0,0%,100%,0.15);
+    --c-fieldFocus: hsla(0,0%,100%,0.3);
+    --c-background: hsl(0,0%,3%);
+    --c-body: hsl(0,0%,80%);
+  `};
 `
 
 const BaseStyles = createGlobalStyle`
@@ -21,6 +33,8 @@ const BaseStyles = createGlobalStyle`
   }
 
   body {
+    background-color: var(--c-background);
+    color: var(--c-body);
   }
 `
 

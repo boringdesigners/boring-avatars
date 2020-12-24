@@ -55,26 +55,33 @@ const Input = styled.input`
   width: 100%;
   text-align: center;
   border-radius: 100rem;
+  background: transparent;
 
   &:hover {
-    border-color: hsla(0,0%,0%,0.1);
+    border-color: var(--c-fieldHover);
     transition: 0.2s;
   }
   
   &:focus {
-    border-color: hsla(0,0%,0%,0.3);
+    border-color: var(--c-fieldFocus);
     outline: none;
   }
 `
 
 const AvatarWrapper = ({ name, playgroundColors }) => {
   const [avatarName, setAvatarName] = useState(name)
+  const handleFocus = (event) => event.target.select()
+
   return (
     <AvatarContainer>
       <AvatarSection>
         <AvatarGeometric name={name} colors={playgroundColors} size={80}/>
       </AvatarSection>
-      <Input value={avatarName} onChange={e => setAvatarName(e.target.value)}/>
+      <Input
+        value={avatarName}
+        onChange={e => setAvatarName(e.target.value)}
+        onFocus={(e) => handleFocus(e)}
+      />
     </AvatarContainer>
   )
 }
@@ -88,10 +95,12 @@ const Playground = () => {
   const handleRandomColors = () => {
     setPlaygroundColors(paletteColors[getRandomPaletteIndex()])
   }
+  
+  const [darkMode, setDarkMode] = useState(false)
 
   return (
     <>
-      <BaseStyles />
+      <BaseStyles darkMode={darkMode} />
       <Header>
         <SettingsSection>
           <SegmentGroup>
@@ -107,12 +116,9 @@ const Playground = () => {
         </SettingsSection>
 
         <div>
-          <Button
-            onClick={() => handleRandomColors()}
-          >
-            Random colors
-          </Button>
+          <Button onClick={() => handleRandomColors()}>Random colors</Button>
           <Button>Random names</Button>
+          <Button onClick={() => setDarkMode(!darkMode)}>Mode</Button>
         </div>
       </Header>
 
