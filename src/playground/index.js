@@ -71,7 +71,7 @@ const AvatarWrapper = ({ name, playgroundColors, size }) => {
   return (
     <AvatarContainer>
       <AvatarSection>
-        <AvatarGeometric name={name} colors={playgroundColors} size={size}/>
+        <AvatarGeometric name={avatarName} colors={playgroundColors} size={size}/>
       </AvatarSection>
       <Input
         value={avatarName}
@@ -125,7 +125,7 @@ const SizeDot = ({size, isSelected, ...props}) => {
 }
 
 const Playground = () => {
-  const defaultPlaygroundColors = paletteColors[getRandomPaletteIndex()]
+  const defaultPlaygroundColors = paletteColors[7]
   const [playgroundColors, setPlaygroundColors] = useState(defaultPlaygroundColors)
 
   const [darkMode, setDarkMode] = useState(false)

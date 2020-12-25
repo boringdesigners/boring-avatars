@@ -1,4 +1,5 @@
 import React from 'react'
+import { getNumberFromString } from '../../playground/utilities'
 
 const NUMBER_OF_CELLS = 12
 const LAYERS = 3
@@ -25,9 +26,9 @@ function fillCells(colors, range) {
   return Array.from({length: CELLS_LAYER}, () => getRandomColor(colors, range));
 }
 
-function generateColors(colors) {
+function generateColors(colors, name) {
   const range = colors && colors.length
-  const startingCell = Math.floor(Math.random() * CELLS_LAYER)
+  const startingCell = getNumberFromString(name, 4)
 
   let level1Colors = fillCells(colors, range);
   const level2Colors = oddCells(getRandomColor(colors, range), 'transparent', startingCell)
@@ -37,7 +38,7 @@ function generateColors(colors) {
 }
 
 function AvatarGeometric(props) {
-  const cellColors = generateColors(props.colors)
+  const cellColors = generateColors(props.colors, props.name)
 
   return (
     <div style={{display: 'inline-block', width: props.size, height: props.size}}>
