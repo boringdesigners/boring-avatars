@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import AvatarGeometric from '../avatar/components/avatar-geometric'
+import AvatarAbstract from '../avatar/components/avatar-abstract'
 import { SegmentGroup, Segment, Button, BaseStyles, ColorDot } from './ui-system'
 import colors from 'nice-color-palettes'
 import { exampleNames } from './example-names'
@@ -72,6 +73,7 @@ const AvatarWrapper = ({ name, playgroundColors, size }) => {
     <AvatarContainer>
       <AvatarSection>
         <AvatarGeometric name={avatarName} colors={playgroundColors} size={size}/>
+        {/* <AvatarAbstract name={avatarName} colors={playgroundColors} size={size}/> */}
       </AvatarSection>
       <Input
         value={avatarName}

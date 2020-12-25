@@ -10,7 +10,6 @@ function getRandomColor(colors, range) {
 }
 
 function oddCells(color, invertedColor, startingCell) {
-
   let cellColors = new Array(CELLS_LAYER).fill(invertedColor)
   cellColors[startingCell] = color
 
@@ -28,7 +27,7 @@ function fillCells(colors, range) {
 
 function generateColors(colors, name) {
   const range = colors && colors.length
-  const startingCell = getNumberFromString(name, 4)
+  const startingCell = getNumberFromString(name, CELLS_LAYER)
 
   let level1Colors = fillCells(colors, range);
   const level2Colors = oddCells(getRandomColor(colors, range), 'transparent', startingCell)
