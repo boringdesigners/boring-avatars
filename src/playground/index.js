@@ -65,15 +65,19 @@ const Input = styled.input`
   }
 `
 
-const AvatarWrapper = ({ name, playgroundColors, size }) => {
+const AvatarWrapper = ({ name, playgroundColors, size, variant }) => {
   const [avatarName, setAvatarName] = useState(name)
   const handleFocus = (event) => event.target.select()
 
   return (
     <AvatarContainer>
       <AvatarSection>
-        {/* <AvatarGeometric name={avatarName} colors={playgroundColors} size={size}/> */}
-        <AvatarAbstract name={avatarName} colors={playgroundColors} size={size}/>
+        {variant === variants.geometric && (
+          <AvatarGeometric name={avatarName} colors={playgroundColors} size={size}/>
+        )}
+        {variant === variants.abstract && (
+          <AvatarAbstract name={avatarName} colors={playgroundColors} size={size}/>
+        )}
       </AvatarSection>
       <Input
         value={avatarName}
@@ -126,6 +130,12 @@ const SizeDot = ({size, isSelected, ...props}) => {
   )
 }
 
+const variants = {
+  geometric: 'Geometric',
+  texture: 'Texture',
+  abstract: 'Abstract',
+}
+
 const Playground = () => {
   const defaultPlaygroundColors = paletteColors[7]
   const [playgroundColors, setPlaygroundColors] = useState(defaultPlaygroundColors)
@@ -149,15 +159,16 @@ const Playground = () => {
   }
 
   const [avatarSize, setAvatarSize] = useState(avatarSizes.medium)
+  const [variant, setVariant] = useState(variants.abstract)
 
   return (
     <>
       <BaseStyles darkMode={darkMode} />
       <Header>
         <SegmentGroup>
-          <Segment isSelected>Geometric</Segment>
-          <Segment>Texture</Segment>
-          <Segment>Abstract</Segment>
+          <Segment onClick={() => setVariant(variants.geometric)} isSelected={variant === variants.geometric}>Geometric</Segment>
+          <Segment onClick={() => setVariant(variants.texture)} isSelected={variant === variants.texture}>Texture</Segment>
+          <Segment onClick={() => setVariant(variants.abstract)} isSelected={variant === variants.abstract}>Abstract</Segment>
         </SegmentGroup>
         <ColorsSection>
           <ColorDot value={dotColor0} onChange={(color) => setDotColor0(color)} />
@@ -208,10 +219,18 @@ const Playground = () => {
           }
         />
       </Header>
-
+      {variant === variants.texture && (
+        <img alt="" src="https://www.pikpng.com/pngl/m/477-4777050_gato-troll-lol-cat-gato-cat-fuck-you.png" />
+      )}
       <AvatarsGrid>
         {exampleNames.map((exampleName, name) => (
-          <AvatarWrapper key={name} size={avatarSize} name={exampleName} playgroundColors={filteredColors} />
+          <AvatarWrapper
+            key={name}
+            size={avatarSize}
+            name={exampleName}
+            playgroundColors={filteredColors}
+            variant={variant}
+          />
         ))}
       </AvatarsGrid>
     </>
