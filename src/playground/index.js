@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import AvatarGeometric from '../avatar/components/avatar-geometric'
 import AvatarAbstract from '../avatar/components/avatar-abstract'
+import AvatarTexture from '../avatar/components/avatar-texture'
 import { SegmentGroup, Segment, Button, BaseStyles, ColorDot } from './ui-system'
 import colors from 'nice-color-palettes'
 import { exampleNames } from './example-names'
@@ -77,6 +78,9 @@ const AvatarWrapper = ({ name, playgroundColors, size, variant }) => {
         )}
         {variant === variants.abstract && (
           <AvatarAbstract name={avatarName} colors={playgroundColors} size={size}/>
+        )}
+        {variant === variants.texture && (
+          <AvatarTexture name={avatarName} colors={playgroundColors} size={size}/>
         )}
       </AvatarSection>
       <Input
@@ -219,9 +223,6 @@ const Playground = () => {
           }
         />
       </Header>
-      {variant === variants.texture && (
-        <img alt="" src="https://www.pikpng.com/pngl/m/477-4777050_gato-troll-lol-cat-gato-cat-fuck-you.png" />
-      )}
       <AvatarsGrid>
         {exampleNames.map((exampleName, name) => (
           <AvatarWrapper
