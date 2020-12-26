@@ -163,7 +163,7 @@ const Playground = () => {
   }
 
   const [avatarSize, setAvatarSize] = useState(avatarSizes.medium)
-  const [variant, setVariant] = useState(variants.abstract)
+  const [variant, setVariant] = useState(variants.geometric)
 
   return (
     <>
@@ -171,8 +171,8 @@ const Playground = () => {
       <Header>
         <SegmentGroup>
           <Segment onClick={() => setVariant(variants.geometric)} isSelected={variant === variants.geometric}>Geometric</Segment>
-          <Segment onClick={() => setVariant(variants.texture)} isSelected={variant === variants.texture}>Texture</Segment>
           <Segment onClick={() => setVariant(variants.abstract)} isSelected={variant === variants.abstract}>Abstract</Segment>
+          <Segment onClick={() => setVariant(variants.texture)} isSelected={variant === variants.texture}>Texture</Segment>
         </SegmentGroup>
         <ColorsSection>
           <ColorDot value={dotColor0} onChange={(color) => setDotColor0(color)} />
