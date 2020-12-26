@@ -1,5 +1,5 @@
 import React from 'react'
-import { getNumberFromString } from '../../playground/utilities'
+import { getNumberFromString, getModulus } from '../../playground/utilities'
 
 const NUMBER_OF_CELLS = 12
 const LAYERS = 3
@@ -27,7 +27,7 @@ function fillCells(colors, range) {
 
 function generateColors(colors, name) {
   const range = colors && colors.length
-  const startingCell = getNumberFromString(name, CELLS_LAYER)
+  const startingCell = getModulus(getNumberFromString(name), CELLS_LAYER)
 
   let level1Colors = fillCells(colors, range);
   const level2Colors = oddCells(getRandomColor(colors, range), 'transparent', startingCell)

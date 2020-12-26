@@ -1,4 +1,4 @@
-export const getNumberFromString = (name, max) => {
+export const getNumberFromString = (name) => {
   const charactersArray = Array.from(name)
   let charactersCodesSum = 0
 
@@ -6,5 +6,10 @@ export const getNumberFromString = (name, max) => {
     return charactersCodesSum += charactersArrayItem.charCodeAt(0)
   })
 
-  return charactersCodesSum % max;
+  return charactersCodesSum;
+}
+
+
+export const getModulus = (num, max) => {
+  return num % max;
 }

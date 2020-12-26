@@ -72,8 +72,8 @@ const AvatarWrapper = ({ name, playgroundColors, size }) => {
   return (
     <AvatarContainer>
       <AvatarSection>
-        <AvatarGeometric name={avatarName} colors={playgroundColors} size={size}/>
-        {/* <AvatarAbstract name={avatarName} colors={playgroundColors} size={size}/> */}
+        {/* <AvatarGeometric name={avatarName} colors={playgroundColors} size={size}/> */}
+        <AvatarAbstract name={avatarName} colors={playgroundColors} size={size}/>
       </AvatarSection>
       <Input
         value={avatarName}
