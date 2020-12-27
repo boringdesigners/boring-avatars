@@ -10,20 +10,31 @@ function AvatarTexture(props) {
   return (
     <div style={{display: 'inline-block', width: props.size, height: props.size}}>
       <svg
-        viewBox="0 0 220 220"
+        viewBox="0 0 80 80"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <filter id="prefix__a">
-          <feTurbulence baseFrequency={0.7} numOctaves={50} result="turbulence" />
+        <mask
+          id="mask__a"
+          maskUnits="userSpaceOnUse"
+          x={0}
+          y={0}
+          width={80}
+          height={80}
+        >
+          <rect width={80} height={80} rx={40} fill="#fff" />
+        </mask>
+
+        <filter id="filter__a">
+          <feTurbulence baseFrequency={5} numOctaves={50} type="turbulence" result="turbulence" />
           <feDisplacementMap
             in2="turbulence"
             in="SourceGraphic"
-            scale={400}
+            scale={200}
             xChannelSelector="R"
             yChannelSelector="G"
           />
         </filter>
-        <circle cx={100} cy={100} r={100} fill={fill} filter="url(#prefix__a)" />
+        <circle cx={0} cy={0} r={80} fill={fill} mask="url(#mask__a)" filter="url(#filter__a)" />
       </svg>
     </div>
   )
