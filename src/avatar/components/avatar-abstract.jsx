@@ -5,7 +5,7 @@ const ELEMENTS = 4
 const SIZE = 80
 
 function getRandomColor(number, colors, range, index) {
-  return colors[getModulus(number, range - index)]
+  return colors[getModulus(number + index, range)]
 }
 
 function getRandomTranslateX(number, index) {
@@ -30,7 +30,7 @@ function getRandomRotate(number) {
   return (getModulus(number, 360) + " " + SIZE / 2 + " " + SIZE / 2)
 }
 
-function generateColors(name, colors, size) {
+function generateColors(name, colors) {
   const numFromName = getNumberFromString(name)
   const range = colors && colors.length
 
@@ -46,7 +46,7 @@ function generateColors(name, colors, size) {
 }
 
 function AvatarAbstract(props) {
-  const properties = generateColors(props.name, props.colors, props.size)
+  const properties = generateColors(props.name, props.colors)
 
   return (
     <div style={{display: 'inline-block', width: props.size, height: props.size}}>
