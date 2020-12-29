@@ -37,8 +37,8 @@ function generateColors(colors, name) {
   const numFromName = getNumberFromString(name)
   const range = colors && colors.length
   const startingCell = getModulus(numFromName, CELLS_LAYER)
-  const innerColor1 = getRandomColor(numFromName, colors, range, getModulus(numFromName, 17))
-  const innerColor2 = getRandomColor(numFromName, colors, range, getModulus(numFromName, 24))
+  const innerColor1 = getRandomColor(numFromName, colors, range, getModulus(numFromName, NUMBER_OF_CELLS + 3))
+  const innerColor2 = getRandomColor(numFromName, colors, range, getModulus(numFromName, NUMBER_OF_CELLS * 2))
 
   let level1Colors = fillCells(numFromName, colors, range);
   const level2Colors = oddCells(innerColor1, 'transparent', startingCell)
