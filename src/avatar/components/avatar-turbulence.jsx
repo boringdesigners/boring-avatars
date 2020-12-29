@@ -23,7 +23,6 @@ function AvatarTexture(props) {
         >
           <rect width={80} height={80} rx={40} fill="#fff" />
         </mask>
-
         <filter id="filter__a">
           <feTurbulence baseFrequency={5} numOctaves={50} type="turbulence" result="turbulence" />
           <feDisplacementMap

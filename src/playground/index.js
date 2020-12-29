@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import AvatarGeometric from '../avatar/components/avatar-geometric'
 import AvatarAbstract from '../avatar/components/avatar-abstract'
-import AvatarTexture from '../avatar/components/avatar-texture'
 import { SegmentGroup, Segment, Button, BaseStyles, ColorDot } from './ui-system'
 import colors from 'nice-color-palettes'
 import { exampleNames } from './example-names'
@@ -79,9 +78,6 @@ const AvatarWrapper = ({ name, playgroundColors, size, variant }) => {
         {variant === variants.abstract && (
           <AvatarAbstract name={avatarName} colors={playgroundColors} size={size}/>
         )}
-        {variant === variants.texture && (
-          <AvatarTexture name={avatarName} colors={playgroundColors} size={size}/>
-        )}
       </AvatarSection>
       <Input
         value={avatarName}
@@ -136,7 +132,6 @@ const SizeDot = ({size, isSelected, ...props}) => {
 
 const variants = {
   geometric: 'Geometric',
-  texture: 'Texture',
   abstract: 'Abstract',
 }
 
@@ -163,7 +158,7 @@ const Playground = () => {
   }
 
   const [avatarSize, setAvatarSize] = useState(avatarSizes.medium)
-  const [variant, setVariant] = useState(variants.geometric)
+  const [variant, setVariant] = useState(variants.abstract)
 
   return (
     <>
@@ -172,7 +167,6 @@ const Playground = () => {
         <SegmentGroup>
           <Segment onClick={() => setVariant(variants.geometric)} isSelected={variant === variants.geometric}>Geometric</Segment>
           <Segment onClick={() => setVariant(variants.abstract)} isSelected={variant === variants.abstract}>Abstract</Segment>
-          <Segment onClick={() => setVariant(variants.texture)} isSelected={variant === variants.texture}>Texture</Segment>
         </SegmentGroup>
         <ColorsSection>
           <ColorDot value={dotColor0} onChange={(color) => setDotColor0(color)} />
