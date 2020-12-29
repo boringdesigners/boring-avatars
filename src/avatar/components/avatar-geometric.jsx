@@ -5,8 +5,16 @@ const NUMBER_OF_CELLS = 12
 const LAYERS = 3
 const CELLS_LAYER = NUMBER_OF_CELLS / LAYERS
 
-function getRandomColor(colors, range) {
-  return colors[Math.floor(Math.random() * range)]
+function getRandomColor(number, colors, range, index) {
+  switch (index)
+  {
+      case 0: return colors[getModulus(Math.floor((number / 1) % 10) + index, range)]
+      case 1: return colors[getModulus(Math.floor((number / 10) % 10) + index, range)]
+      case 2: return colors[getModulus(Math.floor((number / 1) % 10) + index, range)]
+      case 3: return colors[getModulus(Math.floor((number / 10) % 10) + index, range)]
+
+      default: return colors[getModulus(number + index, range)]
+  }
 }
 
 function oddCells(color, invertedColor, startingCell) {
@@ -21,17 +29,20 @@ function oddCells(color, invertedColor, startingCell) {
   return cellColors
 }
 
-function fillCells(colors, range) {
-  return Array.from({length: CELLS_LAYER}, () => getRandomColor(colors, range));
+function fillCells(number, colors, range) {
+  return Array.from({length: CELLS_LAYER}, (_, i) => getRandomColor(number, colors, range, i));
 }
 
 function generateColors(colors, name) {
+  const numFromName = getNumberFromString(name)
   const range = colors && colors.length
-  const startingCell = getModulus(getNumberFromString(name), CELLS_LAYER)
+  const startingCell = getModulus(numFromName, CELLS_LAYER)
+  const innerColor1 = getRandomColor(numFromName, colors, range, getModulus(numFromName, 17))
+  const innerColor2 = getRandomColor(numFromName, colors, range, getModulus(numFromName, 24))
 
-  let level1Colors = fillCells(colors, range);
-  const level2Colors = oddCells(getRandomColor(colors, range), 'transparent', startingCell)
-  const level3Colors = oddCells('transparent', getRandomColor(colors, range), startingCell)
+  let level1Colors = fillCells(numFromName, colors, range);
+  const level2Colors = oddCells(innerColor1, 'transparent', startingCell)
+  const level3Colors = oddCells('transparent', innerColor2, startingCell)
 
   return level1Colors.concat(level2Colors, level3Colors);
 }

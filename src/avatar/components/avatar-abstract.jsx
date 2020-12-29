@@ -11,7 +11,7 @@ function getRandomColor(number, colors, range, index) {
 function getRandomTranslateX(number, index) {
   let value = getModulus(number * index, (SIZE / 4))
 
-  if(number % 2 == 0) {
+  if(number % 2 === 0) {
     return -value
   } else return value
 
@@ -20,7 +20,7 @@ function getRandomTranslateX(number, index) {
 function getRandomTranslateY(number, index) {
   let value = getModulus(number * index, (SIZE / 4))
 
-  if(number % 2 == 0) {
+  if(number % 2 === 0) {
     return value
   } else return -value
 

@@ -158,7 +158,7 @@ const Playground = () => {
   }
 
   const [avatarSize, setAvatarSize] = useState(avatarSizes.medium)
-  const [variant, setVariant] = useState(variants.abstract)
+  const [variant, setVariant] = useState(variants.geometric)
 
   return (
     <>
