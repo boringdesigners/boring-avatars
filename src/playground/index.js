@@ -178,24 +178,7 @@ const Playground = () => {
 
         <Button
           onClick={() => handleRandomColors()}
-          icon={
-            <svg width={20} height={20} fill="none">
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M4 0a4 4 0 00-4 4v12a4 4 0 004 4h12a4 4 0 004-4V4a4 4 0 00-4-4H4zm6 12a2 2 0 100-4 2 2 0 000 4zm-3 2a2 2 0 11-4 0 2 2 0 014 0zm8 2a2 2 0 100-4 2 2 0 000 4zM7 6a2 2 0 11-4 0 2 2 0 014 0zm8 2a2 2 0 100-4 2 2 0 000 4z"
-                fill="currentColor"
-              />
-            </svg>
-          }
-        />
-        <Button
-          icon={
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fillRule="evenodd" clipRule="evenodd" d="M4 0C1.79086 0 0 1.79086 0 4V16C0 18.2091 1.79086 20 4 20H16C18.2091 20 20 18.2091 20 16V4C20 1.79086 18.2091 0 16 0H4ZM10 12C11.1046 12 12 11.1046 12 10C12 8.89543 11.1046 8 10 8C8.89543 8 8 8.89543 8 10C8 11.1046 8.89543 12 10 12ZM7 14C7 15.1046 6.10457 16 5 16C3.89543 16 3 15.1046 3 14C3 12.8954 3.89543 12 5 12C6.10457 12 7 12.8954 7 14ZM15 8C16.1046 8 17 7.10457 17 6C17 4.89543 16.1046 4 15 4C13.8954 4 13 4.89543 13 6C13 7.10457 13.8954 8 15 8Z" fill="currentColor"/>
-            </svg>
-          }
-        />
+        >Random colors</Button>
         <SegmentGroup>
           {Object.entries(avatarSizes).map(([key, value], index) => (
             <SizeDot
