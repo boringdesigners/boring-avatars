@@ -1,5 +1,5 @@
 import React from 'react'
-import { getNumberFromString, getModulus } from '../../playground/utilities'
+import { getNumberFromString, getModulus } from '../utilities'
 
 const NUMBER_OF_CELLS = 12
 const LAYERS = 3

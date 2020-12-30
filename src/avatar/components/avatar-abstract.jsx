@@ -1,5 +1,5 @@
 import * as React from "react"
-import { getNumberFromString, getModulus } from '../../playground/utilities'
+import { getNumberFromString, getModulus } from '../utilities'
 
 const ELEMENTS = 4
 const SIZE = 80

@@ -5,6 +5,7 @@ import AvatarAbstract from '../avatar/components/avatar-abstract'
 import { SegmentGroup, Segment, Button, BaseStyles, ColorDot } from './ui-system'
 import colors from 'nice-color-palettes'
 import { exampleNames } from './example-names'
+import { Avatar } from '../avatar'
 
 const paletteColors = colors
 
@@ -162,6 +163,7 @@ const Playground = () => {
 
   return (
     <>
+      <Avatar />
       <BaseStyles darkMode={darkMode} />
       <Header>
         <SegmentGroup>
