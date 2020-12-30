@@ -41,8 +41,8 @@ function generateColors(colors, name) {
   const innerColor2 = getRandomColor(numFromName, colors, range, getModulus(numFromName, NUMBER_OF_CELLS * 2))
 
   let level1Colors = fillCells(numFromName, colors, range);
-  const level2Colors = oddCells(innerColor1, 'transparent', startingCell)
-  const level3Colors = oddCells('transparent', innerColor2, startingCell)
+  const level2Colors = oddCells(innerColor1, 'none', startingCell)
+  const level3Colors = oddCells('none', innerColor2, startingCell)
 
   return level1Colors.concat(level2Colors, level3Colors);
 }
