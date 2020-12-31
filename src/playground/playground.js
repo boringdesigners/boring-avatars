@@ -164,6 +164,7 @@ const Playground = () => {
   return (
     <>
       <Avatar />
+      <hr />
       <BaseStyles darkMode={darkMode} />
       <Header>
         <SegmentGroup>
