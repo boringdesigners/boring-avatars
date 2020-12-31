@@ -1,4 +1,4 @@
-import Playground from './playground';
+import Playground from './playground/playground';
 
 function App() {
   return (

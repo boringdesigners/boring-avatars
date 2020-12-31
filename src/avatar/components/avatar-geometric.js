@@ -47,7 +47,7 @@ function generateColors(colors, name) {
   return level1Colors.concat(level2Colors, level3Colors);
 }
 
-function AvatarGeometric(props) {
+const AvatarGeometric = ( props ) => {
   const cellColors = generateColors(props.colors, props.name)
 
   return (
@@ -57,7 +57,7 @@ function AvatarGeometric(props) {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path  d="M80 40A40 40 0 0040 0v40h40z" fill={cellColors[0]} />
+        <path d="M80 40A40 40 0 0040 0v40h40z" fill={cellColors[0]} />
         <path d="M40 0A40 40 0 000 40h40V0z" fill={cellColors[1]} />
         <path d="M0 40a40 40 0 0040 40V40H0z" fill={cellColors[2]} />
         <path d="M40 80a40 40 0 0040-40H40v40z" fill={cellColors[3]} />

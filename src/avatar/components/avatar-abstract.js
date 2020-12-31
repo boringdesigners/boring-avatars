@@ -45,7 +45,7 @@ function generateColors(name, colors) {
   return elementsProperties
 }
 
-function AvatarAbstract(props) {
+const AvatarAbstract = ( props ) => {
   const properties = generateColors(props.name, props.colors)
 
   return (
