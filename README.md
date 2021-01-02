@@ -1,5 +1,4 @@
-# Boring Avatars
-For react projects
+# Boring Avatars — Avatars for react projects
 
 ## Install
 
