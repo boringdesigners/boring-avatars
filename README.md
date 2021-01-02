@@ -1,6 +1,6 @@
 ![boring avatars preview](public/boring-avatars-preview.png)
 
-<a href="https://www.npmjs.com/package/boring-avatars" target="_blank">
+<a href="https://www.npmjs.com/package/boring-avatars">
 
 ![hi](https://badgen.net/npm/v/boring-avatars)
 
