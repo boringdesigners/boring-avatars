@@ -1,6 +1,6 @@
 {
   "name": "boring-avatars",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "main": "build/index.js",
   "scripts": {
     "start": "node scripts/start.js",
@@ -8,6 +8,9 @@
     "demo": "node scripts/demo.js",
     "test": "node scripts/test.js"
   },
+  "files": [
+    "build/*"
+  ],
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "7.6.0",
