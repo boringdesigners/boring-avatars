@@ -1,4 +1,4 @@
-<img src="public/boring-avatars-preview.png">
+![boring avatars preview](public/boring-avatars-preview.png)
 
 # Boring Avatars — Avatars for react projects
 
