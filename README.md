@@ -1,5 +1,11 @@
 ![boring avatars preview](public/boring-avatars-preview.png)
 
+<a href="https://www.npmjs.com/package/boring-avatars" target="_blank">
+
+![hi](https://badgen.net/npm/v/boring-avatars)
+
+</a>
+
 # Boring Avatars
 
 ## Install
