@@ -18,5 +18,7 @@ import Avatar from "boring-avatars"
 |variant   |oneOf: "abstract", "geometric"  |
 
 
+---------------
+
 **Built with**
-https://github.com/DimiMikadze/create-react-library
+[Create React Library](https://github.com/DimiMikadze/create-react-library)
