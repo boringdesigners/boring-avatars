@@ -1,11 +1,8 @@
 import React from 'react';
-import Avatar from '../lib';
+import Playground from './playground';
 
 const App = () => (
-  <div>
-    Hello
-    <Avatar />
-  </div>
+  <Playground />
 );
 
 export default App;
