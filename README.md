@@ -11,11 +11,11 @@ import Avatar from "boring-avatars"
 ```
 
 ## Props
-|Prop   |
-|---    |
-|size   |
-|   |   |
-|   |   |
+|Prop      |type     |                         |
+|---       |---      |---                      |
+|size      |string   |                         |
+|name      |string   |                         |
+|variant   |oneOf    | "abstract", "geometric" |
 
 
 **Built with**
