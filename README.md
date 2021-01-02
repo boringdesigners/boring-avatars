@@ -1,4 +1,4 @@
-![boring avatars preview](public/boring-avatars-preview.png)
+![boring avatars preview](https://github.com/boringdesigners/boring-avatars/blob/master/public/boring-avatars-preview.png?raw=true)
 
 <a href="https://www.npmjs.com/package/boring-avatars">
 
@@ -10,13 +10,21 @@
 
 ## Install
 
-```jsx
-import Avatar from "boring-avatars";
+```
+yarn add import boring-avatars
+```
+
+or
+
+```
+npm install import boring-avatars
 ```
 
 ## Usage
 
 ```jsx
+import Avatar from "boring-avatars";
+
 <div>
   <Avatar size="64px" variant="abstract" name="Mike" />
 </div>
