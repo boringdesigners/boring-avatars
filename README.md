@@ -1,16 +1,20 @@
-# Install
+# Boring Avatars
+For react projects
+
+## Install
+
 ```jsx
 import Avatar from "boring-avatars"
 ```
 
-# Usage
+## Usage
 ```jsx
 <div>
   <Avatar size="64px" variant="abstract" name="Mike"/>
 </div>
 ```
 
-## Props
+### Props
 |Prop      |Type                            |
 |---       |---                             |
 |size      |number or string                |
