@@ -180,9 +180,7 @@ const Playground = () => {
           <ColorDot value={dotColor4} onChange={(color) => setDotColor4(color)} />
         </ColorsSection>
 
-        <Button
-          onClick={() => handleRandomColors()}
-        >Random colors</Button>
+        <Button onClick={() => handleRandomColors()}>Random palette</Button>
         <SegmentGroup>
           {Object.entries(avatarSizes).map(([key, value], index) => (
             <SizeDot
