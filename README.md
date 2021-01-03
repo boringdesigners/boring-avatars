@@ -26,8 +26,13 @@ npm install import boring-avatars
 import Avatar from "boring-avatars";
 
 <div>
-  <Avatar size="64px" variant="abstract" name="Mike" />
-</div>
+  <Avatar
+    size="64px"
+    name="Mike"
+    variant="abstract"
+    colors={["#92A1C6", "#146A7C", "#F0AB3D", "#C271B4", "#C20D90"]}
+  />
+</div>;
 ```
 
 ### Props
@@ -37,6 +42,7 @@ import Avatar from "boring-avatars";
 | size    | number or string               |
 | name    | string                         |
 | variant | oneOf: "abstract", "geometric" |
+| colors  | array of colors                |
 
 ---
 
