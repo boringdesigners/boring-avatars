@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { SegmentGroup, Segment, Button, BaseStyles, ColorDot } from './ui-system'
 import colors from 'nice-color-palettes'
@@ -135,7 +135,7 @@ const variants = {
 }
 
 const Playground = () => {
-  const defaultPlaygroundColors = paletteColors[7]
+  const defaultPlaygroundColors = paletteColors[66]
   const [playgroundColors, setPlaygroundColors] = useState(defaultPlaygroundColors)
 
   const [darkMode, setDarkMode] = useState(false)
@@ -148,13 +148,18 @@ const Playground = () => {
   const filteredColors = [dotColor0, dotColor1, dotColor2, dotColor3, dotColor4]
 
   const handleRandomColors = () => {
-    setPlaygroundColors(paletteColors[getRandomPaletteIndex()])
+    setPlaygroundColors(
+      paletteColors[getRandomPaletteIndex()]
+    )
+  }
+
+  useEffect(() => {
     setDotColor0(playgroundColors[0])
     setDotColor1(playgroundColors[1])
     setDotColor2(playgroundColors[2])
     setDotColor3(playgroundColors[3])
     setDotColor4(playgroundColors[4])
-  }
+  }, [playgroundColors])
 
   const [avatarSize, setAvatarSize] = useState(avatarSizes.medium)
   const [variant, setVariant] = useState(variants.geometric)
