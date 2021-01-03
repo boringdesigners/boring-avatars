@@ -1,16 +1,30 @@
-![boring avatars preview](public/boring-avatars-preview.png)
+![boring avatars preview](https://github.com/boringdesigners/boring-avatars/blob/master/public/boring-avatars-preview.png?raw=true)
 
-# Boring Avatars — Avatars for react projects
+<a href="https://www.npmjs.com/package/boring-avatars">
+
+![hi](https://badgen.net/npm/v/boring-avatars)
+
+</a>
+
+# Boring Avatars
 
 ## Install
 
-```jsx
-import Avatar from "boring-avatars";
+```
+yarn add import boring-avatars
+```
+
+or
+
+```
+npm install import boring-avatars
 ```
 
 ## Usage
 
 ```jsx
+import Avatar from "boring-avatars";
+
 <div>
   <Avatar size="64px" variant="abstract" name="Mike" />
 </div>
