@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import styled from 'styled-components'
 import { ChromePicker } from 'react-color'
+import { useOnClickOutside } from '../../../hooks'
 
 const DotWrapper = styled.div`
   position: relative;
@@ -20,6 +21,8 @@ const PickerWrapper = styled.div`
 
 const ColorDot = ({ value, onChange }) => {
   const [pickerIsOpen, setPickerIsOpen] = useState(false)
+  const ref = useRef();
+  useOnClickOutside(ref, () => setPickerIsOpen(false));
 
   return (
     <DotWrapper>
@@ -29,8 +32,12 @@ const ColorDot = ({ value, onChange }) => {
         style={{ background: value }}
       />
       {pickerIsOpen && (
-        <PickerWrapper>
-          <ChromePicker color={value} onChange={(v) => onChange(v.hex)}/>
+        <PickerWrapper ref={ref}>
+          <ChromePicker
+            color={value}
+            onChange={(v) => onChange(v.hex)}
+            disableAlpha
+          />
         </PickerWrapper>
       )}
     </DotWrapper>
