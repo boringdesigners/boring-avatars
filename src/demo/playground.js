@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { SegmentGroup, Segment, Button, BaseStyles, ColorDot } from './ui-system'
 import colors from 'nice-color-palettes'
 import { exampleNames } from './example-names'
 import Avatar from '../lib'
+import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 const paletteColors = colors
 
@@ -67,22 +68,38 @@ const Input = styled.input`
 const AvatarWrapper = ({ name, playgroundColors, size, variant }) => {
   const [avatarName, setAvatarName] = useState(name)
   const handleFocus = (event) => event.target.select()
+  const ref = useRef();
+  const [copyValue, setCopyValue] = useState(name)
+  
+  useEffect(() => {
+    if(ref.current) {
+      const svgNode = ref.current.innerHTML
+      const svgStart = svgNode.indexOf('<svg')
+      const svgEnd = svgNode.indexOf('</svg>') + 6
+      const svgResult = svgNode.substring(svgStart, svgEnd).toString()
+      
+      setCopyValue(svgResult)
+    }
+  }, [copyValue, variant, playgroundColors])
 
   return (
     <AvatarContainer>
-      <AvatarSection>
-        {variant === variants.geometric && (
-          <Avatar variant="geometric" name={avatarName} colors={playgroundColors} size={size}/>
-        )}
-        {variant === variants.abstract && (
-          <Avatar variant="abstract" name={avatarName} colors={playgroundColors} size={size}/>
-        )}
+      <AvatarSection className="Avatar" ref={ref}>
+        <Avatar
+          name={avatarName}
+          colors={playgroundColors}
+          size={size}
+          variant={variants[variant]}
+        />
       </AvatarSection>
       <Input
         value={avatarName}
         onChange={e => setAvatarName(e.target.value)}
         onFocus={(e) => handleFocus(e)}
       />
+      <CopyToClipboard text={copyValue}>
+        <Button>Copy</Button>
+      </CopyToClipboard>
     </AvatarContainer>
   )
 }
@@ -130,8 +147,8 @@ const SizeDot = ({size, isSelected, ...props}) => {
 }
 
 const variants = {
-  geometric: 'Geometric',
-  abstract: 'Abstract',
+  geometric: 'geometric',
+  abstract: 'abstract',
 }
 
 const Playground = () => {

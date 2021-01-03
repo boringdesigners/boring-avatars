@@ -56,6 +56,7 @@
     "react": "^16.10.2",
     "react-app-polyfill": "^1.0.4",
     "react-color": "^2.19.3",
+    "react-copy-to-clipboard": "^5.0.2",
     "react-dev-utils": "^9.1.0",
     "react-dom": "^16.10.2",
     "resolve": "1.12.0",
