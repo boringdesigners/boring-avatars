@@ -70,14 +70,14 @@ const AvatarWrapper = ({ name, playgroundColors, size, variant }) => {
   const handleFocus = (event) => event.target.select()
   const ref = useRef();
   const [copyValue, setCopyValue] = useState(name)
-  
+
   useEffect(() => {
     if(ref.current) {
       const svgNode = ref.current.innerHTML
       const svgStart = svgNode.indexOf('<svg')
       const svgEnd = svgNode.indexOf('</svg>') + 6
       const svgResult = svgNode.substring(svgStart, svgEnd).toString()
-      
+
       setCopyValue(svgResult)
     }
   }, [copyValue, variant, playgroundColors])
@@ -107,7 +107,7 @@ const AvatarWrapper = ({ name, playgroundColors, size, variant }) => {
 const getRandomPaletteIndex = () => Math.floor(Math.random() * paletteColors.length)
 
 const avatarSizes = {
-  small: 32,
+  small: 40,
   medium: 80,
   large: 128,
 }
@@ -149,6 +149,7 @@ const SizeDot = ({size, isSelected, ...props}) => {
 const variants = {
   geometric: 'geometric',
   abstract: 'abstract',
+  beam: 'beam'
 }
 
 const Playground = () => {
@@ -179,13 +180,14 @@ const Playground = () => {
   }, [playgroundColors])
 
   const [avatarSize, setAvatarSize] = useState(avatarSizes.medium)
-  const [variant, setVariant] = useState(variants.geometric)
+  const [variant, setVariant] = useState(variants.beam)
 
   return (
     <>
       <BaseStyles darkMode={darkMode} />
       <Header>
         <SegmentGroup>
+          <Segment onClick={() => setVariant(variants.beam)} isSelected={variant === variants.beam}>Beam</Segment>
           <Segment onClick={() => setVariant(variants.geometric)} isSelected={variant === variants.geometric}>Geometric</Segment>
           <Segment onClick={() => setVariant(variants.abstract)} isSelected={variant === variants.abstract}>Abstract</Segment>
         </SegmentGroup>
