@@ -1,16 +1,14 @@
 import * as React from "react"
-import { getNumber, getDigit, getModulus, getContrast } from '../utilities'
+import { getNumber, getDigit, getContrast } from '../utilities'
 
 const SIZE = 36
-const TRANSLATE_RANGE_1 = 11
-const TRANSLATE_RANGE_2 = 11
 
-function getRandomColor(number, colors, range, index) {
-  return colors[(number + index) % range]
+function getRandomColor(number, colors, range) {
+  return colors[(number) % range]
 }
 
-function isCircle(number, index) {
-  return (!!(getDigit(number, index) % 2))
+function isCircle(number) {
+    return (!((number % 10) % 2))
 }
 
 function getUnit(number, range, index) {
@@ -25,21 +23,26 @@ function getUnit(number, range, index) {
 function generateData(name, colors) {
   const numFromName = getNumber(name)
   const range = colors && colors.length
-  const wrapperColor = getRandomColor(numFromName, colors, range, 0)
+  const wrapperColor = getRandomColor(numFromName, colors, range)
+  const preTranslateX = getUnit(numFromName, 10, 1)
+  const wrapperTranslateX = preTranslateX < 5 ? (preTranslateX + SIZE/9) : preTranslateX
+  const preTranslateY = getUnit(numFromName, 10, 2)
+  const wrapperTranslateY = preTranslateY < 5 ? (preTranslateY + SIZE/9) : preTranslateY
+
 
   const data = {
     wrapperColor: wrapperColor,
     faceColor: getContrast(wrapperColor),
-    backgroundColor: getRandomColor(numFromName, colors, range, 13),
-    wrapperTranslateX: getUnit(numFromName, TRANSLATE_RANGE_1, 2),
-    wrapperTranslateY: getUnit(numFromName, TRANSLATE_RANGE_1, 3),
+    backgroundColor: getRandomColor(numFromName + 13, colors, range),
+    wrapperTranslateX: wrapperTranslateX,
+    wrapperTranslateY: wrapperTranslateY,
     wrapperRotate: getUnit(numFromName, 360),
-    isCircle: isCircle(numFromName, 1),
-    eyeSpread: getUnit(numFromName, 6) ,
+    isCircle: isCircle(numFromName),
+    eyeSpread: getUnit(numFromName, 5) ,
     mouthSpread: getUnit(numFromName, 5),
-    faceRotate: getUnit(numFromName, 10),
-    faceTranslateX: getUnit(numFromName, TRANSLATE_RANGE_2, 2),
-    faceTranslateY: getUnit(numFromName, TRANSLATE_RANGE_2, 3),
+    faceRotate: getUnit(numFromName, 10, 3),
+    faceTranslateX: wrapperTranslateX > (SIZE/6) ? wrapperTranslateX/2 : getUnit(numFromName, 8, 1),
+    faceTranslateY: wrapperTranslateY > (SIZE/6) ? wrapperTranslateY/2 : getUnit(numFromName, 7, 2),
   };
 
   return data
