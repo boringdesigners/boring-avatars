@@ -1,5 +1,5 @@
 import React from 'react'
-import { getNumberFromString, getModulus } from '../utilities'
+import { getNumber, getModulus } from '../utilities'
 
 const NUMBER_OF_CELLS = 12
 const LAYERS = 3
@@ -34,7 +34,7 @@ function fillCells(number, colors, range) {
 }
 
 function generateColors(colors, name) {
-  const numFromName = getNumberFromString(name)
+  const numFromName = getNumber(name)
   const range = colors && colors.length
   const startingCell = getModulus(numFromName, CELLS_LAYER)
   const innerColor1 = getRandomColor(numFromName, colors, range, getModulus(numFromName, NUMBER_OF_CELLS + 3))

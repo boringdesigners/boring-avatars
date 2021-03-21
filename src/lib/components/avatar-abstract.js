@@ -1,5 +1,5 @@
 import * as React from "react"
-import { getNumberFromString, getModulus } from '../utilities'
+import { getNumber, getModulus } from '../utilities'
 
 const ELEMENTS = 4
 const SIZE = 80
@@ -31,7 +31,7 @@ function getRandomRotate(number) {
 }
 
 function generateColors(name, colors) {
-  const numFromName = getNumberFromString(name)
+  const numFromName = getNumber(name)
   const range = colors && colors.length
 
   const elementsProperties = Array.from({length: ELEMENTS}, (_,i) => ({

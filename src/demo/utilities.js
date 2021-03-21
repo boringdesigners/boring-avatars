@@ -1,4 +1,4 @@
-export const getNumberFromString = (name) => {
+export const getNumber = (name) => {
   const charactersArray = Array.from(name)
   let charactersCodesSum = 0
 

@@ -1,4 +1,4 @@
-export const getNumberFromString = (name) => {
+export const getNumber = (name) => {
   const charactersArray = Array.from(name)
   let charactersCodesSum = 0
 
@@ -9,9 +9,12 @@ export const getNumberFromString = (name) => {
   return charactersCodesSum;
 }
 
-
 export const getModulus = (num, max) => {
   return num % max;
+}
+
+export const getDigit = (number, ntn) => {
+  return Math.floor(( number/ Math.pow(10, ntn)) % 10);
 }
 
 export const getContrast = (hexcolor) => {

@@ -1,31 +1,29 @@
 import * as React from "react"
-import { getNumberFromString, getModulus, getContrast } from '../utilities'
+import { getNumber, getDigit, getModulus, getContrast } from '../utilities'
 
 const SIZE = 36
+const TRANSLATE_RANGE_1 = 11
+const TRANSLATE_RANGE_2 = 11
 
 function getRandomColor(number, colors, range, index) {
-  return colors[getModulus(number + index, range)]
+  return colors[(number + index) % range]
 }
 
-function getRotate(number) {
-  return (getModulus(number, 360) + " " + SIZE / 2 + " " + SIZE / 2)
+function isCircle(number, index) {
+  return (!!(getDigit(number, index) % 2))
 }
 
-function isCircle(number) {
-  return (!(getModulus(number, 2)))
-}
+function getUnit(number, range, index) {
+  let value = number % range
 
-function getSpread(number, index, range, negative = false) {
-  let value = getModulus(number * index, range)
-
-  if(negative && ((number + index) % 2 === 0)) {
+  if(index && ((getDigit(number, index) % 2) === 0)) {
     return -value
   } else return value
 
 }
 
 function generateData(name, colors) {
-  const numFromName = getNumberFromString(name)
+  const numFromName = getNumber(name)
   const range = colors && colors.length
   const wrapperColor = getRandomColor(numFromName, colors, range, 0)
 
@@ -33,16 +31,15 @@ function generateData(name, colors) {
     wrapperColor: wrapperColor,
     faceColor: getContrast(wrapperColor),
     backgroundColor: getRandomColor(numFromName, colors, range, 13),
-    wrapperTranslateX: getSpread(numFromName, 5, (SIZE / 3), true),
-    wrapperTranslateY: getSpread(numFromName, 7, (SIZE / 3), true),
-    wrapperRotate: getRotate(numFromName),
-    wrapperScale: 1,
-    isCircle: isCircle(numFromName),
-    eyeSpread: getSpread(numFromName, 21, 6) ,
-    mouthSpread: getSpread(numFromName, 13, 5),
-    faceRotate: getSpread(numFromName, 17, 10, true),
-    faceTranslateX: getSpread(numFromName, 3, (SIZE / 5), true),
-    faceTranslateY: getSpread(numFromName, 7, (SIZE / 5), true),
+    wrapperTranslateX: getUnit(numFromName, TRANSLATE_RANGE_1, 2),
+    wrapperTranslateY: getUnit(numFromName, TRANSLATE_RANGE_1, 3),
+    wrapperRotate: getUnit(numFromName, 360),
+    isCircle: isCircle(numFromName, 1),
+    eyeSpread: getUnit(numFromName, 6) ,
+    mouthSpread: getUnit(numFromName, 5),
+    faceRotate: getUnit(numFromName, 10),
+    faceTranslateX: getUnit(numFromName, TRANSLATE_RANGE_2, 2),
+    faceTranslateY: getUnit(numFromName, TRANSLATE_RANGE_2, 3),
   };
 
   return data
@@ -86,9 +83,9 @@ const AvatarBeam = ( props ) => {
             y="0"
             width={SIZE}
             height={SIZE}
-            transform={"translate(" + data.wrapperTranslateX + " " + data.wrapperTranslateY + ") scale(" + data.wrapperScale + ") rotate(" + data.wrapperRotate + ")"}
+            transform={"translate(" + data.wrapperTranslateX + " " + data.wrapperTranslateY + ") rotate(" + data.wrapperRotate + " " + SIZE / 2 + " " + SIZE / 2 +")"}
             fill={data.wrapperColor}
-            rx={data.isCircle ? '20': '6'}
+            rx={data.isCircle ? SIZE : SIZE/6}
           />
           <g transform={"translate(" + data.faceTranslateX + " " + data.faceTranslateY + ") rotate("+ data.faceRotate + ")"} transform-origin="50%">
             <path d={"M15 "+ (18 + data.mouthSpread) + "c2 1 4 1 6 0"} stroke={data.faceColor} fill="none" strokeLinecap="round" />
