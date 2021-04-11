@@ -4,6 +4,7 @@ import AvatarGeometric from './avatar-geometric'
 import AvatarAbstract from './avatar-abstract'
 import AvatarBeam from './avatar-beam'
 import AvatarEye from './avatar-eye'
+import AvatarMesh from './avatar-mesh'
 
 const Avatar = ({ variant, colors, name, size, ...props }) => {
   if(variant === 'abstract') {
@@ -19,6 +20,11 @@ const Avatar = ({ variant, colors, name, size, ...props }) => {
   if(variant === 'eye') {
     return (
       <AvatarEye colors={colors} name={name} size={size} {...props}/>
+    )
+  }
+  if(variant === 'mesh') {
+    return (
+      <AvatarMesh colors={colors} name={name} size={size} {...props}/>
     )
   }
   return (
