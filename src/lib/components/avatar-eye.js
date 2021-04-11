@@ -86,7 +86,6 @@ const AvatarEye = ( props ) => {
             />
             <g transform={"translate(" + data.wrapperTranslateX + " " + data.wrapperTranslateY + ") rotate("+ data.wrapperRotate + ")"} transform-origin="50%">
               <circle cx={SIZE/2} cy={SIZE/2} r={10} fill={data.irisColor} />
-              <circle cx={SIZE/2} cy={SIZE/2} r={10} fill="black" fill-opacity="0.4" />
               <circle cx={25} cy={SIZE/2} r={1} fill="#FCFCFC" />
               <circle cx={SIZE/2} cy={SIZE/2} r={4} fill="#03030B" />
             </g>
