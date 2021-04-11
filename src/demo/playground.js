@@ -181,7 +181,7 @@ const Playground = () => {
   }, [playgroundColors])
 
   const [avatarSize, setAvatarSize] = useState(avatarSizes.small)
-  const [variant, setVariant] = useState(variants.eye)
+  const [variant, setVariant] = useState(variants.abstract)
 
   return (
     <>

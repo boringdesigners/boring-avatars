@@ -1,33 +1,20 @@
 import * as React from "react"
-import { getNumber, getModulus } from '../utilities'
+import { getNumber, getDigit } from '../utilities'
 
 const ELEMENTS = 4
 const SIZE = 80
 
-function getRandomColor(number, colors, range, index) {
-  return colors[getModulus(number + index, range)]
+function getRandomColor(number, colors, range) {
+  return colors[(number) % range]
 }
 
-function getRandomTranslateX(number, index) {
-  let value = getModulus(number * index, (SIZE / 4))
+function getUnit(number, range, index) {
+  let value = number % range
 
-  if(number % 2 === 0) {
+  if(index && ((getDigit(number, index) % 2) === 0)) {
     return -value
   } else return value
 
-}
-
-function getRandomTranslateY(number, index) {
-  let value = getModulus(number * index, (SIZE / 4))
-
-  if(number % 2 === 0) {
-    return value
-  } else return -value
-
-}
-
-function getRandomRotate(number) {
-  return (getModulus(number, 360) + " " + SIZE / 2 + " " + SIZE / 2)
 }
 
 function generateColors(name, colors) {
@@ -35,10 +22,10 @@ function generateColors(name, colors) {
   const range = colors && colors.length
 
   const elementsProperties = Array.from({length: ELEMENTS}, (_,i) => ({
-    color: getRandomColor(numFromName, colors, range, i),
-    translateX: getRandomTranslateX(numFromName, i),
-    translateY: getRandomTranslateY(numFromName, i),
-    rotate: getRandomRotate(numFromName),
+    color: getRandomColor(numFromName + i, colors, range),
+    translateX: getUnit(numFromName / (i + 1), (SIZE/13 - (i * 8)), 1),
+    translateY: getUnit(numFromName / (i + 1), (SIZE/13 - (i * 8)), 2),
+    rotate: getUnit(numFromName / (i + 1), 360),
   }));
 
 
@@ -73,17 +60,20 @@ const AvatarAbstract = ( props ) => {
             rx={SIZE / 2}
             fill={properties[0].color}
           />
-          <path
-            d="M0 64.167l11.667-32.5 44.166 12.5 15.834 44.166-60 22.5L0 64.167z"
-            fill={properties[1].color}
-            transform={"translate(" + properties[1].translateX + " " + properties[1].translateY + ") rotate(" + properties[1].rotate + ")"}
-          />
+          <g transform={"rotate(" + properties[0].rotate + " " + SIZE / 2 + " " + SIZE / 2 +")"}>
+            <path
+              d="M8 56.5L19.667 24L63.833 36.5L79.667 80.666L19.667 103.166L8 56.5Z"
+              fill={properties[1].color}
+              transform={"translate(" + properties[1].translateX + " " + properties[1].translateY + ") rotate(" + properties[1].rotate + " " + SIZE / 2 + " " + SIZE +")"}
+            />
+          </g>
           <circle
             cx={SIZE / 2}
             cy={SIZE / 2}
             fill={properties[2].color}
             r={17.5}
-            transform={"translate(" + properties[3].translateX + " " + properties[3].translateY + ")"}
+            transform={"translate(" + properties[2].translateX + " " + properties[2].translateY + ")"}
+            transform-origin="50%"
           />
           <line
             x1="0"
@@ -93,6 +83,7 @@ const AvatarAbstract = ( props ) => {
             strokeWidth={2}
             stroke={properties[3].color}
             transform={"translate(" + properties[3].translateX + " " + properties[3].translateY + ") rotate(" + properties[3].rotate + ")"}
+            transform-origin="50%"
           />
         </g>
       </svg>

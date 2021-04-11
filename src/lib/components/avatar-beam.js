@@ -86,7 +86,8 @@ const AvatarBeam = ( props ) => {
             y="0"
             width={SIZE}
             height={SIZE}
-            transform={"translate(" + data.wrapperTranslateX + " " + data.wrapperTranslateY + ") rotate(" + data.wrapperRotate + " " + SIZE / 2 + " " + SIZE / 2 +")"}
+            transform={"translate(" + data.wrapperTranslateX + " " + data.wrapperTranslateY + ") rotate(" + data.wrapperRotate + ")"}
+            transform-origin="50%"
             fill={data.wrapperColor}
             rx={data.isCircle ? SIZE : SIZE/6}
           />
