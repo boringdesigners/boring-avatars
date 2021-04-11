@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import AvatarGeometric from './avatar-geometric'
 import AvatarAbstract from './avatar-abstract'
 import AvatarBeam from './avatar-beam'
+import AvatarEye from './avatar-eye'
 
 const Avatar = ({ variant, colors, name, size, ...props }) => {
   if(variant === 'abstract') {
@@ -13,6 +14,11 @@ const Avatar = ({ variant, colors, name, size, ...props }) => {
   if(variant === 'beam') {
     return (
       <AvatarBeam colors={colors} name={name} size={size} {...props}/>
+    )
+  }
+  if(variant === 'eye') {
+    return (
+      <AvatarEye colors={colors} name={name} size={size} {...props}/>
     )
   }
   return (

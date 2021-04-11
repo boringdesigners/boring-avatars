@@ -17,6 +17,12 @@ export const getDigit = (number, ntn) => {
   return Math.floor(( number/ Math.pow(10, ntn)) % 10);
 }
 
+export const getAngle = (x, y) => {
+  return Math.atan2(y, x) * 180 / Math.PI;
+}
+
+
+
 export const getContrast = (hexcolor) => {
 
 	// If a leading # is provided, remove it
