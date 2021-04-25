@@ -1,21 +1,8 @@
 import * as React from "react"
-import { getNumber, getDigit } from '../utilities'
+import { getNumber, getUnit, getRandomColor } from '../utilities'
 
 const ELEMENTS = 4
 const SIZE = 80
-
-function getRandomColor(number, colors, range) {
-  return colors[(number) % range]
-}
-
-function getUnit(number, range, index) {
-  let value = number % range
-
-  if(index && ((getDigit(number, index) % 2) === 0)) {
-    return -value
-  } else return value
-
-}
 
 function generateColors(name, colors) {
   const numFromName = getNumber(name)
@@ -64,7 +51,7 @@ const AvatarAbstract = ( props ) => {
             <path
               d="M8 56.5L19.667 24L63.833 36.5L79.667 80.666L19.667 103.166L8 56.5Z"
               fill={properties[1].color}
-              transform={"translate(" + properties[1].translateX + " " + properties[1].translateY + ") rotate(" + properties[1].rotate + " " + SIZE / 2 + " " + SIZE +")"}
+              transform={"translate(" + properties[1].translateX + " " + properties[1].translateY + ") rotate(" + properties[1].rotate + " " + SIZE / 2 + " " + SIZE  +")"}
             />
           </g>
           <circle
@@ -73,7 +60,6 @@ const AvatarAbstract = ( props ) => {
             fill={properties[2].color}
             r={17.5}
             transform={"translate(" + properties[2].translateX + " " + properties[2].translateY + ")"}
-            transform-origin="50%"
           />
           <line
             x1="0"
@@ -82,8 +68,7 @@ const AvatarAbstract = ( props ) => {
             y2={SIZE / 2}
             strokeWidth={2}
             stroke={properties[3].color}
-            transform={"translate(" + properties[3].translateX + " " + properties[3].translateY + ") rotate(" + properties[3].rotate + ")"}
-            transform-origin="50%"
+            transform={"translate(" + properties[3].translateX + " " + properties[3].translateY + ") rotate(" + properties[3].rotate + " " + SIZE / 2 + " " + SIZE / 2 +")"}
           />
         </g>
       </svg>

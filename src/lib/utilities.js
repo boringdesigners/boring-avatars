@@ -21,6 +21,17 @@ export const getAngle = (x, y) => {
   return Math.atan2(y, x) * 180 / Math.PI;
 }
 
+export const getUnit = (number, range, index) => {
+  let value = number % range
+
+  if(index && ((getDigit(number, index) % 2) === 0)) {
+    return -value
+  } else return value
+}
+
+export const getRandomColor = (number, colors, range) => {
+  return colors[(number) % range]
+}
 
 
 export const getContrast = (hexcolor) => {
