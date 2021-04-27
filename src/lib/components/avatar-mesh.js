@@ -10,10 +10,10 @@ function generateColors(name, colors) {
 
   const elementsProperties = Array.from({length: ELEMENTS}, (_,i) => ({
     color: getRandomColor(numFromName + i, colors, range),
-    translateX: getUnit(numFromName * (i + 1), (SIZE/10), 1),
-    translateY: getUnit(numFromName * (i + 1), (SIZE/10), 2),
-    scale: (1 + (getUnit(numFromName * (i + 1), 10)) / 10),
-    rotate: getUnit(numFromName * (i + 1), 360),
+    translateX: getUnit(numFromName * (i + 1), SIZE / 10, 1),
+    translateY: getUnit(numFromName * (i + 1), SIZE / 10, 2),
+    scale: (1 + (getUnit(numFromName * (i + 1), SIZE / 20) / 10)),
+    rotate: getUnit(numFromName * (i + 1), 360, 1)
   }));
 
   return elementsProperties
@@ -72,7 +72,7 @@ const AvatarMesh = ( props ) => {
           >
             <feFlood floodOpacity={0} result="BackgroundImageFix" />
             <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-            <feGaussianBlur stdDeviation={10} result="effect1_foregroundBlur" />
+            <feGaussianBlur stdDeviation={7} result="effect1_foregroundBlur" />
           </filter>
         </defs>
       </svg>
