@@ -19,7 +19,7 @@ function generateColors(name, colors) {
   return elementsProperties
 }
 
-const AvatarMesh = ( props ) => {
+const AvatarMarble = ( props ) => {
   const properties = generateColors(props.name, props.colors)
 
   return (
@@ -81,4 +81,4 @@ const AvatarMesh = ( props ) => {
   )
 }
 
-export default AvatarMesh
+export default AvatarMarble
