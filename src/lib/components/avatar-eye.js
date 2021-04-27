@@ -3,6 +3,9 @@ import { getNumber, getDigit, getAngle } from '../utilities'
 
 const SIZE = 36
 const EYE_SIZE = SIZE/2
+const SCLERA_COLOR = "#fcfcfc"
+const PUPIL_COLOR = "#03030b"
+const LIGHT_COLOR = "#fff"
 
 function getRandomColor(number, colors, range) {
   return colors[(number) % range]
@@ -26,7 +29,9 @@ function generateData(name, colors) {
 
   const data = {
     backgroundColor: getRandomColor(numFromName, colors, range),
-    scleraColor: getRandomColor(numFromName + 1, colors, range),
+    scleraColor: SCLERA_COLOR,
+    pupilColor: PUPIL_COLOR,
+    lightColor: LIGHT_COLOR,
     irisColor: getRandomColor(numFromName + 2, colors, range),
     wrapperTranslateX: wrapperTranslateX,
     wrapperTranslateY: wrapperTranslateY,
@@ -82,12 +87,12 @@ const AvatarEye = ( props ) => {
           <g mask="url(#prefix__b)">
             <path
               d="M18 11C8 11 4 18 4 18s5 7 14 7 14-7 14-7-4-7-14-7z"
-              fill="#FCFCFC"
+              fill={data.scleraColor}
             />
             <g transform={"translate(" + data.wrapperTranslateX + " " + data.wrapperTranslateY + ") rotate("+ data.wrapperRotate + ")"} transform-origin="50%">
               <circle cx={SIZE/2} cy={SIZE/2} r={10} fill={data.irisColor} />
-              <circle cx={25} cy={SIZE/2} r={1} fill="#FCFCFC" />
-              <circle cx={SIZE/2} cy={SIZE/2} r={4} fill="#03030B" />
+              <circle cx={25} cy={SIZE/2} r={1} fill={data.lightColor} />
+              <circle cx={SIZE/2} cy={SIZE/2} r={4} fill={data.pupilColor} />
             </g>
           </g>
         </g>
