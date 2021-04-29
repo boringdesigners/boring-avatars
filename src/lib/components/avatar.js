@@ -40,7 +40,7 @@ Avatar.defaultProps = {
 }
 
 Avatar.propTypes = {
-  variant: PropTypes.oneOf(['geometric', 'abstract'])
+  variant: PropTypes.oneOf(['geometric', 'abstract', 'marble'])
 }
 
 export default Avatar
