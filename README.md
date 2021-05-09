@@ -4,6 +4,8 @@
 <a href="https://www.npmjs.com/package/boring-avatars">
 
 ![hi](https://badgen.net/npm/v/boring-avatars)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 
 </a>
 
