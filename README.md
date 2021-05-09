@@ -40,12 +40,12 @@ import Avatar from "boring-avatars";
 
 ### Props
 
-| Prop    | Type                           |
-| ------- | ------------------------------ |
-| size    | number or string               |
-| name    | string                         |
-| variant | oneOf: "abstract", "geometric" |
-| colors  | array of colors                |
+| Prop    | Type                                              |
+| ------- | ------------------------------                    |
+| size    | number or string                                  |
+| name    | string                                            |
+| variant | oneOf: "marble", "beam", "abstract", "geometric"  |
+| colors  | array of colors                                   |
 
 ---
 
