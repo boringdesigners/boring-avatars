@@ -28,14 +28,14 @@ npm install import boring-avatars
 ```jsx
 import Avatar from "boring-avatars";
 
-<div>
-  <Avatar
-    size="64px"
-    name="Maria Mitchell"
-    variant="abstract"
-    colors={["#92A1C6", "#146A7C", "#F0AB3D", "#C271B4", "#C20D90"]}
-  />
-</div>;
+<Avatar
+  size="64px"
+  name="Maria Mitchell"
+  variant="abstract"
+  colors={["#92A1C6", "#146A7C", "#F0AB3D", "#C271B4", "#C20D90"]}
+/>
+
+
 ```
 
 ### Props
