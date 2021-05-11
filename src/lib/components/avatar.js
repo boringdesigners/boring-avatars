@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import AvatarGeometric from './avatar-geometric'
 import AvatarAbstract from './avatar-abstract'
 import AvatarBeam from './avatar-beam'
-import AvatarEye from './avatar-eye'
 import AvatarMarble from './avatar-marble'
 
 const Avatar = ({ variant, colors, name, size, ...props }) => {
@@ -17,25 +16,20 @@ const Avatar = ({ variant, colors, name, size, ...props }) => {
       <AvatarBeam colors={colors} name={name} size={size} {...props}/>
     )
   }
-  if(variant === 'eye') {
+  if(variant === 'geometric') {
     return (
-      <AvatarEye colors={colors} name={name} size={size} {...props}/>
-    )
-  }
-  if(variant === 'marble') {
+      <AvatarGeometric colors={colors} name={name} size={size} {...props}/>
+      )
+    }
     return (
-      <AvatarMarble colors={colors} name={name} size={size} {...props}/>
-    )
-  }
-  return (
-    <AvatarGeometric colors={colors} name={name} size={size} {...props}/>
+    <AvatarMarble colors={colors} name={name} size={size} {...props}/>
   )
 }
 
 Avatar.defaultProps = {
-  variant: 'geometric',
+  variant: 'marble',
   colors: ['#92A1C6', '#146A7C', '#F0AB3D', '#C271B4', '#C20D90'],
-  name: 'abcdefg',
+  name: 'Clara Barton',
   size: 40,
 }
 
