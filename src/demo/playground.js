@@ -149,6 +149,7 @@ const SizeDot = ({size, isSelected, ...props}) => {
 const variants = {
   geometric: 'geometric',
   abstract: 'abstract',
+  circle: 'circle',
   marble: 'marble',
   beam: 'beam'
 }
@@ -181,13 +182,14 @@ const Playground = () => {
   }, [playgroundColors])
 
   const [avatarSize, setAvatarSize] = useState(avatarSizes.medium)
-  const [variant, setVariant] = useState(variants.marble)
+  const [variant, setVariant] = useState(variants.circle)
 
   return (
     <>
       <BaseStyles darkMode={darkMode} />
       <Header>
         <SegmentGroup>
+          <Segment onClick={() => setVariant(variants.circle)} isSelected={variant === variants.circle}>C</Segment>
           <Segment onClick={() => setVariant(variants.marble)} isSelected={variant === variants.marble}>M</Segment>
           <Segment onClick={() => setVariant(variants.beam)} isSelected={variant === variants.beam}>B</Segment>
           <Segment onClick={() => setVariant(variants.geometric)} isSelected={variant === variants.geometric}>G</Segment>

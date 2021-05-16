@@ -12,7 +12,7 @@ function generateColors(name, colors) {
     color: getRandomColor(numFromName + i, colors, range),
     translateX: getUnit(numFromName * (i + 1), SIZE / 10, 1),
     translateY: getUnit(numFromName * (i + 1), SIZE / 10, 2),
-    scale: (1 + (getUnit(numFromName * (i + 1), SIZE / 20) / 10)),
+    scale: (1.2 + (getUnit(numFromName * (i + 1), SIZE / 20) / 10)),
     rotate: getUnit(numFromName * (i + 1), 360, 1)
   }));
 

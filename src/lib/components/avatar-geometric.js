@@ -1,21 +1,10 @@
 import React from 'react'
-import { getNumber, getModulus } from '../utilities'
+import { getNumber, getModulus, getRandomColor } from '../utilities'
 
 const NUMBER_OF_CELLS = 12
 const LAYERS = 3
+const SIZE = 80
 const CELLS_LAYER = NUMBER_OF_CELLS / LAYERS
-
-function getRandomColor(number, colors, range, index) {
-  switch (index)
-  {
-      case 0: return colors[getModulus(Math.floor((number / 1) % 10) + index, range)]
-      case 1: return colors[getModulus(Math.floor((number / 10) % 10) + index, range)]
-      case 2: return colors[getModulus(Math.floor((number / 1) % 10) + index, range)]
-      case 3: return colors[getModulus(Math.floor((number / 10) % 10) + index, range)]
-
-      default: return colors[getModulus(number + index, range)]
-  }
-}
 
 function oddCells(color, invertedColor, startingCell) {
   let cellColors = new Array(CELLS_LAYER).fill(invertedColor)
@@ -29,20 +18,16 @@ function oddCells(color, invertedColor, startingCell) {
   return cellColors
 }
 
-function fillCells(number, colors, range) {
-  return Array.from({length: CELLS_LAYER}, (_, i) => getRandomColor(number, colors, range, i));
-}
-
 function generateColors(colors, name) {
   const numFromName = getNumber(name)
   const range = colors && colors.length
   const startingCell = getModulus(numFromName, CELLS_LAYER)
-  const innerColor1 = getRandomColor(numFromName, colors, range, getModulus(numFromName, NUMBER_OF_CELLS + 3))
-  const innerColor2 = getRandomColor(numFromName, colors, range, getModulus(numFromName, NUMBER_OF_CELLS * 2))
+  const level2Color = getRandomColor(numFromName + LAYERS, colors, range)
+  const level3Color = getRandomColor(numFromName - LAYERS, colors, range)
 
-  let level1Colors = fillCells(numFromName, colors, range);
-  const level2Colors = oddCells(innerColor1, 'none', startingCell)
-  const level3Colors = oddCells('none', innerColor2, startingCell)
+  const level1Colors = Array.from({length: CELLS_LAYER}, (_, i) => getRandomColor(numFromName % (i+3), colors, range));
+  const level2Colors = oddCells(level2Color, 'none', startingCell)
+  const level3Colors = oddCells('none', level3Color, startingCell)
 
   return level1Colors.concat(level2Colors, level3Colors);
 }
@@ -53,7 +38,7 @@ const AvatarGeometric = ( props ) => {
   return (
     <div style={{display: 'inline-block', width: props.size, height: props.size}}>
       <svg
-        viewBox="0 0 80 80"
+        viewBox={"0 0 " + SIZE + " " + SIZE}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
