@@ -1,24 +1,7 @@
 import * as React from "react"
-import { getNumber, getDigit, getContrast } from '../utilities'
+import { getNumber, getUnit, getBoolean, getRandomColor, getContrast } from '../utilities'
 
 const SIZE = 36
-
-function getRandomColor(number, colors, range) {
-  return colors[(number) % range]
-}
-
-function isCircle(number) {
-    return (!((number % 10) % 2))
-}
-
-function getUnit(number, range, index) {
-  let value = number % range
-
-  if(index && ((getDigit(number, index) % 2) === 0)) {
-    return -value
-  } else return value
-
-}
 
 function generateData(name, colors) {
   const numFromName = getNumber(name)
@@ -37,7 +20,7 @@ function generateData(name, colors) {
     wrapperTranslateX: wrapperTranslateX,
     wrapperTranslateY: wrapperTranslateY,
     wrapperRotate: getUnit(numFromName, 360),
-    isCircle: isCircle(numFromName),
+    isCircle: getBoolean(numFromName),
     eyeSpread: getUnit(numFromName, 5) ,
     mouthSpread: getUnit(numFromName, 5),
     faceRotate: getUnit(numFromName, 10, 3),
