@@ -86,12 +86,11 @@ const AvatarBeam = ( props ) => {
             y="0"
             width={SIZE}
             height={SIZE}
-            transform={"translate(" + data.wrapperTranslateX + " " + data.wrapperTranslateY + ") rotate(" + data.wrapperRotate + ")"}
-            transform-origin="50%"
+            transform={"translate(" + data.wrapperTranslateX + " " + data.wrapperTranslateY + ") rotate(" + data.wrapperRotate + " " + SIZE / 2 + " " + SIZE / 2  +")"}
             fill={data.wrapperColor}
             rx={data.isCircle ? SIZE : SIZE/6}
           />
-          <g transform={"translate(" + data.faceTranslateX + " " + data.faceTranslateY + ") rotate("+ data.faceRotate + ")"} transform-origin="50%">
+          <g transform={"translate(" + data.faceTranslateX + " " + data.faceTranslateY + ") rotate("+ data.faceRotate + " " + SIZE / 2 + " " + SIZE / 2  +")"}>
             <path d={"M15 "+ (18 + data.mouthSpread) + "c2 1 4 1 6 0"} stroke={data.faceColor} fill="none" strokeLinecap="round" />
             <rect x={12 - data.eyeSpread} y={14} width={2} height={2} rx={1} stroke="none" fill={data.faceColor} />
             <rect x={22 + data.eyeSpread} y={14} width={2} height={2} rx={1} stroke="none" fill={data.faceColor} />
