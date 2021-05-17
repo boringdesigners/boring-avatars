@@ -1,5 +1,5 @@
 import React from 'react'
-import { getNumber, getModulus, getRandomColor } from '../utilities'
+import { getNumber, getRandomColor } from '../utilities'
 
 const SIZE = 90
 const COLORS = 5
