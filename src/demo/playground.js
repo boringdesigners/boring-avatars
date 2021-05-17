@@ -182,7 +182,7 @@ const Playground = () => {
   }, [playgroundColors])
 
   const [avatarSize, setAvatarSize] = useState(avatarSizes.medium)
-  const [variant, setVariant] = useState(variants.circle)
+  const [variant, setVariant] = useState(variants.beam)
 
   return (
     <>

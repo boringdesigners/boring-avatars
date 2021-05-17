@@ -17,8 +17,8 @@ export const getDigit = (number, ntn) => {
   return Math.floor(( number/ Math.pow(10, ntn)) % 10);
 }
 
-export const getBoolean = (number) => {
-  return (!((getDigit(number, 1)) % 2))
+export const getBoolean = (number, ntn) => {
+  return (!((getDigit(number, ntn)) % 2))
 }
 
 export const getAngle = (x, y) => {
