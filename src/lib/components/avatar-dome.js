@@ -32,7 +32,7 @@ function generateColors(colors, name) {
   return level1Colors.concat(level2Colors, level3Colors);
 }
 
-const AvatarGeometric = ( props ) => {
+const AvatarDome = ( props ) => {
   const cellColors = generateColors(props.colors, props.name)
 
   return (
@@ -59,4 +59,4 @@ const AvatarGeometric = ( props ) => {
   )
 }
 
-export default AvatarGeometric
+export default AvatarDome

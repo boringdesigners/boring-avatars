@@ -1,20 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import AvatarGeometric from './avatar-geometric'
-import AvatarAbstract from './avatar-abstract'
-import AvatarCircle from './avatar-circle'
+import AvatarDome from './avatar-dome'
+import AvatarMoholy from './avatar-moholy'
+import AvatarRing from './avatar-ring'
 import AvatarBeam from './avatar-beam'
 import AvatarMarble from './avatar-marble'
 
 const Avatar = ({ variant, colors, name, size, ...props }) => {
-  if(variant === 'abstract') {
+  if(variant === 'moholy') {
     return (
-      <AvatarAbstract colors={colors} name={name} size={size} {...props}/>
+      <AvatarMoholy colors={colors} name={name} size={size} {...props}/>
     )
   }
-  if(variant === 'circle') {
+  if(variant === 'ring') {
     return (
-      <AvatarCircle colors={colors} name={name} size={size} {...props}/>
+      <AvatarRing colors={colors} name={name} size={size} {...props}/>
     )
   }
   if(variant === 'beam') {
@@ -22,9 +22,9 @@ const Avatar = ({ variant, colors, name, size, ...props }) => {
       <AvatarBeam colors={colors} name={name} size={size} {...props}/>
     )
   }
-  if(variant === 'geometric') {
+  if(variant === 'dome') {
     return (
-      <AvatarGeometric colors={colors} name={name} size={size} {...props}/>
+      <AvatarDome colors={colors} name={name} size={size} {...props}/>
       )
     }
     return (
@@ -40,7 +40,7 @@ Avatar.defaultProps = {
 }
 
 Avatar.propTypes = {
-  variant: PropTypes.oneOf(['geometric', 'abstract', 'marble', 'beam'])
+  variant: PropTypes.oneOf(['dome', 'moholy', 'marble', 'beam', 'ring'])
 }
 
 export default Avatar

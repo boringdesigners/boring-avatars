@@ -3,6 +3,7 @@ import { getNumber, getUnit, getRandomColor } from '../utilities'
 
 const ELEMENTS = 4
 const SIZE = 80
+const RECT_WIDTH = 60
 
 function generateColors(name, colors) {
   const numFromName = getNumber(name)
@@ -10,16 +11,16 @@ function generateColors(name, colors) {
 
   const elementsProperties = Array.from({length: ELEMENTS}, (_,i) => ({
     color: getRandomColor(numFromName + i, colors, range),
-    translateX: getUnit(numFromName / (i + 1), (SIZE/13 - (i * 8)), 1),
-    translateY: getUnit(numFromName / (i + 1), (SIZE/13 - (i * 8)), 2),
-    rotate: getUnit(numFromName / (i + 1), 360),
+    translateX: getUnit(numFromName * (i + 1), (SIZE/2 - (i * 8)), 1),
+    translateY: getUnit(numFromName * (i + 1), (SIZE/2 - (i * 8)), 2),
+    rotate: getUnit(numFromName * (i + 3), 360),
   }));
 
 
   return elementsProperties
 }
 
-const AvatarAbstract = ( props ) => {
+const AvatarMoholy = ( props ) => {
   const properties = generateColors(props.name, props.colors)
 
   return (
@@ -47,24 +48,25 @@ const AvatarAbstract = ( props ) => {
             rx={SIZE / 2}
             fill={properties[0].color}
           />
-          <g transform={"rotate(" + properties[0].rotate + " " + SIZE / 2 + " " + SIZE / 2 +")"}>
-            <path
-              d="M8 56.5L19.667 24L63.833 36.5L79.667 80.666L19.667 103.166L8 56.5Z"
-              fill={properties[1].color}
-              transform={"translate(" + properties[1].translateX + " " + properties[1].translateY + ") rotate(" + properties[1].rotate + " " + SIZE / 2 + " " + SIZE  +")"}
-            />
-          </g>
+          <rect
+            x={(SIZE - 60) / 2}
+            y={(SIZE - 20) / 2}
+            width={RECT_WIDTH}
+            height={RECT_WIDTH/3}
+            fill={properties[1].color}
+            transform={"translate(" + (properties[1].translateX) + " " + (properties[1].translateY) + ") rotate(" + properties[1].rotate + " " + SIZE / 2 + " " + SIZE / 2  +")"}
+          />
           <circle
             cx={SIZE / 2}
             cy={SIZE / 2}
             fill={properties[2].color}
-            r={17.5}
+            r={SIZE/5}
             transform={"translate(" + properties[2].translateX + " " + properties[2].translateY + ")"}
-          />
+            />
           <line
-            x1="0"
+            x1={0}
             y1={SIZE / 2}
-            x2="80"
+            x2={SIZE}
             y2={SIZE / 2}
             strokeWidth={2}
             stroke={properties[3].color}
@@ -76,4 +78,4 @@ const AvatarAbstract = ( props ) => {
   )
 }
 
-export default AvatarAbstract
+export default AvatarMoholy

@@ -147,9 +147,9 @@ const SizeDot = ({size, isSelected, ...props}) => {
 }
 
 const variants = {
-  geometric: 'geometric',
-  abstract: 'abstract',
-  circle: 'circle',
+  dome: 'dome',
+  moholy: 'moholy',
+  ring: 'ring',
   marble: 'marble',
   beam: 'beam'
 }
@@ -182,18 +182,18 @@ const Playground = () => {
   }, [playgroundColors])
 
   const [avatarSize, setAvatarSize] = useState(avatarSizes.medium)
-  const [variant, setVariant] = useState(variants.beam)
+  const [variant, setVariant] = useState(variants.moholy)
 
   return (
     <>
       <BaseStyles darkMode={darkMode} />
       <Header>
         <SegmentGroup>
-          <Segment onClick={() => setVariant(variants.circle)} isSelected={variant === variants.circle}>C</Segment>
-          <Segment onClick={() => setVariant(variants.marble)} isSelected={variant === variants.marble}>M</Segment>
-          <Segment onClick={() => setVariant(variants.beam)} isSelected={variant === variants.beam}>B</Segment>
-          <Segment onClick={() => setVariant(variants.geometric)} isSelected={variant === variants.geometric}>G</Segment>
-          <Segment onClick={() => setVariant(variants.abstract)} isSelected={variant === variants.abstract}>A</Segment>
+          <Segment onClick={() => setVariant(variants.ring)} isSelected={variant === variants.ring}>Ring</Segment>
+          <Segment onClick={() => setVariant(variants.marble)} isSelected={variant === variants.marble}>Marble</Segment>
+          <Segment onClick={() => setVariant(variants.beam)} isSelected={variant === variants.beam}>Beam</Segment>
+          <Segment onClick={() => setVariant(variants.dome)} isSelected={variant === variants.dome}>Dome</Segment>
+          <Segment onClick={() => setVariant(variants.moholy)} isSelected={variant === variants.moholy}>Moholy</Segment>
         </SegmentGroup>
         <ColorsSection>
           <ColorDot value={dotColor0} onChange={(color) => setDotColor0(color)} />

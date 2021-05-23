@@ -22,7 +22,7 @@ function generateColors(colors, name) {
   return iconColors
 }
 
-const AvatarCircle = ( props ) => {
+const AvatarRing = ( props ) => {
   const cellColors = generateColors(props.colors, props.name)
 
   return (
@@ -46,4 +46,4 @@ const AvatarCircle = ( props ) => {
   )
 }
 
-export default AvatarCircle
+export default AvatarRing
