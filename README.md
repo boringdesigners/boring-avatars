@@ -14,13 +14,13 @@ Boring avatars is a tiny JavaScript React library that generates custom, SVG-bas
 ## Install
 
 ```
-yarn add import boring-avatars
+yarn add boring-avatars
 ```
 
 or
 
 ```
-npm install import boring-avatars
+npm install boring-avatars
 ```
 
 ## Usage
