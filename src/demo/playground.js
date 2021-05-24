@@ -151,6 +151,7 @@ const variants = {
   bauhaus: 'bauhaus',
   ring: 'ring',
   sunset: 'sunset',
+  pixel: 'pixel',
   marble: 'marble',
   beam: 'beam'
 }
@@ -183,13 +184,14 @@ const Playground = () => {
   }, [playgroundColors])
 
   const [avatarSize, setAvatarSize] = useState(avatarSizes.medium)
-  const [variant, setVariant] = useState(variants.sunset)
+  const [variant, setVariant] = useState(variants.pixel)
 
   return (
     <>
       <BaseStyles darkMode={darkMode} />
       <Header>
         <SegmentGroup>
+          <Segment onClick={() => setVariant(variants.pixel)} isSelected={variant === variants.pixel}>Pixel</Segment>
           <Segment onClick={() => setVariant(variants.sunset)} isSelected={variant === variants.sunset}>Sunset</Segment>
           <Segment onClick={() => setVariant(variants.ring)} isSelected={variant === variants.ring}>Ring</Segment>
           <Segment onClick={() => setVariant(variants.marble)} isSelected={variant === variants.marble}>Marble</Segment>

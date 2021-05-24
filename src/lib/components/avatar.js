@@ -3,11 +3,17 @@ import PropTypes from 'prop-types'
 import AvatarDome from './avatar-dome'
 import AvatarBauhaus from './avatar-bauhaus'
 import AvatarRing from './avatar-ring'
+import AvatarPixel from './avatar-pixel'
 import AvatarBeam from './avatar-beam'
 import AvatarSunset from './avatar-sunset'
 import AvatarMarble from './avatar-marble'
 
 const Avatar = ({ variant, colors, name, size, ...props }) => {
+  if(variant === 'pixel') {
+    return (
+      <AvatarPixel colors={colors} name={name} size={size} {...props}/>
+    )
+  }
   if(variant === 'bauhaus') {
     return (
       <AvatarBauhaus colors={colors} name={name} size={size} {...props}/>

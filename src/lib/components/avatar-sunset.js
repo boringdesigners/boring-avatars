@@ -15,7 +15,7 @@ function generateColors(name, colors) {
   return elementsProperties
 }
 
-const AvatarStrata = ( props ) => {
+const AvatarSunset = ( props ) => {
   const properties = generateColors(props.name, props.colors)
   const name = props.name.replace(/\s/g, '');
 
@@ -70,4 +70,4 @@ const AvatarStrata = ( props ) => {
   )
 }
 
-export default AvatarStrata
+export default AvatarSunset
