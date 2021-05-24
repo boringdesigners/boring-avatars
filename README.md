@@ -31,9 +31,9 @@ npm install import boring-avatars
 import Avatar from "boring-avatars";
 
 <Avatar
-  size="64px"
+  size=40
   name="Maria Mitchell"
-  variant="abstract"
+  variant="marble"
   colors={["#92A1C6", "#146A7C", "#F0AB3D", "#C271B4", "#C20D90"]}
 />
 
