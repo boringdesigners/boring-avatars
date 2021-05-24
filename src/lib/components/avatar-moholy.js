@@ -1,9 +1,8 @@
 import * as React from "react"
-import { getNumber, getUnit, getRandomColor } from '../utilities'
+import { getNumber, getUnit, getRandomColor, getBoolean } from '../utilities'
 
 const ELEMENTS = 4
 const SIZE = 80
-const RECT_WIDTH = 60
 
 function generateColors(name, colors) {
   const numFromName = getNumber(name)
@@ -11,9 +10,10 @@ function generateColors(name, colors) {
 
   const elementsProperties = Array.from({length: ELEMENTS}, (_,i) => ({
     color: getRandomColor(numFromName + i, colors, range),
-    translateX: getUnit(numFromName * (i + 1), (SIZE/2 - (i * 8)), 1),
-    translateY: getUnit(numFromName * (i + 1), (SIZE/2 - (i * 8)), 2),
-    rotate: getUnit(numFromName * (i + 3), 360),
+    translateX: getUnit(numFromName * (i + 1), (SIZE/2 - (i + 17)), 1),
+    translateY: getUnit(numFromName * (i + 1), (SIZE/2 - (i + 17)), 2),
+    rotate: getUnit(numFromName * (i + 1), 360),
+    isSquare: getBoolean(numFromName, 2)
   }));
 
 
@@ -51,8 +51,8 @@ const AvatarMoholy = ( props ) => {
           <rect
             x={(SIZE - 60) / 2}
             y={(SIZE - 20) / 2}
-            width={RECT_WIDTH}
-            height={RECT_WIDTH/3}
+            width={SIZE}
+            height={properties[1].isSquare ? SIZE : SIZE/8}
             fill={properties[1].color}
             transform={"translate(" + (properties[1].translateX) + " " + (properties[1].translateY) + ") rotate(" + properties[1].rotate + " " + SIZE / 2 + " " + SIZE / 2  +")"}
           />
