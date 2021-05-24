@@ -1,4 +1,4 @@
-<img width="1392" alt="boring-avatars" src="https://user-images.githubusercontent.com/912236/117571068-4063d200-b0cd-11eb-8de6-2a8471501d19.png">
+![boring avatars preview](https://github.com/boringdesigners/boring-avatars/blob/master/public/boring-avatars-preview.png?raw=true)
 
 
 <a href="https://www.npmjs.com/package/boring-avatars">
