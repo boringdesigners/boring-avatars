@@ -1,16 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import AvatarDome from './avatar-dome'
-import AvatarMoholy from './avatar-moholy'
+import AvatarBauhaus from './avatar-bauhaus'
 import AvatarRing from './avatar-ring'
 import AvatarBeam from './avatar-beam'
-import AvatarStrata from './avatar-strata'
+import AvatarSunset from './avatar-sunset'
 import AvatarMarble from './avatar-marble'
 
 const Avatar = ({ variant, colors, name, size, ...props }) => {
-  if(variant === 'moholy') {
+  if(variant === 'bauhaus') {
     return (
-      <AvatarMoholy colors={colors} name={name} size={size} {...props}/>
+      <AvatarBauhaus colors={colors} name={name} size={size} {...props}/>
     )
   }
   if(variant === 'ring') {
@@ -23,9 +23,9 @@ const Avatar = ({ variant, colors, name, size, ...props }) => {
       <AvatarBeam colors={colors} name={name} size={size} {...props}/>
     )
   }
-  if(variant === 'strata') {
+  if(variant === 'sunset') {
     return (
-      <AvatarStrata colors={colors} name={name} size={size} {...props}/>
+      <AvatarSunset colors={colors} name={name} size={size} {...props}/>
     )
   }
   if(variant === 'dome') {
@@ -46,7 +46,7 @@ Avatar.defaultProps = {
 }
 
 Avatar.propTypes = {
-  variant: PropTypes.oneOf(['dome', 'moholy', 'marble', 'beam', 'ring'])
+  variant: PropTypes.oneOf(['dome', 'bauhaus', 'marble', 'beam', 'ring'])
 }
 
 export default Avatar

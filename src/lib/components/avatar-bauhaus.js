@@ -20,7 +20,7 @@ function generateColors(name, colors) {
   return elementsProperties
 }
 
-const AvatarMoholy = ( props ) => {
+const AvatarBauhaus = ( props ) => {
   const properties = generateColors(props.name, props.colors)
 
   return (
@@ -78,4 +78,4 @@ const AvatarMoholy = ( props ) => {
   )
 }
 
-export default AvatarMoholy
+export default AvatarBauhaus
