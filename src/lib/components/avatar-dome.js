@@ -22,14 +22,12 @@ function generateColors(colors, name) {
   const numFromName = getNumber(name)
   const range = colors && colors.length
   const startingCell = getModulus(numFromName, CELLS_LAYER)
+  const level1Colors = Array.from({length: CELLS_LAYER}, (_, i) => getRandomColor(numFromName % (i+3), colors, range));
+
   const level2Color = getRandomColor(numFromName + LAYERS, colors, range)
   const level3Color = getRandomColor(numFromName - LAYERS, colors, range)
 
-  const level1Colors = Array.from({length: CELLS_LAYER}, (_, i) => getRandomColor(numFromName % (i+3), colors, range));
-  const level2Colors = oddCells(level2Color, 'none', startingCell)
-  const level3Colors = oddCells('none', level3Color, startingCell)
-
-  return level1Colors.concat(level2Colors, level3Colors);
+  return level1Colors.concat(oddCells(level2Color, 'none', startingCell), oddCells('none', level3Color, startingCell));
 }
 
 const AvatarDome = ( props ) => {
