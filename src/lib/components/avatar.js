@@ -9,6 +9,7 @@ import AvatarSunset from './avatar-sunset'
 import AvatarMarble from './avatar-marble'
 
 const variants = ['pixel','bauhaus','ring','beam','sunset','dome','marble']
+const deprecatedVariants = {geometric: 'dome', abstract: 'bauhaus'}
 
 const Avatar = ({
   variant = 'marble',
@@ -18,7 +19,15 @@ const Avatar = ({
   ...props
 }) => {
   const avatarProps = {colors, name, size, ...props}
-  const checkedVariant = variants.includes(variant) ? variant : 'marble'
+  const checkedVariant = () => {
+    if(Object.keys(deprecatedVariants).includes(variant)) {
+      return deprecatedVariants[variant]
+    }
+    if(variants.includes(variant)) {
+      return variant
+    }
+    return 'marble'
+  }
   const avatars = {
     pixel: <AvatarPixel {...avatarProps}/>,
     bauhaus: <AvatarBauhaus {...avatarProps}/>,
@@ -28,7 +37,7 @@ const Avatar = ({
     dome: <AvatarDome {...avatarProps}/>,
     marble: <AvatarMarble {...avatarProps}/>,
   }
-  return avatars[checkedVariant]
+  return avatars[checkedVariant()]
 }
 
 Avatar.propTypes = {
