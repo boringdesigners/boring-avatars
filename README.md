@@ -46,5 +46,5 @@ import Avatar from "boring-avatars";
 | ------- | ------------------------------                    |
 | size    | number or string                                  |
 | name    | string                                            |
-| variant | oneOf: `marble`, `beam`, `ring`, `bauhaus`, `dome` |
+| variant | oneOf: `marble`, `beam`, `pixel`, `ring`, `bauhaus`, `dome` |
 | colors  | array of colors                                   |

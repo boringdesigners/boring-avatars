@@ -32,7 +32,7 @@ const AvatarBauhaus = ( props ) => {
         {...props}
       >
         <mask
-          id="prefix__a"
+          id="mask__bauhaus"
           maskUnits="userSpaceOnUse"
           x={0}
           y={0}
@@ -41,7 +41,7 @@ const AvatarBauhaus = ( props ) => {
         >
           <rect width={SIZE} height={SIZE} rx={SIZE / 2} fill="#fff" />
         </mask>
-        <g mask="url(#prefix__a)">
+        <g mask="url(#mask__bauhaus)">
           <rect
             width={SIZE}
             height={SIZE}

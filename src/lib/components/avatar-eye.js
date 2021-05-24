@@ -53,7 +53,7 @@ const AvatarEye = ( props ) => {
         {...props}
       >
         <mask
-          id="prefix__a"
+          id="mask__eye"
           maskUnits="userSpaceOnUse"
           x={0}
           y={0}
@@ -65,7 +65,7 @@ const AvatarEye = ( props ) => {
             fill="#fff"
           />
         </mask>
-        <g mask="url(#prefix__a)">
+        <g mask="url(#mask__eye)">
           <path
             d="M36 18c0-9.941-8.059-18-18-18S0 8.059 0 18s8.059 18 18 18 18-8.059 18-18z"
             fill={data.backgroundColor}

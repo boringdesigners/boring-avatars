@@ -28,7 +28,7 @@ const AvatarSunset = ( props ) => {
         {...props}
       >
         <mask
-          id="prefix__a"
+          id="mask__sunset"
           maskUnits="userSpaceOnUse"
           x={0}
           y={0}
@@ -37,7 +37,7 @@ const AvatarSunset = ( props ) => {
         >
           <circle cx={SIZE/2} cy={SIZE/2} r={SIZE/2} fill="white" />
         </mask>
-        <g mask="url(#prefix__a)">
+        <g mask="url(#mask__sunset)">
           <path fill={"url(#gradient_paint0_linear_"+ name +")"} d="M0 0h80v40H0z" />
           <path fill={"url(#gradient_paint1_linear_"+ name +")"} d="M0 40h80v40H0z" />
         </g>

@@ -31,7 +31,7 @@ const AvatarMarble = ( props ) => {
         {...props}
       >
         <mask
-          id="prefix__a"
+          id="mask__eye"
           maskUnits="userSpaceOnUse"
           x={0}
           y={0}
@@ -43,7 +43,7 @@ const AvatarMarble = ( props ) => {
             fill="#fff"
           />
         </mask>
-        <g mask="url(#prefix__a)">
+        <g mask="url(#mask__eye)">
           <path
             d="M80 40C80 17.909 62.091 0 40 0S0 17.909 0 40s17.909 40 40 40 40-17.909 40-40z"
             fill={properties[0].color}
