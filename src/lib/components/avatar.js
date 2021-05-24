@@ -4,6 +4,7 @@ import AvatarDome from './avatar-dome'
 import AvatarMoholy from './avatar-moholy'
 import AvatarRing from './avatar-ring'
 import AvatarBeam from './avatar-beam'
+import AvatarStrata from './avatar-strata'
 import AvatarMarble from './avatar-marble'
 
 const Avatar = ({ variant, colors, name, size, ...props }) => {
@@ -20,6 +21,11 @@ const Avatar = ({ variant, colors, name, size, ...props }) => {
   if(variant === 'beam') {
     return (
       <AvatarBeam colors={colors} name={name} size={size} {...props}/>
+    )
+  }
+  if(variant === 'strata') {
+    return (
+      <AvatarStrata colors={colors} name={name} size={size} {...props}/>
     )
   }
   if(variant === 'dome') {

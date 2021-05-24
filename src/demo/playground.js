@@ -150,6 +150,7 @@ const variants = {
   dome: 'dome',
   moholy: 'moholy',
   ring: 'ring',
+  strata: 'strata',
   marble: 'marble',
   beam: 'beam'
 }
@@ -182,13 +183,14 @@ const Playground = () => {
   }, [playgroundColors])
 
   const [avatarSize, setAvatarSize] = useState(avatarSizes.medium)
-  const [variant, setVariant] = useState(variants.moholy)
+  const [variant, setVariant] = useState(variants.strata)
 
   return (
     <>
       <BaseStyles darkMode={darkMode} />
       <Header>
         <SegmentGroup>
+          <Segment onClick={() => setVariant(variants.strata)} isSelected={variant === variants.strata}>Strata</Segment>
           <Segment onClick={() => setVariant(variants.ring)} isSelected={variant === variants.ring}>Ring</Segment>
           <Segment onClick={() => setVariant(variants.marble)} isSelected={variant === variants.marble}>Marble</Segment>
           <Segment onClick={() => setVariant(variants.beam)} isSelected={variant === variants.beam}>Beam</Segment>
