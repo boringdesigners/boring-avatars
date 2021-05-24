@@ -8,47 +8,17 @@ import AvatarBeam from './avatar-beam'
 import AvatarSunset from './avatar-sunset'
 import AvatarMarble from './avatar-marble'
 
-const Avatar = ({ variant, colors, name, size, ...props }) => {
-  if(variant === 'pixel') {
-    return (
-      <AvatarPixel colors={colors} name={name} size={size} {...props}/>
-    )
+const Avatar = ({ variant = 'marble', colors = ['#92A1C6', '#146A7C', '#F0AB3D', '#C271B4', '#C20D90'], name = 'Clara Barton', size = 40, ...props }) => {
+  const avatars = {
+    pixel: <AvatarPixel colors={colors} name={name} size={size} {...props}/>,
+    bauhaus: <AvatarBauhaus colors={colors} name={name} size={size} {...props}/>,
+    ring: <AvatarRing colors={colors} name={name} size={size} {...props}/>,
+    beam: <AvatarBeam colors={colors} name={name} size={size} {...props}/>,
+    sunset: <AvatarSunset colors={colors} name={name} size={size} {...props}/>,
+    dome: <AvatarDome colors={colors} name={name} size={size} {...props}/>,
+    marble: <AvatarMarble colors={colors} name={name} size={size} {...props}/>,
   }
-  if(variant === 'bauhaus') {
-    return (
-      <AvatarBauhaus colors={colors} name={name} size={size} {...props}/>
-    )
-  }
-  if(variant === 'ring') {
-    return (
-      <AvatarRing colors={colors} name={name} size={size} {...props}/>
-    )
-  }
-  if(variant === 'beam') {
-    return (
-      <AvatarBeam colors={colors} name={name} size={size} {...props}/>
-    )
-  }
-  if(variant === 'sunset') {
-    return (
-      <AvatarSunset colors={colors} name={name} size={size} {...props}/>
-    )
-  }
-  if(variant === 'dome') {
-    return (
-      <AvatarDome colors={colors} name={name} size={size} {...props}/>
-      )
-    }
-    return (
-    <AvatarMarble colors={colors} name={name} size={size} {...props}/>
-  )
-}
-
-Avatar.defaultProps = {
-  variant: 'marble',
-  colors: ['#92A1C6', '#146A7C', '#F0AB3D', '#C271B4', '#C20D90'],
-  name: 'Clara Barton',
-  size: 40,
+  return avatars[variant]
 }
 
 Avatar.propTypes = {
