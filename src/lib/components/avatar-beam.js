@@ -45,7 +45,7 @@ const AvatarBeam = ( props ) => {
         {...props}
       >
         <mask
-          id="mask__bauhaus"
+          id="mask__beam"
           maskUnits="userSpaceOnUse"
           x={0}
           y={0}
@@ -59,7 +59,7 @@ const AvatarBeam = ( props ) => {
             fill="white"
           />
         </mask>
-        <g mask="url(#mask__bauhaus)" fill="transparent">
+        <g mask="url(#mask__beam)" fill="transparent">
           <rect
             width={SIZE}
             height={SIZE}
