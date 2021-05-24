@@ -49,5 +49,7 @@ import Avatar from "boring-avatars";
 | variant | oneOf: `marble`, `beam`, `ring`, `moholy`, `dome` |
 | colors  | array of colors                                   |
 
----
+
+
+
 
