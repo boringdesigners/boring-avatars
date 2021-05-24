@@ -11,6 +11,8 @@
 
 # Boring Avatars
 
+Boring avatars is a tiny JavaScript React library that generates custom, SVG-based, round avatars from any username and color palette.
+
 ## Install
 
 ```
