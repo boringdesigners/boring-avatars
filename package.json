@@ -4,7 +4,7 @@
   "main": "build/index.js",
   "scripts": {
     "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
+    "build": "node scripts/build.js && rm build/index.js.map",
     "demo": "node scripts/demo.js",
     "test": "node scripts/test.js"
   },
