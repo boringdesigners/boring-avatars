@@ -1,6 +1,6 @@
 {
   "name": "boring-avatars",
-  "version": "1.4.8",
+  "version": "1.4.9",
   "main": "build/index.js",
   "scripts": {
     "start": "node scripts/start.js",
