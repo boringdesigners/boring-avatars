@@ -8,6 +8,8 @@ import AvatarBeam from './avatar-beam'
 import AvatarSunset from './avatar-sunset'
 import AvatarMarble from './avatar-marble'
 
+const variants = ['pixel','bauhaus','ring','beam','sunset','dome','marble']
+
 const Avatar = ({
   variant = 'marble',
   colors = ['#92A1C6', '#146A7C', '#F0AB3D', '#C271B4', '#C20D90'],
@@ -16,6 +18,7 @@ const Avatar = ({
   ...props
 }) => {
   const avatarProps = {colors, name, size, ...props}
+  const checkedVariant = variants.includes(variant) ? variant : 'marble'
   const avatars = {
     pixel: <AvatarPixel {...avatarProps}/>,
     bauhaus: <AvatarBauhaus {...avatarProps}/>,
@@ -25,11 +28,11 @@ const Avatar = ({
     dome: <AvatarDome {...avatarProps}/>,
     marble: <AvatarMarble {...avatarProps}/>,
   }
-  return avatars[variant]
+  return avatars[checkedVariant]
 }
 
 Avatar.propTypes = {
-  variant: PropTypes.oneOf(['dome', 'pixel', 'sunset', 'bauhaus', 'marble', 'beam', 'ring'])
+  variant: PropTypes.oneOf(variants)
 }
 
 export default Avatar
