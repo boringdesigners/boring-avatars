@@ -97,9 +97,9 @@ const AvatarWrapper = ({ name, playgroundColors, size, variant }) => {
         onChange={e => setAvatarName(e.target.value)}
         onFocus={(e) => handleFocus(e)}
       />
-      <CopyToClipboard text={copyValue}>
+      {/* <CopyToClipboard text={copyValue}>
         <Button>Copy</Button>
-      </CopyToClipboard>
+      </CopyToClipboard> */}
     </AvatarContainer>
   )
 }

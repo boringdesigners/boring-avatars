@@ -11,8 +11,8 @@ const cssVariables = css`
   --textbox-y: 0.4rem;
   --textbox: 0.4rem 1rem;
 
-  --pagePadding: var(--sp-xl);
-  
+  --pagePadding: var(--sp-l);
+
   --buttonHeight: 1.8rem;
 
   --c-fieldHover: hsla(0,0%,0%,0.15);
