@@ -38,9 +38,9 @@ import Avatar from "boring-avatars";
 
 ### Props
 
-| Prop    | Type                                                                 |
-| ------- | -------------------------------------------------------------------- |
-| size    | number or string                                                     |
-| name    | string                                                               |
-| variant | oneOf: `marble`, `beam`, `pixel`,`sunset`, `ring`, `bauhaus`, `dome` |
-| colors  | array of colors                                                      |
+| Prop    | Type                                                         |
+| ------- | ------------------------------------------------------------ |
+| size    | number or string                                             |
+| name    | string                                                       |
+| variant | oneOf: `marble`, `beam`, `pixel`,`sunset`, `ring`, `bauhaus` |
+| colors  | array of colors                                              |

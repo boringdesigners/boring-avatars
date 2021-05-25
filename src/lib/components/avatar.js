@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import AvatarDome from './avatar-dome'
 import AvatarBauhaus from './avatar-bauhaus'
 import AvatarRing from './avatar-ring'
 import AvatarPixel from './avatar-pixel'
@@ -8,8 +7,8 @@ import AvatarBeam from './avatar-beam'
 import AvatarSunset from './avatar-sunset'
 import AvatarMarble from './avatar-marble'
 
-const variants = ['pixel','bauhaus','ring','beam','sunset','dome','marble']
-const deprecatedVariants = {geometric: 'dome', abstract: 'bauhaus'}
+const variants = ['pixel','bauhaus','ring','beam','sunset','marble']
+const deprecatedVariants = {geometric: 'beam', abstract: 'bauhaus'}
 
 const Avatar = ({
   variant = 'marble',
@@ -34,7 +33,6 @@ const Avatar = ({
     ring: <AvatarRing {...avatarProps}/>,
     beam: <AvatarBeam {...avatarProps}/>,
     sunset: <AvatarSunset {...avatarProps}/>,
-    dome: <AvatarDome {...avatarProps}/>,
     marble: <AvatarMarble {...avatarProps}/>,
   }
   return avatars[checkedVariant()]

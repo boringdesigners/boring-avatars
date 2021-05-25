@@ -147,7 +147,6 @@ const SizeDot = ({size, isSelected, ...props}) => {
 }
 
 const variants = {
-  dome: 'dome',
   bauhaus: 'bauhaus',
   ring: 'ring',
   sunset: 'sunset',
@@ -196,7 +195,6 @@ const Playground = () => {
           <Segment onClick={() => setVariant(variants.ring)} isSelected={variant === variants.ring}>Ring</Segment>
           <Segment onClick={() => setVariant(variants.marble)} isSelected={variant === variants.marble}>Marble</Segment>
           <Segment onClick={() => setVariant(variants.beam)} isSelected={variant === variants.beam}>Beam</Segment>
-          <Segment onClick={() => setVariant(variants.dome)} isSelected={variant === variants.dome}>Dome</Segment>
           <Segment onClick={() => setVariant(variants.bauhaus)} isSelected={variant === variants.bauhaus}>Bauhaus</Segment>
         </SegmentGroup>
         <ColorsSection>
