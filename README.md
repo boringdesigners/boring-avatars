@@ -1,4 +1,3 @@
-
 # Boring Avatars
 
 Boring avatars is a tiny JavaScript React library that generates custom, SVG-based, round avatars from any username and color palette.
@@ -27,21 +26,22 @@ npm install boring-avatars
 ## Usage
 
 ```jsx
-import Avatar from "boring-avatars";
+import Avatar from 'boring-avatars'
 
-<Avatar
+;<Avatar
   size={40}
   name="Maria Mitchell"
   variant="marble"
-  colors={["#92A1C6", "#146A7C", "#F0AB3D", "#C271B4", "#C20D90"]}
-/>;
+  colors={['#92A1C6', '#146A7C', '#F0AB3D', '#C271B4', '#C20D90']}
+/>
 ```
 
 ### Props
 
-| Prop    | Type                                                         |
-| ------- | ------------------------------------------------------------ |
-| size    | number or string                                             |
-| name    | string                                                       |
-| variant | oneOf: `marble`, `beam`, `pixel`,`sunset`, `ring`, `bauhaus` |
-| colors  | array of colors                                              |
+| Prop         | Type                                                         |
+| ------------ | ------------------------------------------------------------ |
+| size         | number or string                                             |
+| name         | string                                                       |
+| variant      | oneOf: `marble`, `beam`, `pixel`,`sunset`, `ring`, `bauhaus` |
+| colors       | array of colors                                              |
+| borderRadius | number e.g. 24 or string '24px' / '50%'                      |
