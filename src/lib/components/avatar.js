@@ -50,7 +50,7 @@ Avatar.defaultProps = {
   name: 'Clara Barton',
   size: 40,
   variant: 'marble',
-  borderRadius: 20,
+  borderRadius: '50%',
 }
 
 export default Avatar

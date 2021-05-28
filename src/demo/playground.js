@@ -180,8 +180,8 @@ const Playground = () => {
   }, [playgroundColors])
 
   const [avatarSize, setAvatarSize] = useState(avatarSizes.medium)
-  const [variant, setVariant] = useState(variants.bauhaus)
-  const [borderRadius, setBorderRadius] = useState('0')
+  const [variant, setVariant] = useState(variants.pixel)
+  const [borderRadius, setBorderRadius] = useState('50')
 
   const borderRadiusPercentage = borderRadius + '%'
 
