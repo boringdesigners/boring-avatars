@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import { getBorderRadius, getNumber, getRandomColor } from '../utilities'
+import { getNumber, getRandomColor } from '../utilities'
 
 const ELEMENTS = 4
 const SIZE = 80
