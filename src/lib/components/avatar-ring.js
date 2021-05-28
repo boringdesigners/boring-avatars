@@ -24,7 +24,7 @@ function generateColors(name, colors) {
   return iconColors
 }
 
-const AvatarRing = ({ name, colors, size, ...rest }) => {
+const AvatarRing = ({ name, colors, size, borderRadius, style, ...rest }) => {
   const cellColors = useMemo(() => generateColors(name, colors), [name, colors])
 
   return (
@@ -34,8 +34,13 @@ const AvatarRing = ({ name, colors, size, ...rest }) => {
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
+      style={{
+        borderRadius,
+        ...style,
+      }}
       {...rest}
     >
+      <circle cx={45} cy={45} r={SIZE} fill={cellColors[8]} />
       <path d="M90 45a45.001 45.001 0 00-76.82-31.82A45 45 0 000 45h90z" fill={cellColors[0]} />
       <path d="M90 45a45.001 45.001 0 01-76.82 31.82A45 45 0 010 45h90z" fill={cellColors[1]} />
       <path d="M83 45a38 38 0 00-76 0h76z" fill={cellColors[2]} />

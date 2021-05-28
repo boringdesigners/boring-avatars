@@ -42,6 +42,7 @@ Avatar.propTypes = {
   name: PropTypes.string,
   size: PropTypes.number,
   variant: PropTypes.oneOf(variants),
+  borderRadius: PropTypes.number,
 }
 
 Avatar.defaultProps = {
@@ -49,6 +50,7 @@ Avatar.defaultProps = {
   name: 'Clara Barton',
   size: 40,
   variant: 'marble',
+  borderRadius: 20,
 }
 
 export default Avatar

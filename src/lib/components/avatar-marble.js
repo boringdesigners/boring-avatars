@@ -19,7 +19,7 @@ function generateProperties(name, colors) {
   return elementsProperties
 }
 
-const AvatarMarble = ({ name, colors, size, ...rest }) => {
+const AvatarMarble = ({ name, colors, size, borderRadius, style, ...rest }) => {
   const properties = useMemo(() => generateProperties(name, colors), [colors, name])
 
   return (
@@ -29,19 +29,14 @@ const AvatarMarble = ({ name, colors, size, ...rest }) => {
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
+      style={{
+        borderRadius,
+        ...style,
+      }}
       {...rest}
     >
-      <mask id="mask__marble" maskUnits="userSpaceOnUse" x={0} y={0} width={SIZE} height={SIZE}>
-        <path
-          d="M80 40C80 17.909 62.091 0 40 0S0 17.909 0 40s17.909 40 40 40 40-17.909 40-40z"
-          fill="#fff"
-        />
-      </mask>
-      <g mask="url(#mask__marble)">
-        <path
-          d="M80 40C80 17.909 62.091 0 40 0S0 17.909 0 40s17.909 40 40 40 40-17.909 40-40z"
-          fill={properties[0].color}
-        />
+      <g>
+        <circle cx={size / 2} cy={size / 2} r={size} fill={properties[0].color} />
         <path
           filter="url(#prefix__filter0_f)"
           d="M32.414 59.35L50.376 70.5H72.5v-71H33.728L26.5 13.381l19.057 27.08L32.414 59.35z"

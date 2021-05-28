@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import { getNumber, getRandomColor } from '../utilities'
+import { getBorderRadius, getNumber, getRandomColor } from '../utilities'
 
 const ELEMENTS = 4
 const SIZE = 80
@@ -15,7 +15,7 @@ function generateColors(name, colors) {
   return elementsProperties
 }
 
-const AvatarSunset = ({ name, colors, size, ...rest }) => {
+const AvatarSunset = ({ name, colors, size, style, borderRadius, ...rest }) => {
   const properties = useMemo(() => generateColors(name, colors), [name, colors])
   name = name.replace(/\s/g, '')
 
@@ -26,12 +26,13 @@ const AvatarSunset = ({ name, colors, size, ...rest }) => {
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
+      style={{
+        borderRadius,
+        ...style,
+      }}
       {...rest}
     >
-      <mask id="mask__sunset" maskUnits="userSpaceOnUse" x={0} y={0} width={SIZE} height={SIZE}>
-        <circle cx={SIZE / 2} cy={SIZE / 2} r={SIZE / 2} fill="white" />
-      </mask>
-      <g mask="url(#mask__sunset)">
+      <g>
         <path fill={'url(#gradient_paint0_linear_' + name + ')'} d="M0 0h80v40H0z" />
         <path fill={'url(#gradient_paint1_linear_' + name + ')'} d="M0 40h80v40H0z" />
       </g>

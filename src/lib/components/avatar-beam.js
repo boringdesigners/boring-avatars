@@ -34,7 +34,7 @@ function generateProperties(name, colors) {
   return properties
 }
 
-const AvatarBeam = ({ name, colors, size, ...rest }) => {
+const AvatarBeam = ({ name, colors, size, borderRadius, style, ...rest }) => {
   const properties = useMemo(() => generateProperties(name, colors), [name, colors])
 
   return (
@@ -44,12 +44,13 @@ const AvatarBeam = ({ name, colors, size, ...rest }) => {
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
+      style={{
+        borderRadius,
+        ...style,
+      }}
       {...rest}
     >
-      <mask id="mask__beam" maskUnits="userSpaceOnUse" x={0} y={0} width={SIZE} height={SIZE}>
-        <rect width={SIZE} height={SIZE} rx={20} fill="white" />
-      </mask>
-      <g mask="url(#mask__beam)" fill="transparent">
+      <g fill="transparent">
         <rect width={SIZE} height={SIZE} rx={20} fill={properties.backgroundColor} />
         <rect
           x="0"

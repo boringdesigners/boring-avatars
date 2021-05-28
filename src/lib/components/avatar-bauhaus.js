@@ -19,7 +19,7 @@ function generateProperties(name, colors) {
   return elementsProperties
 }
 
-const AvatarBauhaus = ({ name, colors, size, ...rest }) => {
+const AvatarBauhaus = ({ name, colors, size, borderRadius, style, ...rest }) => {
   const properties = useMemo(() => generateProperties(name, colors), [colors, name])
 
   return (
@@ -29,13 +29,14 @@ const AvatarBauhaus = ({ name, colors, size, ...rest }) => {
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
+      style={{
+        borderRadius,
+        ...style,
+      }}
       {...rest}
     >
-      <mask id="mask__bauhaus" maskUnits="userSpaceOnUse" x={0} y={0} width={SIZE} height={SIZE}>
-        <rect width={SIZE} height={SIZE} rx={SIZE / 2} fill="#fff" />
-      </mask>
-      <g mask="url(#mask__bauhaus)">
-        <rect width={SIZE} height={SIZE} rx={SIZE / 2} fill={properties[0].color} />
+      <g>
+        <rect width={SIZE} height={SIZE} fill={properties[0].color} />
         <rect
           x={(SIZE - 60) / 2}
           y={(SIZE - 20) / 2}
