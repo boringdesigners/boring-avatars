@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { getNumber, getRandomColor } from '../utilities'
 
 const SIZE = 90
 const COLORS = 5
 
-function generateColors(colors, name) {
+function generateColors(name, colors) {
   const numFromName = getNumber(name)
   const range = colors && colors.length
-  const colorsShuffle = Array.from({length: COLORS}, (_, i) => getRandomColor(numFromName + (i+1), colors, range));
+  const colorsShuffle = Array.from({ length: COLORS }, (_, i) =>
+    getRandomColor(numFromName + (i + 1), colors, range),
+  )
   const iconColors = []
   iconColors[0] = colorsShuffle[0]
   iconColors[1] = colorsShuffle[1]
@@ -22,17 +24,17 @@ function generateColors(colors, name) {
   return iconColors
 }
 
-const AvatarRing = ( props ) => {
-  const cellColors = generateColors(props.colors, props.name)
+const AvatarRing = ({ name, colors, size, ...rest }) => {
+  const cellColors = useMemo(() => generateColors(name, colors), [name, colors])
 
   return (
     <svg
-      viewBox={"0 0 " + SIZE + " " + SIZE}
+      viewBox={'0 0 ' + SIZE + ' ' + SIZE}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      width={props.size}
-      height={props.size}
-      {...props}
+      width={size}
+      height={size}
+      {...rest}
     >
       <path d="M90 45a45.001 45.001 0 00-76.82-31.82A45 45 0 000 45h90z" fill={cellColors[0]} />
       <path d="M90 45a45.001 45.001 0 01-76.82 31.82A45 45 0 010 45h90z" fill={cellColors[1]} />

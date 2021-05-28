@@ -1,31 +1,31 @@
-import * as React from "react"
+import React, { useMemo } from 'react'
 import { getNumber, getRandomColor } from '../utilities'
 
 const ELEMENTS = 64
 const SIZE = 80
 
-function generateColors(name, colors) {
+function generateProperties(name, colors) {
   const numFromName = getNumber(name)
   const range = colors && colors.length
 
-  const elementsProperties = Array.from({length: ELEMENTS}, (_,i) => ({
-    color: getRandomColor(numFromName % (i+13), colors, range),
-  }));
+  const elementsProperties = Array.from({ length: ELEMENTS }, (_, i) => ({
+    color: getRandomColor(numFromName % (i + 13), colors, range),
+  }))
 
   return elementsProperties
 }
 
-const AvatarSunset = ( props ) => {
-  const properties = generateColors(props.name, props.colors)
+const AvatarSunset = ({ size, name, colors, ...rest }) => {
+  const properties = useMemo(() => generateProperties(name, colors), [colors, name])
 
   return (
     <svg
-      viewBox={"0 0 " + SIZE + " " + SIZE}
+      viewBox={'0 0 ' + SIZE + ' ' + SIZE}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      width={props.size}
-      height={props.size}
-      {...props}  
+      width={size}
+      height={size}
+      {...rest}
     >
       <mask
         id="mask0"
@@ -36,7 +36,7 @@ const AvatarSunset = ( props ) => {
         width={SIZE}
         height={SIZE}
       >
-        <circle cx={SIZE/2} cy={SIZE/2} r={SIZE/2} fill="white" />
+        <circle cx={SIZE / 2} cy={SIZE / 2} r={SIZE / 2} fill="white" />
       </mask>
       <g mask="url(#mask0)">
         <rect width={10} height={10} fill={properties[0].color} />

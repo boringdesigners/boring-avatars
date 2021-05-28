@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import PropTypes from 'prop-types'
 import AvatarBauhaus from './avatar-bauhaus'
 import AvatarRing from './avatar-ring'
@@ -7,39 +7,48 @@ import AvatarBeam from './avatar-beam'
 import AvatarSunset from './avatar-sunset'
 import AvatarMarble from './avatar-marble'
 
-const variants = ['pixel','bauhaus','ring','beam','sunset','marble']
-const deprecatedVariants = {geometric: 'beam', abstract: 'bauhaus'}
+const AVATAR_COMPONENTS = {
+  pixel: AvatarPixel,
+  bauhaus: AvatarBauhaus,
+  ring: AvatarRing,
+  beam: AvatarBeam,
+  sunset: AvatarSunset,
+  marble: AvatarMarble,
+}
 
-const Avatar = ({
-  variant = 'marble',
-  colors = ['#92A1C6', '#146A7C', '#F0AB3D', '#C271B4', '#C20D90'],
-  name = 'Clara Barton',
-  size = 40,
-  ...props
-}) => {
-  const avatarProps = {colors, name, size, ...props}
-  const checkedVariant = () => {
-    if(Object.keys(deprecatedVariants).includes(variant)) {
-      return deprecatedVariants[variant]
-    }
-    if(variants.includes(variant)) {
-      return variant
-    }
-    return 'marble'
+const variants = ['pixel', 'bauhaus', 'ring', 'beam', 'sunset', 'marble']
+const deprecatedVariants = { geometric: 'beam', abstract: 'bauhaus' }
+
+const checkVariant = (variant) => {
+  if (Object.keys(deprecatedVariants).includes(variant)) {
+    return deprecatedVariants[variant]
   }
-  const avatars = {
-    pixel: <AvatarPixel {...avatarProps}/>,
-    bauhaus: <AvatarBauhaus {...avatarProps}/>,
-    ring: <AvatarRing {...avatarProps}/>,
-    beam: <AvatarBeam {...avatarProps}/>,
-    sunset: <AvatarSunset {...avatarProps}/>,
-    marble: <AvatarMarble {...avatarProps}/>,
+  if (variants.includes(variant)) {
+    return variant
   }
-  return avatars[checkedVariant()]
+  return 'marble'
+}
+
+const Avatar = (props) => {
+  const { variant, ...avatarProps } = props
+
+  const Component = useMemo(() => AVATAR_COMPONENTS[checkVariant(variant)], [variant])
+
+  return <Component {...avatarProps} />
 }
 
 Avatar.propTypes = {
-  variant: PropTypes.oneOf(variants)
+  color: PropTypes.arrayOf(PropTypes.string),
+  name: PropTypes.string,
+  size: PropTypes.number,
+  variant: PropTypes.oneOf(variants),
+}
+
+Avatar.defaultProps = {
+  color: ['#92A1C6', '#146A7C', '#F0AB3D', '#C271B4', '#C20D90'],
+  name: 'Clara Barton',
+  size: 40,
+  variant: 'marble',
 }
 
 export default Avatar
