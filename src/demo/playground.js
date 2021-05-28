@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
-import { SegmentGroup, Segment, Button, BaseStyles, ColorDot } from './ui-system'
+import { SegmentGroup, Segment, Button, BaseStyles, ColorDot, Slider } from './ui-system'
 import colors from 'nice-color-palettes'
 import { exampleNames } from './example-names'
 import Avatar from '../lib'
@@ -65,14 +65,14 @@ const Input = styled.input`
   }
 `
 
-const AvatarWrapper = ({ name, playgroundColors, size, variant }) => {
+const AvatarWrapper = ({ name, playgroundColors, size, variant, borderRadius }) => {
   const [avatarName, setAvatarName] = useState(name)
   const handleFocus = (event) => event.target.select()
-  const ref = useRef();
+  const ref = useRef()
   const [copyValue, setCopyValue] = useState(name)
 
   useEffect(() => {
-    if(ref.current) {
+    if (ref.current) {
       const svgNode = ref.current.innerHTML
       const svgStart = svgNode.indexOf('<svg')
       const svgEnd = svgNode.indexOf('</svg>') + 6
@@ -90,11 +90,12 @@ const AvatarWrapper = ({ name, playgroundColors, size, variant }) => {
           colors={playgroundColors}
           size={size}
           variant={variants[variant]}
+          borderRadius={borderRadius}
         />
       </AvatarSection>
       <Input
         value={avatarName}
-        onChange={e => setAvatarName(e.target.value)}
+        onChange={(e) => setAvatarName(e.target.value)}
         onFocus={(e) => handleFocus(e)}
       />
       <CopyToClipboard text={copyValue}>
@@ -113,24 +114,24 @@ const avatarSizes = {
 }
 
 const SizeDotWrapper = styled(Button)`
-  ${p => p.isSelected && `background-color: var(--c-background)`};
-  ${p => !p.isSelected && `color: var(--c-fade)`};
+  ${(p) => p.isSelected && `background-color: var(--c-background)`};
+  ${(p) => !p.isSelected && `color: var(--c-fade)`};
 
   &:hover {
-    ${p => p.isSelected && `background-color: var(--c-background)`};
+    ${(p) => p.isSelected && `background-color: var(--c-background)`};
   }
 `
 
 const Dot = styled.div`
-  width: ${p => p.size}px;
-  height: ${p => p.size}px;
+  width: ${(p) => p.size}px;
+  height: ${(p) => p.size}px;
   background-color: currentColor;
   border-radius: 10rem;
 `
 
-const SizeDot = ({size, isSelected, ...props}) => {
+const SizeDot = ({ size, isSelected, ...props }) => {
   const getSize = () => {
-    switch(size) {
+    switch (size) {
       case avatarSizes.small:
         return 8
       case avatarSizes.medium:
@@ -141,9 +142,7 @@ const SizeDot = ({size, isSelected, ...props}) => {
         return 0
     }
   }
-  return(
-    <SizeDotWrapper isSelected={isSelected} icon={<Dot size={getSize()}/>} {...props} />
-  )
+  return <SizeDotWrapper isSelected={isSelected} icon={<Dot size={getSize()} />} {...props} />
 }
 
 const variants = {
@@ -152,7 +151,7 @@ const variants = {
   sunset: 'sunset',
   pixel: 'pixel',
   marble: 'marble',
-  beam: 'beam'
+  beam: 'beam',
 }
 
 const Playground = () => {
@@ -169,9 +168,7 @@ const Playground = () => {
   const filteredColors = [dotColor0, dotColor1, dotColor2, dotColor3, dotColor4]
 
   const handleRandomColors = () => {
-    setPlaygroundColors(
-      paletteColors[getRandomPaletteIndex()]
-    )
+    setPlaygroundColors(paletteColors[getRandomPaletteIndex()])
   }
 
   useEffect(() => {
@@ -183,19 +180,46 @@ const Playground = () => {
   }, [playgroundColors])
 
   const [avatarSize, setAvatarSize] = useState(avatarSizes.medium)
-  const [variant, setVariant] = useState(variants.pixel)
+  const [variant, setVariant] = useState(variants.bauhaus)
+  const [borderRadius, setBorderRadius] = useState('0')
+
+  const borderRadiusPercentage = borderRadius + '%'
 
   return (
     <>
       <BaseStyles darkMode={darkMode} />
       <Header>
         <SegmentGroup>
-          <Segment onClick={() => setVariant(variants.pixel)} isSelected={variant === variants.pixel}>Pixel</Segment>
-          <Segment onClick={() => setVariant(variants.sunset)} isSelected={variant === variants.sunset}>Sunset</Segment>
-          <Segment onClick={() => setVariant(variants.ring)} isSelected={variant === variants.ring}>Ring</Segment>
-          <Segment onClick={() => setVariant(variants.marble)} isSelected={variant === variants.marble}>Marble</Segment>
-          <Segment onClick={() => setVariant(variants.beam)} isSelected={variant === variants.beam}>Beam</Segment>
-          <Segment onClick={() => setVariant(variants.bauhaus)} isSelected={variant === variants.bauhaus}>Bauhaus</Segment>
+          <Segment
+            onClick={() => setVariant(variants.pixel)}
+            isSelected={variant === variants.pixel}
+          >
+            Pixel
+          </Segment>
+          <Segment
+            onClick={() => setVariant(variants.sunset)}
+            isSelected={variant === variants.sunset}
+          >
+            Sunset
+          </Segment>
+          <Segment onClick={() => setVariant(variants.ring)} isSelected={variant === variants.ring}>
+            Ring
+          </Segment>
+          <Segment
+            onClick={() => setVariant(variants.marble)}
+            isSelected={variant === variants.marble}
+          >
+            Marble
+          </Segment>
+          <Segment onClick={() => setVariant(variants.beam)} isSelected={variant === variants.beam}>
+            Beam
+          </Segment>
+          <Segment
+            onClick={() => setVariant(variants.bauhaus)}
+            isSelected={variant === variants.bauhaus}
+          >
+            Bauhaus
+          </Segment>
         </SegmentGroup>
         <ColorsSection>
           <ColorDot value={dotColor0} onChange={(color) => setDotColor0(color)} />
@@ -206,6 +230,16 @@ const Playground = () => {
         </ColorsSection>
 
         <Button onClick={() => handleRandomColors()}>Random palette</Button>
+
+        <Slider
+          step={1}
+          min={'0'}
+          max={'50'}
+          type="range"
+          value={borderRadius}
+          onChange={(event) => setBorderRadius(event.target.value)}
+        />
+
         <SegmentGroup>
           {Object.entries(avatarSizes).map(([key, value], index) => (
             <SizeDot
@@ -235,6 +269,7 @@ const Playground = () => {
             name={exampleName}
             playgroundColors={filteredColors}
             variant={variant}
+            borderRadius={borderRadiusPercentage}
           />
         ))}
       </AvatarsGrid>

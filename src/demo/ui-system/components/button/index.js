@@ -8,8 +8,8 @@ const ButtonWrapper = styled.div`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0 ${p => p.hasChildren && `var(--textbox-x)`};
-  width: ${p => !p.hasChildren && p.icon && `var(--buttonHeight)`};
+  padding: 0 ${(p) => p.hasChildren && `var(--textbox-x)`};
+  width: ${(p) => !p.hasChildren && p.icon && `var(--buttonHeight)`};
   background: var(--c-button);
   text-transform: uppercase;
   letter-spacing: 0.08em;

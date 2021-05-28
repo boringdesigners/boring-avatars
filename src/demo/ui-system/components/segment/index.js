@@ -11,22 +11,22 @@ const SegmentGroupWrapper = styled.div`
 
 const SegmentWrapper = styled(Button)`
   &:not(:hover) {
-    background-color: ${p => p.isSelected ? `var(--c-background)` : `transparent`};
+    background-color: ${(p) => (p.isSelected ? `var(--c-background)` : `transparent`)};
   }
 
-  ${p => p.isSelected && `background-color: var(--c-background)`};
-  ${p => !p.isSelected && `color: var(--c-fade)`};
+  ${(p) => p.isSelected && `background-color: var(--c-background)`};
+  ${(p) => !p.isSelected && `color: var(--c-fade)`};
 `
 
 export const SegmentGroup = ({ children }) => {
-  return (
-    <SegmentGroupWrapper>{children}</SegmentGroupWrapper>
-  )
+  return <SegmentGroupWrapper>{children}</SegmentGroupWrapper>
 }
 
 const Segment = ({ children, isSelected, ...props }) => {
   return (
-    <SegmentWrapper isSelected={isSelected} {...props}>{children}</SegmentWrapper>
+    <SegmentWrapper isSelected={isSelected} {...props}>
+      {children}
+    </SegmentWrapper>
   )
 }
 

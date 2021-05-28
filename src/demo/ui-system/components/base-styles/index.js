@@ -15,23 +15,27 @@ const cssVariables = css`
 
   --buttonHeight: 1.8rem;
 
-  --c-fieldHover: hsla(0,0%,0%,0.15);
-  --c-fieldFocus: hsla(0,0%,0%,0.3);
-  --c-background: hsl(0,0%,100%);
-  --c-body: hsl(0,0%,20%);
-  --c-button: hsla(0,0%,0%,0.1);
-  --c-buttonHover: hsla(0,0%,0%,0.2);
-  --c-fade: hsla(0,0%,0%,0.4);
+  --c-fieldHover: hsla(0, 0%, 0%, 0.15);
+  --c-fieldFocus: hsla(0, 0%, 0%, 0.3);
+  --c-background: hsl(0, 0%, 100%);
+  --c-body: hsl(0, 0%, 20%);
+  --c-button: hsla(0, 0%, 0%, 0.1);
+  --c-slider: hsla(0, 0%, 0%, 0.2);
+  --c-buttonHover: hsla(0, 0%, 0%, 0.2);
+  --c-fade: hsla(0, 0%, 0%, 0.4);
 
-  ${p => p.darkMode && css`
-    --c-fieldHover: hsla(0,0%,100%,0.15);
-    --c-fieldFocus: hsla(0,0%,100%,0.3);
-    --c-background: hsl(0,0%,3%);
-    --c-body: hsl(0,0%,80%);
-    --c-button: hsla(0,0%,100%,0.1);
-    --c-buttonHover: hsla(0,0%,100%,0.2);
-    --c-fade: hsla(0,0%,100%,0.4);
-  `};
+  ${(p) =>
+    p.darkMode &&
+    css`
+      --c-fieldHover: hsla(0, 0%, 100%, 0.15);
+      --c-fieldFocus: hsla(0, 0%, 100%, 0.3);
+      --c-background: hsl(0, 0%, 3%);
+      --c-body: hsl(0, 0%, 80%);
+      --c-button: hsla(0, 0%, 100%, 0.1);
+      --c-slider: hsla(0, 0%, 100%, 0.2);
+      --c-buttonHover: hsla(0, 0%, 100%, 0.2);
+      --c-fade: hsla(0, 0%, 100%, 0.4);
+    `};
 `
 
 const BaseStyles = createGlobalStyle`
