@@ -1,5 +1,5 @@
 declare module "boring-avatars" {
-  interface AvatarProps {
+  export interface AvatarProps {
     size?: number | string;
     name?: string;
     variant?: "marble" | "beam" | "pixel" | "sunset" | "ring" | "bauhaus";
