@@ -4,6 +4,7 @@
   "homepage": "https://boringavatars.com/",
   "version": "1.5.3",
   "main": "build/index.js",
+  "types": "index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/boringdesigners/boring-avatars"
