@@ -59,6 +59,6 @@ https://source.boringavatars.com/marble/120/Maria%20Mitchell?colors=264653,2a9d8
 ![Avatar for Maria Mitchell](https://source.boringavatars.com/marble/120/Maria%20Mitchell?colors=264653,2a9d8f,e9c46a,f4a261,e76f51)
 
 
-For more information, [check out the source Readme](https://github.com/hihayk/boring-avatars-service/blob/main/README.md)
+For more information, [check out the README](https://github.com/hihayk/boring-avatars-service/blob/main/README.md)
 
 
