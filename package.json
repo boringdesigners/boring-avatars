@@ -27,7 +27,8 @@
     "test": "node scripts/test.js"
   },
   "files": [
-    "build/*"
+    "build/*",
+    "index.d.ts"
   ],
   "license": "MIT",
   "devDependencies": {
