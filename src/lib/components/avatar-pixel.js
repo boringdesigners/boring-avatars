@@ -1,26 +1,26 @@
-import * as React from "react"
-import { getNumber, getRandomColor } from '../utilities'
+import * as React from 'react';
+import { getNumber, getRandomColor } from '../utilities';
 
-const ELEMENTS = 64
-const SIZE = 80
+const ELEMENTS = 64;
+const SIZE = 80;
 
 function generateColors(name, colors) {
-  const numFromName = getNumber(name)
-  const range = colors && colors.length
+  const numFromName = getNumber(name);
+  const range = colors && colors.length;
 
-  const elementsProperties = Array.from({length: ELEMENTS}, (_,i) => ({
-    color: getRandomColor(numFromName % (i+13), colors, range),
+  const elementsProperties = Array.from({ length: ELEMENTS }, (_, i) => ({
+    color: getRandomColor(numFromName % (i + 13), colors, range),
   }));
 
-  return elementsProperties
+  return elementsProperties;
 }
 
-const AvatarSunset = ( props ) => {
-  const properties = generateColors(props.name, props.colors)
+const AvatarSunset = (props) => {
+  const properties = generateColors(props.name, props.colors);
 
   return (
     <svg
-      viewBox={"0 0 " + SIZE + " " + SIZE}
+      viewBox={'0 0 ' + SIZE + ' ' + SIZE}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       width={props.size}
@@ -35,7 +35,7 @@ const AvatarSunset = ( props ) => {
         width={SIZE}
         height={SIZE}
       >
-        <rect width={SIZE} height={SIZE} rx={SIZE*2} fill="white"/>
+        <rect width={SIZE} height={SIZE} rx={SIZE * 2} fill="white" />
       </mask>
       <g mask="url(#mask0)">
         <rect width={10} height={10} fill={properties[0].color} />
@@ -104,7 +104,7 @@ const AvatarSunset = ( props ) => {
         <rect x={70} y={70} width={10} height={10} fill={properties[63].color} />
       </g>
     </svg>
-  )
-}
+  );
+};
 
-export default AvatarSunset
+export default AvatarSunset;

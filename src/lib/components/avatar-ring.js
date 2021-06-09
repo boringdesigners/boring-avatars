@@ -1,47 +1,42 @@
-import React from 'react'
-import { getNumber, getRandomColor } from '../utilities'
+import React from 'react';
+import { getNumber, getRandomColor } from '../utilities';
 
-const SIZE = 90
-const COLORS = 5
+const SIZE = 90;
+const COLORS = 5;
 
 function generateColors(colors, name) {
-  const numFromName = getNumber(name)
-  const range = colors && colors.length
-  const colorsShuffle = Array.from({length: COLORS}, (_, i) => getRandomColor(numFromName + (i+1), colors, range));
-  const iconColors = []
-  iconColors[0] = colorsShuffle[0]
-  iconColors[1] = colorsShuffle[1]
-  iconColors[2] = colorsShuffle[1]
-  iconColors[3] = colorsShuffle[2]
-  iconColors[4] = colorsShuffle[2]
-  iconColors[5] = colorsShuffle[3]
-  iconColors[6] = colorsShuffle[3]
-  iconColors[7] = colorsShuffle[0]
-  iconColors[8] = colorsShuffle[4]
+  const numFromName = getNumber(name);
+  const range = colors && colors.length;
+  const colorsShuffle = Array.from({ length: COLORS }, (_, i) =>
+    getRandomColor(numFromName + (i + 1), colors, range),
+  );
+  const iconColors = [];
+  iconColors[0] = colorsShuffle[0];
+  iconColors[1] = colorsShuffle[1];
+  iconColors[2] = colorsShuffle[1];
+  iconColors[3] = colorsShuffle[2];
+  iconColors[4] = colorsShuffle[2];
+  iconColors[5] = colorsShuffle[3];
+  iconColors[6] = colorsShuffle[3];
+  iconColors[7] = colorsShuffle[0];
+  iconColors[8] = colorsShuffle[4];
 
-  return iconColors
+  return iconColors;
 }
 
-const AvatarRing = ( props ) => {
-  const cellColors = generateColors(props.colors, props.name)
+const AvatarRing = (props) => {
+  const cellColors = generateColors(props.colors, props.name);
 
   return (
     <svg
-      viewBox={"0 0 " + SIZE + " " + SIZE}
+      viewBox={'0 0 ' + SIZE + ' ' + SIZE}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       width={props.size}
       height={props.size}
     >
-      <mask
-        id="mask__ring"
-        maskUnits="userSpaceOnUse"
-        x={0}
-        y={0}
-        width={SIZE}
-        height={SIZE}
-      >
-        <rect width={SIZE} height={SIZE} rx={SIZE*2} fill="white"/>
+      <mask id="mask__ring" maskUnits="userSpaceOnUse" x={0} y={0} width={SIZE} height={SIZE}>
+        <rect width={SIZE} height={SIZE} rx={SIZE * 2} fill="white" />
       </mask>
       <g mask="url(#mask__ring)">
         <path d="M0 0h90v45H0z" fill={cellColors[0]} />
@@ -55,7 +50,7 @@ const AvatarRing = ( props ) => {
         <circle cx={45} cy={45} r={23} fill={cellColors[8]} />
       </g>
     </svg>
-  )
-}
+  );
+};
 
-export default AvatarRing
+export default AvatarRing;
