@@ -32,7 +32,6 @@ const AvatarRing = ( props ) => {
       xmlns="http://www.w3.org/2000/svg"
       width={props.size}
       height={props.size}
-      {...props}
     >
       <path d="M90 45a45.001 45.001 0 00-76.82-31.82A45 45 0 000 45h90z" fill={cellColors[0]} />
       <path d="M90 45a45.001 45.001 0 01-76.82 31.82A45 45 0 010 45h90z" fill={cellColors[1]} />

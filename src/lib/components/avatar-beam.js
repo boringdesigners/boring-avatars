@@ -43,7 +43,6 @@ const AvatarBeam = ( props ) => {
       xmlns="http://www.w3.org/2000/svg"
       width={props.size}
       height={props.size}
-      {...props}
     >
       <mask
         id="mask__beam"
