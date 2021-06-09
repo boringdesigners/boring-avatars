@@ -52,18 +52,12 @@ const AvatarBeam = ( props ) => {
         width={SIZE}
         height={SIZE}
       >
-        <rect
-          width={SIZE}
-          height={SIZE}
-          rx={20}
-          fill="white"
-        />
+        <rect width={SIZE} height={SIZE} rx={SIZE*2} fill="white"/>
       </mask>
-      <g mask="url(#mask__beam)" fill="transparent">
+      <g mask="url(#mask__beam)">
         <rect
           width={SIZE}
           height={SIZE}
-          rx={20}
           fill={data.backgroundColor}
         />
         <rect

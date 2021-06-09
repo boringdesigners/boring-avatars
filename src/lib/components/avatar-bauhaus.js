@@ -39,13 +39,12 @@ const AvatarBauhaus = ( props ) => {
         width={SIZE}
         height={SIZE}
       >
-        <rect width={SIZE} height={SIZE} rx={SIZE / 2} fill="#fff" />
+        <rect width={SIZE} height={SIZE} rx={SIZE*2} fill="white" />
       </mask>
       <g mask="url(#mask__bauhaus)">
         <rect
           width={SIZE}
           height={SIZE}
-          rx={SIZE / 2}
           fill={properties[0].color}
         />
         <rect
