@@ -65,7 +65,7 @@ const Input = styled.input`
   }
 `;
 
-const AvatarWrapper = ({ name, playgroundColors, size, variant }) => {
+const AvatarWrapper = ({ name, playgroundColors, size, square, variant }) => {
   const [avatarName, setAvatarName] = useState(name);
   const handleFocus = (event) => event.target.select();
   const ref = useRef();
@@ -90,6 +90,7 @@ const AvatarWrapper = ({ name, playgroundColors, size, variant }) => {
           colors={playgroundColors}
           size={size}
           variant={variants[variant]}
+          square={square}
         />
       </AvatarSection>
       <Input
@@ -180,6 +181,7 @@ const Playground = () => {
 
   const [avatarSize, setAvatarSize] = useState(avatarSizes.medium);
   const [variant, setVariant] = useState(variants.pixel);
+  const [isSquare, setSquare] = useState(false);
 
   return (
     <>
@@ -226,6 +228,7 @@ const Playground = () => {
         </ColorsSection>
 
         <Button onClick={() => handleRandomColors()}>Random palette</Button>
+        <Button onClick={() => setSquare(!isSquare)}>{isSquare ? 'Round' : 'Square'}</Button>
         <SegmentGroup>
           {Object.entries(avatarSizes).map(([key, value], index) => (
             <SizeDot
@@ -252,6 +255,7 @@ const Playground = () => {
           <AvatarWrapper
             key={name}
             size={avatarSize}
+            square={isSquare}
             name={exampleName}
             playgroundColors={filteredColors}
             variant={variant}

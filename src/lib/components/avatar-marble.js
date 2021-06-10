@@ -31,7 +31,7 @@ const AvatarMarble = (props) => {
       height={props.size}
     >
       <mask id="mask__marble" maskUnits="userSpaceOnUse" x={0} y={0} width={SIZE} height={SIZE}>
-        <rect width={SIZE} height={SIZE} rx={SIZE * 2} fill="white" />
+        <rect width={SIZE} height={SIZE} rx={!props.square && SIZE * 2} fill="white" />
       </mask>
       <g mask="url(#mask__marble)">
         <rect width={SIZE} height={SIZE} rx="2" fill={properties[0].color} />
