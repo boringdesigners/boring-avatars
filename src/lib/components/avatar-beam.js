@@ -46,7 +46,7 @@ const AvatarBeam = (props) => {
       height={props.size}
     >
       <mask id="mask__beam" maskUnits="userSpaceOnUse" x={0} y={0} width={SIZE} height={SIZE}>
-        <rect width={SIZE} height={SIZE} rx={!props.square && SIZE * 2} fill="white" />
+        <rect width={SIZE} height={SIZE} rx={props.square ?  undefined : SIZE * 2 } fill="white" />
       </mask>
       <g mask="url(#mask__beam)">
         <rect width={SIZE} height={SIZE} fill={data.backgroundColor} />

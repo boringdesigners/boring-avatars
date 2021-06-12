@@ -35,7 +35,7 @@ const AvatarSunset = (props) => {
         width={SIZE}
         height={SIZE}
       >
-        <rect width={SIZE} height={SIZE} rx={!props.square && SIZE * 2} fill="white" />
+        <rect width={SIZE} height={SIZE} rx={props.square ?  undefined : SIZE * 2 } fill="white" />
       </mask>
       <g mask="url(#mask0)">
         <rect width={10} height={10} fill={properties[0].color} />
