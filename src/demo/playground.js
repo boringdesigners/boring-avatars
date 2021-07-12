@@ -226,6 +226,11 @@ const Playground = () => {
           <ColorDot value={dotColor3} onChange={(color) => setDotColor3(color)} />
           <ColorDot value={dotColor4} onChange={(color) => setDotColor4(color)} />
         </ColorsSection>
+        <CopyToClipboard
+          text={`['${dotColor0}', '${dotColor1}', '${dotColor2}', '${dotColor3}', '${dotColor4}']`}
+        >
+          <Button>Copy palette</Button>
+        </CopyToClipboard>
 
         <Button onClick={() => handleRandomColors()}>Random palette</Button>
         <Button onClick={() => setSquare(!isSquare)}>{isSquare ? 'Round' : 'Square'}</Button>
