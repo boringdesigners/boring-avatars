@@ -61,3 +61,13 @@ https://source.boringavatars.com/marble/120/Maria%20Mitchell?colors=264653,2a9d8
 
 
 For more information, [check out the README](https://github.com/hihayk/boring-avatars-service/blob/main/README.md)
+
+## Community Supported Ports
+
+To use boring avatars outside of React, check out these alternative implementations.
+
+- [Vue](https://github.com/mujahidfa/vue-boring-avatars)
+- [Laravel Blade](https://github.com/khaled-sadek/blade-boring-avatars)
+- [React Native](https://github.com/luhart/react-native-boring-avatars)
+
+If you don't see a port you're looking for, we'd encourage you to create your own.
