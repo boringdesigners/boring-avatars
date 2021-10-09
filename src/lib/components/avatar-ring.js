@@ -25,7 +25,7 @@ function generateColors(colors, name) {
 }
 
 const AvatarRing = (props) => {
-  const cellColors = generateColors(props.colors, props.name);
+  const cellColors = generateColors(props.name, props.colors);
 
   return (
     <svg
