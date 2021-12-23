@@ -22,12 +22,14 @@ const AvatarSunset = (props) => {
     <svg
       viewBox={'0 0 ' + SIZE + ' ' + SIZE}
       fill="none"
+      role="img"
       xmlns="http://www.w3.org/2000/svg"
       width={props.size}
       height={props.size}
     >
+      <title>{props.name}</title>
       <mask
-        id="mask0"
+        id="mask__pixel"
         mask-type="alpha"
         maskUnits="userSpaceOnUse"
         x={0}
@@ -37,7 +39,7 @@ const AvatarSunset = (props) => {
       >
         <rect width={SIZE} height={SIZE} rx={props.square ?  undefined : SIZE * 2 } fill="white" />
       </mask>
-      <g mask="url(#mask0)">
+      <g mask="url(#mask__pixel)">
         <rect width={10} height={10} fill={properties[0].color} />
         <rect x={20} width={10} height={10} fill={properties[1].color} />
         <rect x={40} width={10} height={10} fill={properties[2].color} />

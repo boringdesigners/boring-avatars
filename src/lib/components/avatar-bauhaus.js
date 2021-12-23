@@ -26,10 +26,12 @@ const AvatarBauhaus = (props) => {
     <svg
       viewBox={'0 0 ' + SIZE + ' ' + SIZE}
       fill="none"
+      role="img"
       xmlns="http://www.w3.org/2000/svg"
       width={props.size}
       height={props.size}
     >
+      <title>{props.name}</title>
       <mask id="mask__bauhaus" maskUnits="userSpaceOnUse" x={0} y={0} width={SIZE} height={SIZE}>
         <rect width={SIZE} height={SIZE} rx={props.square ?  undefined : SIZE * 2 } fill="white" />
       </mask>
