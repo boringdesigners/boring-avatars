@@ -34,7 +34,7 @@ const AvatarMarble = (props) => {
         <rect width={SIZE} height={SIZE} rx={props.square ?  undefined : SIZE * 2 } fill="white" />
       </mask>
       <g mask="url(#mask__marble)">
-        <rect width={SIZE} height={SIZE} rx="2" fill={properties[0].color} />
+        <rect width={SIZE} height={SIZE} fill={properties[0].color} />
         <path
           filter="url(#prefix__filter0_f)"
           d="M32.414 59.35L50.376 70.5H72.5v-71H33.728L26.5 13.381l19.057 27.08L32.414 59.35z"
