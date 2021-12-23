@@ -155,7 +155,7 @@ const variants = {
 };
 
 const Playground = () => {
-  const defaultPlaygroundColors = paletteColors[66];
+  const defaultPlaygroundColors = paletteColors[39];
   const [playgroundColors, setPlaygroundColors] = useState(defaultPlaygroundColors);
 
   const [darkMode, setDarkMode] = useState(false);

@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { getNumber, getUnit, getBoolean, getRandomColor, getContrast } from '../utilities';
+import { hashCode, getUnit, getBoolean, getRandomColor, getContrast } from '../utilities';
 
 const SIZE = 36;
 
 function generateData(name, colors) {
-  const numFromName = getNumber(name);
+  const numFromName = hashCode(name);
   const range = colors && colors.length;
   const wrapperColor = getRandomColor(numFromName, colors, range);
   const preTranslateX = getUnit(numFromName, 10, 1);

@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { getNumber, getUnit, getRandomColor } from '../utilities';
+import { hashCode, getUnit, getRandomColor } from '../utilities';
 
 const ELEMENTS = 3;
 const SIZE = 80;
 
 function generateColors(name, colors) {
-  const numFromName = getNumber(name);
+  const numFromName = hashCode(name);
   const range = colors && colors.length;
 
   const elementsProperties = Array.from({ length: ELEMENTS }, (_, i) => ({
