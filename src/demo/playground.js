@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { SegmentGroup, Segment, Button, BaseStyles, ColorDot } from './ui-system';
-import colors from 'nice-color-palettes';
+import colors from 'nice-color-palettes/1000';
 import { exampleNames } from './example-names';
 import Avatar from '../lib';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
@@ -146,16 +146,16 @@ const SizeDot = ({ size, isSelected, ...props }) => {
 };
 
 const variants = {
+  beam: 'beam',
   bauhaus: 'bauhaus',
   ring: 'ring',
   sunset: 'sunset',
   pixel: 'pixel',
   marble: 'marble',
-  beam: 'beam',
 };
 
 const Playground = () => {
-  const defaultPlaygroundColors = paletteColors[39];
+  const defaultPlaygroundColors = paletteColors[493];
   const [playgroundColors, setPlaygroundColors] = useState(defaultPlaygroundColors);
 
   const [darkMode, setDarkMode] = useState(false);
@@ -180,7 +180,7 @@ const Playground = () => {
   }, [playgroundColors]);
 
   const [avatarSize, setAvatarSize] = useState(avatarSizes.medium);
-  const [variant, setVariant] = useState(variants.pixel);
+  const [variant, setVariant] = useState(variants.beam);
   const [isSquare, setSquare] = useState(false);
 
   return (
@@ -188,36 +188,9 @@ const Playground = () => {
       <BaseStyles darkMode={darkMode} />
       <Header>
         <SegmentGroup>
-          <Segment
-            onClick={() => setVariant(variants.pixel)}
-            isSelected={variant === variants.pixel}
-          >
-            Pixel
-          </Segment>
-          <Segment
-            onClick={() => setVariant(variants.sunset)}
-            isSelected={variant === variants.sunset}
-          >
-            Sunset
-          </Segment>
-          <Segment onClick={() => setVariant(variants.ring)} isSelected={variant === variants.ring}>
-            Ring
-          </Segment>
-          <Segment
-            onClick={() => setVariant(variants.marble)}
-            isSelected={variant === variants.marble}
-          >
-            Marble
-          </Segment>
-          <Segment onClick={() => setVariant(variants.beam)} isSelected={variant === variants.beam}>
-            Beam
-          </Segment>
-          <Segment
-            onClick={() => setVariant(variants.bauhaus)}
-            isSelected={variant === variants.bauhaus}
-          >
-            Bauhaus
-          </Segment>
+          {Object.keys(variants).map((variantItem, i) => (
+            <Segment key={i} onClick={() => setVariant(variants[variantItem])} isSelected={variantItem === variant}>{variantItem}</Segment>
+          ))}
         </SegmentGroup>
         <ColorsSection>
           <ColorDot value={dotColor0} onChange={(color) => setDotColor0(color)} />
