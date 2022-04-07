@@ -48,7 +48,7 @@ import Avatar from "boring-avatars";
 | colors  | array of colors                                              |
 
 
-## Source
+## Service
 
 You can embed your boring avatars using the boring avatars source.
 
