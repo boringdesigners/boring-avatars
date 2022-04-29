@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { hashCode, getRandomColor } from '../utilities';
+import { useId } from '../useId';
 
 const ELEMENTS = 64;
 const SIZE = 80;
@@ -16,6 +17,7 @@ function generateColors(name, colors) {
 }
 
 const AvatarPixel = (props) => {
+  const maskId = useId();
   const pixelColors = generateColors(props.name, props.colors);
 
   return (
@@ -29,7 +31,7 @@ const AvatarPixel = (props) => {
     >
       <title>{props.name}</title>
       <mask
-        id="mask__pixel"
+        id={maskId}
         mask-type="alpha"
         maskUnits="userSpaceOnUse"
         x={0}
@@ -39,7 +41,7 @@ const AvatarPixel = (props) => {
       >
         <rect width={SIZE} height={SIZE} rx={props.square ?  undefined : SIZE * 2} fill="#FFFFFF" />
       </mask>
-      <g mask="url(#mask__pixel)">
+      <g mask={`url(#${maskId})`}>
         <rect width={10} height={10} fill={pixelColors[0]} />
         <rect x={20} width={10} height={10} fill={pixelColors[1]} />
         <rect x={40} width={10} height={10} fill={pixelColors[2]} />
