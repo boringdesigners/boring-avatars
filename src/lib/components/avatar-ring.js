@@ -36,9 +36,9 @@ const AvatarRing = (props) => {
       width={props.size}
       height={props.size}
     >
-      <title>{props.name}</title>
+      {props.title && <title>{props.name}</title>}
       <mask id="mask__ring" maskUnits="userSpaceOnUse" x={0} y={0} width={SIZE} height={SIZE}>
-        <rect width={SIZE} height={SIZE} rx={props.square ?  undefined : SIZE * 2 } fill="#FFFFFF" />
+        <rect width={SIZE} height={SIZE} rx={props.square ? undefined : SIZE * 2} fill="#FFFFFF" />
       </mask>
       <g mask="url(#mask__ring)">
         <path d="M0 0h90v45H0z" fill={ringColors[0]} />
