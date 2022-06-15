@@ -15,12 +15,6 @@ Boring avatars is a tiny JavaScript React library that generates custom, SVG-bas
 ## Install
 
 ```
-yarn add boring-avatars
-```
-
-or
-
-```
 npm install boring-avatars
 ```
 
@@ -41,10 +35,11 @@ import Avatar from "boring-avatars";
 
 | Prop    | Type                                                         |
 | ------- | ------------------------------------------------------------ |
-| size    | number or string                                             |
-| square  | boolean                                                      |
+| size    | number or string, `40px` (default)                           |
+| square  | boolean: `false` (default)                                   |
+| title   | boolean: `false` (default)                                   |
 | name    | string                                                       |
-| variant | oneOf: `marble`, `beam`, `pixel`,`sunset`, `ring`, `bauhaus` |
+| variant | oneOf: `marble` (default), `beam`, `pixel`,`sunset`, `ring`, `bauhaus` |
 | colors  | array of colors                                              |
 
 

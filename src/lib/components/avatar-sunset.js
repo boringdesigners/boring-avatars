@@ -28,9 +28,9 @@ const AvatarSunset = (props) => {
       width={props.size}
       height={props.size}
     >
-      <title>{props.name}</title>
+      {props.title && <title>{props.name}</title>}
       <mask id="mask__sunset" maskUnits="userSpaceOnUse" x={0} y={0} width={SIZE} height={SIZE}>
-        <rect width={SIZE} height={SIZE} rx={props.square ?  undefined : SIZE * 2 } fill="#FFFFFF" />
+        <rect width={SIZE} height={SIZE} rx={props.square ? undefined : SIZE * 2} fill="#FFFFFF" />
       </mask>
       <g mask="url(#mask__sunset)">
         <path fill={'url(#gradient_paint0_linear_' + name + ')'} d="M0 0h80v40H0z" />
