@@ -13,7 +13,7 @@ export const getModulus = (num, max) => {
 }
 
 export const getDigit = (number, ntn) => {
-  return Math.floor(( number/ Math.pow(10, ntn)) % 10);
+  return Math.floor((number/ Math.pow(10, ntn)) % 10);
 }
 
 export const getBoolean = (number, ntn) => {
