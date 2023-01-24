@@ -65,11 +65,17 @@ const Input = styled.input`
   }
 `;
 
+const CopyWrapper = styled.div`
+  display: flex;
+  gap: 1rem;
+`
+
 const AvatarWrapper = ({ name, playgroundColors, size, square, variant }) => {
   const [avatarName, setAvatarName] = useState(name);
   const handleFocus = (event) => event.target.select();
   const ref = useRef();
-  const [copyValue, setCopyValue] = useState(name);
+  const [svgCopyValue, setSvgCopyValue] = useState(name);
+  const [apiCopyValue, setApiCopyValue] = useState(`https://source.boringavatars.com/${variant}/${size}/${name}`);
 
   useEffect(() => {
     if (ref.current) {
@@ -78,9 +84,13 @@ const AvatarWrapper = ({ name, playgroundColors, size, square, variant }) => {
       const svgEnd = svgNode.indexOf('</svg>') + 6;
       const svgResult = svgNode.substring(svgStart, svgEnd).toString();
 
-      setCopyValue(svgResult);
+      setSvgCopyValue(svgResult);
     }
-  }, [copyValue, variant, playgroundColors]);
+  }, [apiCopyValue, svgCopyValue, variant, playgroundColors]);
+
+  useEffect(() => {
+    setApiCopyValue(`https://source.boringavatars.com/${variant}/${size}/${encodeURIComponent(name)}?colors=${playgroundColors.join(',').replaceAll('#','')}${square ? '&square' : ''}`)
+  }, [variant, size, name, playgroundColors, apiCopyValue, square])
 
   return (
     <AvatarContainer>
@@ -98,9 +108,39 @@ const AvatarWrapper = ({ name, playgroundColors, size, square, variant }) => {
         onChange={(e) => setAvatarName(e.target.value)}
         onFocus={(e) => handleFocus(e)}
       />
-      <CopyToClipboard text={copyValue}>
-        <Button>Copy</Button>
-      </CopyToClipboard>
+      <CopyWrapper>
+        <CopyToClipboard text={svgCopyValue}>
+          <Button title="Copy SVG">
+            <svg
+              name="viewfinder"
+              height="16"
+              width="16"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path d="M4.25 2A2.25 2.25 0 002 4.25v2a.75.75 0 001.5 0v-2a.75.75 0 01.75-.75h2a.75.75 0 000-1.5h-2zM13.75 2a.75.75 0 000 1.5h2a.75.75 0 01.75.75v2a.75.75 0 001.5 0v-2A2.25 2.25 0 0015.75 2h-2zM3.5 13.75a.75.75 0 00-1.5 0v2A2.25 2.25 0 004.25 18h2a.75.75 0 000-1.5h-2a.75.75 0 01-.75-.75v-2zM18 13.75a.75.75 0 00-1.5 0v2a.75.75 0 01-.75.75h-2a.75.75 0 000 1.5h2A2.25 2.25 0 0018 15.75v-2zM7 10a3 3 0 116 0 3 3 0 01-6 0z"></path>
+            </svg>
+          </Button>
+        </CopyToClipboard>
+        <CopyToClipboard text={apiCopyValue}>
+          <Button title="Copy API Url">
+            <svg
+              name="link"
+              fill="currentColor"
+              height="16"
+              width="16"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path d="M12.232 4.232a2.5 2.5 0 013.536 3.536l-1.225 1.224a.75.75 0 001.061 1.06l1.224-1.224a4 4 0 00-5.656-5.656l-3 3a4 4 0 00.225 5.865.75.75 0 00.977-1.138 2.5 2.5 0 01-.142-3.667l3-3z"></path>
+              <path d="M11.603 7.963a.75.75 0 00-.977 1.138 2.5 2.5 0 01.142 3.667l-3 3a2.5 2.5 0 01-3.536-3.536l1.225-1.224a.75.75 0 00-1.061-1.06l-1.224 1.224a4 4 0 105.656 5.656l3-3a4 4 0 00-.225-5.865z"></path>
+            </svg>
+          </Button>
+        </CopyToClipboard>
+      </CopyWrapper>
     </AvatarContainer>
   );
 };
@@ -189,7 +229,13 @@ const Playground = () => {
       <Header>
         <SegmentGroup>
           {Object.keys(variants).map((variantItem, i) => (
-            <Segment key={i} onClick={() => setVariant(variants[variantItem])} isSelected={variantItem === variant}>{variantItem}</Segment>
+            <Segment
+              key={i}
+              onClick={() => setVariant(variants[variantItem])}
+              isSelected={variantItem === variant}
+            >
+              {variantItem}
+            </Segment>
           ))}
         </SegmentGroup>
         <ColorsSection>
