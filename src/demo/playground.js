@@ -67,7 +67,8 @@ const Input = styled.input`
 
 const CopyWrapper = styled.div`
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
+  justify-content: center;
 `
 
 const AvatarWrapper = ({ name, playgroundColors, size, square, variant }) => {
