@@ -4,7 +4,6 @@ import { SegmentGroup, Segment, Button, BaseStyles, ColorDot } from './ui-system
 import colors from 'nice-color-palettes/1000';
 import { exampleNames } from './example-names';
 import Avatar from '../lib';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 const paletteColors = colors;
 
@@ -21,6 +20,12 @@ const ColorsSection = styled.div`
   grid-template-columns: repeat(5, 1fr);
   max-width: max-content;
   grid-gap: var(--sp-xs);
+`;
+
+const Banner = styled.div`
+  background: var(--c-body);
+  color: var(--c-background);
+  padding: var(--sp-l);
 `;
 
 const AvatarsGrid = styled.div`
@@ -98,9 +103,6 @@ const AvatarWrapper = ({ name, playgroundColors, size, square, variant }) => {
         onChange={(e) => setAvatarName(e.target.value)}
         onFocus={(e) => handleFocus(e)}
       />
-      <CopyToClipboard text={copyValue}>
-        <Button>Copy</Button>
-      </CopyToClipboard>
     </AvatarContainer>
   );
 };
@@ -158,7 +160,6 @@ const Playground = () => {
   const defaultPlaygroundColors = paletteColors[493];
   const [playgroundColors, setPlaygroundColors] = useState(defaultPlaygroundColors);
 
-  const [darkMode, setDarkMode] = useState(false);
   const [dotColor0, setDotColor0] = useState(playgroundColors[0]);
   const [dotColor1, setDotColor1] = useState(playgroundColors[1]);
   const [dotColor2, setDotColor2] = useState(playgroundColors[2]);
@@ -185,11 +186,31 @@ const Playground = () => {
 
   return (
     <>
-      <BaseStyles darkMode={darkMode} />
+      <BaseStyles />
+      <Banner>
+        This is a playground to test local changes and not the one used in{' '}
+        <a style={{ color: 'white' }} href="https://boringavatars.com">
+          boringavatars.com
+        </a>{' '}
+        . For suggestions, issues or PR's go to the{' '}
+        <a
+          style={{ color: 'white' }}
+          href="http://www.github.com/boringdesigners/boring-avatars-playground"
+        >
+          playground repository
+        </a>
+      </Banner>
+      .
       <Header>
         <SegmentGroup>
           {Object.keys(variants).map((variantItem, i) => (
-            <Segment key={i} onClick={() => setVariant(variants[variantItem])} isSelected={variantItem === variant}>{variantItem}</Segment>
+            <Segment
+              key={i}
+              onClick={() => setVariant(variants[variantItem])}
+              isSelected={variantItem === variant}
+            >
+              {variantItem}
+            </Segment>
           ))}
         </SegmentGroup>
         <ColorsSection>
@@ -212,16 +233,6 @@ const Playground = () => {
             />
           ))}
         </SegmentGroup>
-
-        <Button
-          onClick={() => setDarkMode(!darkMode)}
-          icon={
-            <svg width={20} height={20} fill="none">
-              <circle cx={10} cy={10} r={9} stroke="currentColor" strokeWidth={2} />
-              <path d="M10 0a10 10 0 000 20V0z" fill="currentColor" />
-            </svg>
-          }
-        />
       </Header>
       <AvatarsGrid>
         {exampleNames.map((exampleName, name) => (
