@@ -70,7 +70,7 @@ const Input = styled.input`
   }
 `;
 
-const AvatarWrapper = ({ name, playgroundColors, size, square, variant }) => {
+const AvatarWrapper = ({ name, playgroundColors, size, square, variant, src }) => {
   const [avatarName, setAvatarName] = useState(name);
   const handleFocus = (event) => event.target.select();
   const ref = useRef();
@@ -96,6 +96,7 @@ const AvatarWrapper = ({ name, playgroundColors, size, square, variant }) => {
           size={size}
           variant={variants[variant]}
           square={square}
+          src={src}
         />
       </AvatarSection>
       <Input
@@ -154,6 +155,12 @@ const variants = {
   sunset: 'sunset',
   pixel: 'pixel',
   marble: 'marble',
+  image: 'image',
+};
+
+const imageExamples = {
+  screenshot: 'https://github.com/boringdesigners/boring-avatars/blob/master/public/boring-avatars-preview.png?raw=true',
+  service: 'https://source.boringavatars.com/marble/120/Maria%20Mitchell?colors=264653,2a9d8f,e9c46a,f4a261,e76f51',
 };
 
 const Playground = () => {
@@ -182,6 +189,7 @@ const Playground = () => {
 
   const [avatarSize, setAvatarSize] = useState(avatarSizes.medium);
   const [variant, setVariant] = useState(variants.beam);
+  const [imageSrc, setImageSrc] = useState(imageExamples.screenshot);
   const [isSquare, setSquare] = useState(false);
 
   return (
@@ -243,6 +251,7 @@ const Playground = () => {
             name={exampleName}
             playgroundColors={filteredColors}
             variant={variant}
+            src={imageSrc}
           />
         ))}
       </AvatarsGrid>

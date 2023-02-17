@@ -27,20 +27,22 @@ import Avatar from "boring-avatars";
   size={40}
   name="Maria Mitchell"
   variant="marble"
+  src=""
   colors={["#92A1C6", "#146A7C", "#F0AB3D", "#C271B4", "#C20D90"]}
 />;
 ```
 
 ### Props
 
-| Prop    | Type                                                         |
-| ------- | ------------------------------------------------------------ |
-| size    | number or string, `40px` (default)                           |
-| square  | boolean: `false` (default)                                   |
-| title   | boolean: `false` (default)                                   |
-| name    | string                                                       |
-| variant | oneOf: `marble` (default), `beam`, `pixel`,`sunset`, `ring`, `bauhaus` |
-| colors  | array of colors                                              |
+| Prop    | Type                                                                            |
+|---------|---------------------------------------------------------------------------------|
+| size    | number or string, `40px` (default)                                              |
+| square  | boolean: `false` (default)                                                      |
+| title   | boolean: `false` (default)                                                      |
+| name    | string                                                                          |
+| variant | oneOf: `marble` (default), `beam`, `pixel`,`sunset`, `ring`, `bauhaus`, `image` |
+| colors  | array of colors                                                                 |
+| src     | string (utilized with the `image` variant)                                      |
 
 
 ## Service
