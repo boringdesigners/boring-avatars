@@ -56,3 +56,11 @@ https://source.boringavatars.com/marble/120/Maria%20Mitchell?colors=264653,2a9d8
 
 
 For more information, [check out the README](https://github.com/hihayk/boring-avatars-service/blob/main/README.md)
+
+## Sponsors
+
+
+![Clerk logo](https://avatars.githubusercontent.com/u/49538330?s=50&v=4)
+
+Huge shoutout to [@Clerk](https://github.com/clerkinc) for being our (first) sponsor 🙏.
+ 
