@@ -1,4 +1,3 @@
-
 # Boring Avatars
 
 Boring avatars is a tiny JavaScript React library that generates custom, SVG-based avatars from any username and color palette.
@@ -11,6 +10,14 @@ Boring avatars is a tiny JavaScript React library that generates custom, SVG-bas
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 </a>
+
+## Sponsors
+
+[![Clerk logo](https://github.com/boringdesigners/boring-avatars/assets/912236/dc61f436-3fb9-435e-be24-cc406c4847a9)](https://clerk.com/?utm_source=boringavatars&utm_medium=github&utm_campaign=sponsorship)
+
+
+[Clerk](https://clerk.com/?utm_source=boringavatars&utm_medium=github&utm_campaign=sponsorship) provides drop-in authentication for React and has built-in support for Boring Avatars.
+
 
 ## Install
 
@@ -57,10 +64,3 @@ https://source.boringavatars.com/marble/120/Maria%20Mitchell?colors=264653,2a9d8
 
 For more information, [check out the README](https://github.com/hihayk/boring-avatars-service/blob/main/README.md)
 
-## Sponsors
-
-
-![Clerk logo](https://avatars.githubusercontent.com/u/49538330?s=50&v=4)
-
-Huge shoutout to [@Clerk](https://github.com/clerkinc) for being our (first) sponsor 🙏.
- 
