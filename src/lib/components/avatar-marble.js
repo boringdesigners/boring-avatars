@@ -21,6 +21,7 @@ function generateColors(name, colors) {
 
 const AvatarMarble = (props) => {
   const properties = generateColors(props.name, props.colors);
+  const maskID = React.useId();
 
   return (
     <svg
@@ -32,10 +33,10 @@ const AvatarMarble = (props) => {
       height={props.size}
     >
       {props.title && <title>{props.name}</title>}
-      <mask id="mask__marble" maskUnits="userSpaceOnUse" x={0} y={0} width={SIZE} height={SIZE}>
+      <mask id={maskID} maskUnits="userSpaceOnUse" x={0} y={0} width={SIZE} height={SIZE}>
         <rect width={SIZE} height={SIZE} rx={props.square ? undefined : SIZE * 2} fill="#FFFFFF" />
       </mask>
-      <g mask="url(#mask__marble)">
+      <g mask={`url(#${maskID})`}>
         <rect width={SIZE} height={SIZE} fill={properties[0].color} />
         <path
           filter="url(#prefix__filter0_f)"
