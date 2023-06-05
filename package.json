@@ -75,7 +75,7 @@
     "react": "^18.2.0",
     "react-app-polyfill": "^1.0.4",
     "react-color": "^2.19.3",
-    "react-copy-to-clipboard": "^5.0.2",
+    "react-copy-to-clipboard": "^5.1.0",
     "react-dev-utils": "^9.1.0",
     "react-dom": "^18.2.0",
     "resolve": "1.12.0",
