@@ -18,6 +18,7 @@ function generateColors(name, colors) {
 const AvatarSunset = (props) => {
   const sunsetColors = generateColors(props.name, props.colors);
   const name = props.name.replace(/\s/g, '');
+  const maskID = React.useId();
 
   return (
     <svg
@@ -29,10 +30,10 @@ const AvatarSunset = (props) => {
       height={props.size}
     >
       {props.title && <title>{props.name}</title>}
-      <mask id="mask__sunset" maskUnits="userSpaceOnUse" x={0} y={0} width={SIZE} height={SIZE}>
+      <mask id={maskID} maskUnits="userSpaceOnUse" x={0} y={0} width={SIZE} height={SIZE}>
         <rect width={SIZE} height={SIZE} rx={props.square ? undefined : SIZE * 2} fill="#FFFFFF" />
       </mask>
-      <g mask="url(#mask__sunset)">
+      <g mask={`url(#${maskID})`}>
         <path fill={'url(#gradient_paint0_linear_' + name + ')'} d="M0 0h80v40H0z" />
         <path fill={'url(#gradient_paint1_linear_' + name + ')'} d="M0 40h80v40H0z" />
       </g>
