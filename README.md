@@ -13,10 +13,16 @@ Boring avatars is a tiny JavaScript React library that generates custom, SVG-bas
 
 ## Sponsors
 
-[![Clerk logo](https://github.com/boringdesigners/boring-avatars/assets/912236/dc61f436-3fb9-435e-be24-cc406c4847a9)](https://clerk.com/?utm_source=boringavatars&utm_medium=github&utm_campaign=sponsorship)
+<a href="https://clerk.com?utm_source=sponsorship&utm_medium=github&utm_campaign=boringavatars&utm_content=06_12_2023">
+  <picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/boringdesigners/boring-avatars/assets/1328388/92994990-c2f2-476e-a5df-0fc1e3c86f89">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/boringdesigners/boring-avatars/assets/1328388/cced9a5d-f847-42e7-90d9-56df4dff27c4">
+  <img alt="Clerk – Authentication & User Management for React" src="https://github.com/boringdesigners/boring-avatars/assets/1328388/92994990-c2f2-476e-a5df-0fc1e3c86f89
+" width="200">
+  </picture>
+</a>
 
-
-[Clerk](https://clerk.com/?utm_source=boringavatars&utm_medium=github&utm_campaign=sponsorship) provides drop-in authentication for React and has built-in support for Boring Avatars.
+[Clerk](https://clerk.com?utm_source=sponsorship&utm_medium=github&utm_campaign=boringavatars&utm_content=06_12_2023) provides drop-in authentication for React and has built-in support for Boring Avatars.
 
 
 ## Install
