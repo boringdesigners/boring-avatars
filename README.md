@@ -10,21 +10,6 @@ Boring avatars is a tiny JavaScript React library that generates custom, SVG-bas
 
 ![boring avatars preview](https://github.com/boringdesigners/boring-avatars/blob/master/public/boring-avatars-preview.png?raw=true)
 
-
-## Sponsors
-
-<a href="https://clerk.com?utm_source=sponsorship&utm_medium=github&utm_campaign=boringavatars&utm_content=06_12_2023">
-  <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/boringdesigners/boring-avatars/assets/1328388/92994990-c2f2-476e-a5df-0fc1e3c86f89">
-  <source media="(prefers-color-scheme: light)" srcset="https://github.com/boringdesigners/boring-avatars/assets/1328388/cced9a5d-f847-42e7-90d9-56df4dff27c4">
-  <img alt="Clerk – Authentication & User Management for React" src="https://github.com/boringdesigners/boring-avatars/assets/1328388/92994990-c2f2-476e-a5df-0fc1e3c86f89
-" width="200">
-  </picture>
-</a>
-
-[Clerk](https://clerk.com?utm_source=sponsorship&utm_medium=github&utm_campaign=boringavatars&utm_content=06_12_2023) provides drop-in authentication for React and has built-in support for Boring Avatars.
-
-
 ## Install
 
 ```
@@ -34,27 +19,26 @@ npm install boring-avatars
 ## Usage
 
 ```jsx
-import Avatar from "boring-avatars";
+import Avatar from 'boring-avatars';
 
 <Avatar
   size={40}
   name="Maria Mitchell"
   variant="marble"
-  colors={["#92A1C6", "#146A7C", "#F0AB3D", "#C271B4", "#C20D90"]}
+  colors={['#92A1C6', '#146A7C', '#F0AB3D', '#C271B4', '#C20D90']}
 />;
 ```
 
 ### Props
 
-| Prop    | Type                                                         |
-| ------- | ------------------------------------------------------------ |
-| size    | number or string, `40px` (default)                           |
-| square  | boolean: `false` (default)                                   |
-| title   | boolean: `false` (default)                                   |
-| name    | string                                                       |
+| Prop    | Type                                                                   |
+| ------- | ---------------------------------------------------------------------- |
+| size    | number or string, `40px` (default)                                     |
+| square  | boolean: `false` (default)                                             |
+| title   | boolean: `false` (default)                                             |
+| name    | string                                                                 |
 | variant | oneOf: `marble` (default), `beam`, `pixel`,`sunset`, `ring`, `bauhaus` |
-| colors  | array of colors                                              |
-
+| colors  | array of colors                                                        |
 
 ## Service
 
@@ -65,8 +49,7 @@ To choose a random avatar from a specific user and a color palette, the format f
 ```
 https://source.boringavatars.com/marble/120/Maria%20Mitchell?colors=264653,2a9d8f,e9c46a,f4a261,e76f51
 ```
+
 ![Avatar for Maria Mitchell](https://source.boringavatars.com/marble/120/Maria%20Mitchell?colors=264653,2a9d8f,e9c46a,f4a261,e76f51)
 
-
 For more information, [check out the README](https://github.com/hihayk/boring-avatars-service/blob/main/README.md)
-
