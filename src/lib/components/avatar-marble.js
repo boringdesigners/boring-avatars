@@ -22,6 +22,7 @@ function generateColors(name, colors) {
 const AvatarMarble = (props) => {
   const properties = generateColors(props.name, props.colors);
   const maskID = React.useId();
+  const filterID = maskID;
 
   return (
     <svg
@@ -39,7 +40,7 @@ const AvatarMarble = (props) => {
       <g mask={`url(#${maskID})`}>
         <rect width={SIZE} height={SIZE} fill={properties[0].color} />
         <path
-          filter="url(#prefix__filter0_f)"
+          filter={`url(#prefix__filter${filterID})`}
           d="M32.414 59.35L50.376 70.5H72.5v-71H33.728L26.5 13.381l19.057 27.08L32.414 59.35z"
           fill={properties[1].color}
           transform={
@@ -59,7 +60,7 @@ const AvatarMarble = (props) => {
           }
         />
         <path
-          filter="url(#prefix__filter0_f)"
+          filter={`url(#prefix__filter${filterID})`}
           style={{
             mixBlendMode: 'overlay',
           }}
@@ -84,7 +85,7 @@ const AvatarMarble = (props) => {
       </g>
       <defs>
         <filter
-          id="prefix__filter0_f"
+          id={`prefix__filter${filterID}`}
           filterUnits="userSpaceOnUse"
           colorInterpolationFilters="sRGB"
         >
