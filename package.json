@@ -3,7 +3,14 @@
   "description": "Boring avatars is a tiny JavaScript React library that generates custom, SVG-based, round avatars from any username and color palette.",
   "homepage": "https://boringavatars.com/",
   "version": "1.10.2",
-  "main": "build/index.js",
+  "main": "./build/boring-avatars.umd.js",
+  "module": "./build/boring-avatars.es.js",
+  "exports": {
+    ".": {
+      "import": "./build/boring-avatars.es.js",
+      "require": "./build/boring-avatars.umd.js"
+    }
+  },
   "types": "index.d.ts",
   "repository": {
     "type": "git",
@@ -22,7 +29,7 @@
   ],
   "scripts": {
     "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
+    "build": "vite build",
     "demo": "node scripts/demo.js",
     "test": "node scripts/test.js"
   },
@@ -36,6 +43,7 @@
     "@svgr/webpack": "4.3.2",
     "@typescript-eslint/eslint-plugin": "^2.2.0",
     "@typescript-eslint/parser": "^2.2.0",
+    "@vitejs/plugin-react": "^4.2.1",
     "babel-eslint": "10.0.3",
     "babel-jest": "^24.9.0",
     "babel-loader": "8.0.6",
@@ -87,6 +95,7 @@
     "terser-webpack-plugin": "1.4.1",
     "ts-pnp": "1.1.4",
     "url-loader": "2.1.0",
+    "vite": "^5.1.4",
     "webpack": "4.41.0",
     "webpack-dev-server": "3.2.1",
     "webpack-manifest-plugin": "2.1.1",
