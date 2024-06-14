@@ -39,17 +39,3 @@ import Avatar from 'boring-avatars';
 | name    | string                                                                 |
 | variant | oneOf: `marble` (default), `beam`, `pixel`,`sunset`, `ring`, `bauhaus` |
 | colors  | array of colors                                                        |
-
-## Service
-
-You can embed your boring avatars using the boring avatars source.
-
-To choose a random avatar from a specific user and a color palette, the format follows:
-
-```
-https://source.boringavatars.com/marble/120/Maria%20Mitchell?colors=264653,2a9d8f,e9c46a,f4a261,e76f51
-```
-
-![Avatar for Maria Mitchell](https://source.boringavatars.com/marble/120/Maria%20Mitchell?colors=264653,2a9d8f,e9c46a,f4a261,e76f51)
-
-For more information, [check out the README](https://github.com/hihayk/boring-avatars-service/blob/main/README.md)
