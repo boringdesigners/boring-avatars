@@ -1,4 +1,4 @@
-# Boring Avatars
+# Boring avatars
 
 Boring avatars is a tiny JavaScript React library that generates custom, SVG-based avatars from any username and color palette.
 <a href="https://www.npmjs.com/package/boring-avatars">
@@ -7,8 +7,6 @@ Boring avatars is a tiny JavaScript React library that generates custom, SVG-bas
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 </a>
-
-![boring avatars preview](https://github.com/boringdesigners/boring-avatars/blob/master/public/boring-avatars-preview.png?raw=true)
 
 ## Install
 
