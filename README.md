@@ -41,6 +41,6 @@ import Avatar from 'boring-avatars';
 
 
 
-## Boring Avatars Service (discontinued)
+## Boring avatars service (discontinued)
 
 Due to unexpectedly high demand and associated billing costs, we are discontinuing this service. We apologize for any inconvenience caused and appreciate your understanding.
