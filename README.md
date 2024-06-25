@@ -39,3 +39,10 @@ import Avatar from 'boring-avatars';
 | name    | string                                                                 |
 | variant | oneOf: `marble` (default), `beam`, `pixel`,`sunset`, `ring`, `bauhaus` |
 | colors  | array of colors                                                        |
+
+
+
+
+## Boring Avatars Service (discontinued)
+
+Due to unexpectedly high demand and associated billing costs, we are discontinuing this service. We apologize for any inconvenience caused and appreciate your understanding.
