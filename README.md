@@ -44,4 +44,4 @@ import Avatar from 'boring-avatars';
 
 Gain unlimited access to the official Boring avatars service to generates unique, random avatars on demand. 
 
-Subscribe via Gumroad here: https://boringdesigners.gumroad.com/l/boring-avatars-service 
+More info and subscription via Gumroad: https://boringdesigners.gumroad.com/l/boring-avatars-service 
