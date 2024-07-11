@@ -40,7 +40,8 @@ import Avatar from 'boring-avatars';
 
 
 
+## Boring avatars service
 
-## Boring avatars service (discontinued)
+Gain unlimited access to the official Boring avatars service to generates unique, random avatars on demand. 
 
-Due to unexpectedly high demand and associated billing costs, we are discontinuing this service. We apologize for any inconvenience caused and appreciate your understanding.
+Subscribe via Gumroad here: https://boringdesigners.gumroad.com/l/boring-avatars-service 
