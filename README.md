@@ -42,6 +42,9 @@ import Avatar from 'boring-avatars';
 
 ## Boring avatars service
 
-Gain unlimited access to the official Boring avatars service to generates unique, random avatars on demand. 
+> [!IMPORTANT]  
+> Please note that our old free service will be paused by the end of this month - July 31st 2024. We recommend transitioning to our new subscription plan to ensure uninterrupted access and support.
 
-More info and subscription via Gumroad: https://boringdesigners.gumroad.com/l/boring-avatars-service 
+Get unlimited access to the official Boring avatars API service to generates unique, random avatars on demand. 
+
+[More info and subscription plan](https://boringdesigners.gumroad.com/l/boring-avatars-service).
