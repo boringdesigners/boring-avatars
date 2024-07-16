@@ -28,14 +28,15 @@ import Avatar from 'boring-avatars';
 
 ### Props
 
-| Prop    | Type                                                                   |
-| ------- | ---------------------------------------------------------------------- |
-| size    | number or string, `40px` (default)                                     |
-| square  | boolean: `false` (default)                                             |
-| title   | boolean: `false` (default)                                             |
-| name    | string                                                                 |
-| variant | oneOf: `marble` (default), `beam`, `pixel`,`sunset`, `ring`, `bauhaus` |
-| colors  | array of colors                                                        |
+| Prop    | Type                                                         | Default                                                   |
+|---------|--------------------------------------------------------------|-----------------------------------------------------------|
+| size    | number or string                                             | `40px`                                                    |
+| square  | boolean                                                      | `false`                                                   |
+| title   | boolean                                                      | `false`                                                   |
+| name    | string                                                       | `Clara Barton`                                            |
+| variant | oneOf: `marble`, `beam`, `pixel`,`sunset`, `ring`, `bauhaus` | `marble`                                                  |
+| colors  | array                                                        | `['#92A1C6', '#146A7C', '#F0AB3D', '#C271B4', '#C20D90']` | 
+
 
 
 
