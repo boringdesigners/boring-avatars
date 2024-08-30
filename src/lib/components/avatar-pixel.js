@@ -25,8 +25,8 @@ const AvatarPixel = (props) => {
       fill="none"
       role="img"
       xmlns="http://www.w3.org/2000/svg"
-      width={props.size}
-      height={props.size}
+      width={props.responsive ? "100%" : props.size}
+      height={props.responsive ? "100%" : props.size}
     >
       {props.title && <title>{props.name}</title>}
       <mask

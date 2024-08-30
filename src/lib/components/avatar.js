@@ -17,9 +17,10 @@ const Avatar = ({
   square = false,
   title = false,
   size = 40,
+  responsive = false,
   ...props
 }) => {
-  const avatarProps = { colors, name, title, size, square, ...props };
+  const avatarProps = { colors, name, title, size, square, responsive, ...props };
   const checkedVariant = () => {
     if (Object.keys(deprecatedVariants).includes(variant)) {
       return deprecatedVariants[variant];
