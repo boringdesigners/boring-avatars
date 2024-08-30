@@ -36,6 +36,7 @@ const AvatarRing = (props) => {
       xmlns="http://www.w3.org/2000/svg"
       width={props.size}
       height={props.size}
+      {...props}
     >
       {props.title && <title>{props.name}</title>}
       <mask id={maskID} maskUnits="userSpaceOnUse" x={0} y={0} width={SIZE} height={SIZE}>
