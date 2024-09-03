@@ -20,7 +20,8 @@ function generateColors(name, colors) {
 }
 
 const AvatarBauhaus = (props) => {
-  const properties = generateColors(props.name, props.colors);
+  const { name, colors, title, square, size, ...otherProps } = props;
+  const properties = generateColors(name, colors);
   const maskID = React.useId();
 
   return (
@@ -29,13 +30,13 @@ const AvatarBauhaus = (props) => {
       fill="none"
       role="img"
       xmlns="http://www.w3.org/2000/svg"
-      width={props.size}
-      height={props.size}
-      {...props}
+      width={size}
+      height={size}
+      {...otherProps}
     >
-      {props.title && <title>{props.name}</title>}
+      {title && <title>{name}</title>}
       <mask id={maskID} maskUnits="userSpaceOnUse" x={0} y={0} width={SIZE} height={SIZE}>
-        <rect width={SIZE} height={SIZE} rx={props.square ? undefined : SIZE * 2} fill="#FFFFFF" />
+        <rect width={SIZE} height={SIZE} rx={square ? undefined : SIZE * 2} fill="#FFFFFF" />
       </mask>
       <g mask={`url(#${maskID})`}>
         <rect width={SIZE} height={SIZE} fill={properties[0].color} />

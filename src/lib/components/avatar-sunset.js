@@ -16,8 +16,9 @@ function generateColors(name, colors) {
 }
 
 const AvatarSunset = (props) => {
-  const sunsetColors = generateColors(props.name, props.colors);
-  const name = props.name.replace(/\s/g, '');
+  const { name, colors, title, square, size, ...otherProps } = props;
+  const sunsetColors = generateColors(name, colors);
+  const nameWithoutSpace = name.replace(/\s/g, '');
   const maskID = React.useId();
 
   return (
@@ -26,21 +27,21 @@ const AvatarSunset = (props) => {
       fill="none"
       role="img"
       xmlns="http://www.w3.org/2000/svg"
-      width={props.size}
-      height={props.size}
-      {...props}
+      width={size}
+      height={size}
+      {...otherProps}
     >
-      {props.title && <title>{props.name}</title>}
+      {title && <title>{name}</title>}
       <mask id={maskID} maskUnits="userSpaceOnUse" x={0} y={0} width={SIZE} height={SIZE}>
-        <rect width={SIZE} height={SIZE} rx={props.square ? undefined : SIZE * 2} fill="#FFFFFF" />
+        <rect width={SIZE} height={SIZE} rx={square ? undefined : SIZE * 2} fill="#FFFFFF" />
       </mask>
       <g mask={`url(#${maskID})`}>
-        <path fill={'url(#gradient_paint0_linear_' + name + ')'} d="M0 0h80v40H0z" />
-        <path fill={'url(#gradient_paint1_linear_' + name + ')'} d="M0 40h80v40H0z" />
+        <path fill={'url(#gradient_paint0_linear_' + nameWithoutSpace + ')'} d="M0 0h80v40H0z" />
+        <path fill={'url(#gradient_paint1_linear_' + nameWithoutSpace + ')'} d="M0 40h80v40H0z" />
       </g>
       <defs>
         <linearGradient
-          id={'gradient_paint0_linear_' + name}
+          id={'gradient_paint0_linear_' + nameWithoutSpace}
           x1={SIZE / 2}
           y1={0}
           x2={SIZE / 2}
@@ -51,7 +52,7 @@ const AvatarSunset = (props) => {
           <stop offset={1} stopColor={sunsetColors[1]} />
         </linearGradient>
         <linearGradient
-          id={'gradient_paint1_linear_' + name}
+          id={'gradient_paint1_linear_' + nameWithoutSpace}
           x1={SIZE / 2}
           y1={SIZE / 2}
           x2={SIZE / 2}
