@@ -21,9 +21,15 @@ const DEPRECATED_VARIANTS = {
   abstract: 'bauhaus',
 };
 
-const Avatar = (props) => {
-  const { variant = 'marble', colors, name, title, size, square, ...otherProps } = props;
-
+const Avatar = ({
+  variant = 'marble',
+  colors = ['#92A1C6', '#146A7C', '#F0AB3D', '#C271B4', '#C20D90'],
+  name = 'Clara Barton',
+  title = false,
+  size,
+  square = false,
+  ...otherProps
+}) => {
   const resolvedVariant = DEPRECATED_VARIANTS[variant] || variant;
   const AvatarComponent = AVATAR_VARIANTS[resolvedVariant] || AvatarMarble;
 
@@ -45,14 +51,6 @@ Avatar.propTypes = {
   name: PropTypes.string,
   square: PropTypes.bool,
   title: PropTypes.bool,
-};
-
-Avatar.defaultProps = {
-  variant: 'marble',
-  colors: ['#92A1C6', '#146A7C', '#F0AB3D', '#C271B4', '#C20D90'],
-  name: 'Clara Barton',
-  square: false,
-  title: false,
 };
 
 export default Avatar;
