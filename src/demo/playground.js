@@ -70,7 +70,7 @@ const Input = styled.input`
   }
 `;
 
-const AvatarWrapper = ({ name, playgroundColors, size, square, variant }) => {
+const AvatarWrapper = ({ name, playgroundColors, size, square, variant, random }) => {
   const [avatarName, setAvatarName] = useState(name);
   const handleFocus = (event) => event.target.select();
   const ref = useRef();
@@ -96,6 +96,7 @@ const AvatarWrapper = ({ name, playgroundColors, size, square, variant }) => {
           size={size}
           variant={variants[variant]}
           square={square}
+          random={random}
         />
       </AvatarSection>
       <Input
@@ -183,6 +184,7 @@ const Playground = () => {
   const [avatarSize, setAvatarSize] = useState(avatarSizes.medium);
   const [variant, setVariant] = useState(variants.beam);
   const [isSquare, setSquare] = useState(false);
+  const [isRandom, setRandom] = useState(false);
 
   return (
     <>
@@ -223,6 +225,7 @@ const Playground = () => {
 
         <Button onClick={() => handleRandomColors()}>Random palette</Button>
         <Button onClick={() => setSquare(!isSquare)}>{isSquare ? 'Round' : 'Square'}</Button>
+        <Button onClick={() => setRandom(!isRandom)}>{isRandom ? 'Random' : 'By Name'}</Button>
         <SegmentGroup>
           {Object.entries(avatarSizes).map(([key, value], index) => (
             <SizeDot
@@ -243,6 +246,7 @@ const Playground = () => {
             name={exampleName}
             playgroundColors={filteredColors}
             variant={variant}
+            random={isRandom}
           />
         ))}
       </AvatarsGrid>

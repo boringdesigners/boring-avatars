@@ -7,6 +7,7 @@ declare module 'boring-avatars' {
     square?: boolean;
     variant?: 'marble' | 'beam' | 'pixel' | 'sunset' | 'ring' | 'bauhaus';
     colors?: string[];
+    random?: boolean;
     [key: string]: any; // Allows any additional prop
   }
 

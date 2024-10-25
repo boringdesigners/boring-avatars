@@ -28,6 +28,7 @@ const Avatar = ({
   title = false,
   size,
   square = false,
+  random = false,
   ...otherProps
 }) => {
   const resolvedVariant = DEPRECATED_VARIANTS[variant] || variant;
@@ -40,6 +41,7 @@ const Avatar = ({
       title={title}
       size={size}
       square={square}
+      random={random}
       {...otherProps}
     />
   );
@@ -51,6 +53,7 @@ Avatar.propTypes = {
   name: PropTypes.string,
   square: PropTypes.bool,
   title: PropTypes.bool,
+  random: PropTypes.bool,
 };
 
 export default Avatar;

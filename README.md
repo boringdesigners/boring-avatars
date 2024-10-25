@@ -30,7 +30,8 @@ import Avatar from 'boring-avatars';
 | title   | boolean                                                      | `false`                                                   |
 | name    | string                                                       | `Clara Barton`                                            |
 | variant | oneOf: `marble`, `beam`, `pixel`,`sunset`, `ring`, `bauhaus` | `marble`                                                  |
-| colors  | array                                                        | `['#92A1C6', '#146A7C', '#F0AB3D', '#C271B4', '#C20D90']` | 
+| colors  | array                                                        | `['#92A1C6', '#146A7C', '#F0AB3D', '#C271B4', '#C20D90']` |
+| random  | boolean                                                      | `false`                                                   | 
 
 
 #### Name
@@ -66,6 +67,13 @@ The `square` prop is used to make the avatar square.
 
 ```jsx
 <Avatar name="Helen Keller" square/>
+```
+
+#### Random
+The `random` prop is used to generate the avatar randomly, independent of the name.
+
+```jsx
+<Avatar name="Patsy Takemoto" random/>
 ```
 
 ## API service
