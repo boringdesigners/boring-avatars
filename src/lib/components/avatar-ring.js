@@ -26,7 +26,10 @@ function generateColors(colors, name) {
 
 const AvatarRing = (props) => {
   const { name, colors, title, square, size, random, ...otherProps } = props;
-  const ringColors = generateColors(colors, random ? Math.random().toString() : name);
+  const randomStr = React.useMemo(() => {
+    return random ? Math.random().toString() : '';
+  }, [random]);
+  const ringColors = generateColors(colors, random ? randomStr : name);
   const maskID = React.useId();
 
   return (

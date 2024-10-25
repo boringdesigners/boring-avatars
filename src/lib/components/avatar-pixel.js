@@ -17,7 +17,10 @@ function generateColors(name, colors) {
 
 const AvatarPixel = (props) => {
   const { name, colors, title, square, size, random, ...otherProps } = props;
-  const pixelColors = generateColors(random ? Math.random().toString() : name, colors);
+  const randomStr = React.useMemo(() => {
+    return random ? Math.random().toString() : '';
+  }, [random]);
+  const pixelColors = generateColors(random ? randomStr : name, colors);
   const maskID = React.useId();
 
   return (

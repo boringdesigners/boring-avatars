@@ -36,7 +36,10 @@ function generateData(name, colors) {
 
 const AvatarBeam = (props) => {
   const { name, colors, title, square, size, random, ...otherProps } = props;
-  const data = generateData(random ? Math.random().toString() : name, colors);
+  const randomStr = React.useMemo(() => {
+    return random ? Math.random().toString() : '';
+  }, [random]);
+  const data = generateData(random ? randomStr : name, colors);
   const maskID = React.useId();
 
   return (

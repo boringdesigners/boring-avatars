@@ -21,7 +21,10 @@ function generateColors(name, colors) {
 
 const AvatarBauhaus = (props) => {
   const { name, colors, title, square, size, random, ...otherProps } = props;
-  const properties = generateColors(random ? Math.random().toString() : name, colors);
+  const randomStr = React.useMemo(() => {
+    return random ? Math.random().toString() : '';
+  }, [random]);
+  const properties = generateColors(random ? randomStr : name, colors);
   const maskID = React.useId();
 
   return (

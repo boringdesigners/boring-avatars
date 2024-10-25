@@ -17,7 +17,10 @@ function generateColors(name, colors) {
 
 const AvatarSunset = (props) => {
   const { name, colors, title, square, size, random, ...otherProps } = props;
-  const sunsetColors = generateColors(random ? Math.random().toString() : name, colors);
+  const randomStr = React.useMemo(() => {
+    return random ? Math.random().toString() : '';
+  }, [random]);
+  const sunsetColors = generateColors(random ? randomStr : name, colors);
   const nameWithoutSpace = name.replace(/\s/g, '');
   const maskID = React.useId();
 
