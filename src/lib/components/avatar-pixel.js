@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { hashCode, getRandomColor } from '../utilities';
+import { hashCode, getRandomColor, getRandomStr } from '../utilities';
 
 const ELEMENTS = 64;
 const SIZE = 80;
@@ -17,10 +17,11 @@ function generateColors(name, colors) {
 
 const AvatarPixel = (props) => {
   const { name, colors, title, square, size, random, ...otherProps } = props;
+  const recalculate = random || !name;
   const randomStr = React.useMemo(() => {
-    return random ? Math.random().toString() : '';
-  }, [random]);
-  const pixelColors = generateColors(random ? randomStr : name, colors);
+    return recalculate ? getRandomStr() : '';
+  }, [recalculate]);
+  const pixelColors = generateColors(recalculate ? randomStr : name, colors);
   const maskID = React.useId();
 
   return (
@@ -33,7 +34,7 @@ const AvatarPixel = (props) => {
       height={size}
       {...otherProps}
     >
-      {title && <title>{name}</title>}
+      {title && name && <title>{name}</title>}
       <mask
         id={maskID}
         mask-type="alpha"

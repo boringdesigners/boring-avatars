@@ -55,3 +55,12 @@ export const getContrast = (hexcolor) => {
 	return (yiq >= 128) ? '#000000' : '#FFFFFF';
 
 };
+
+export const getRandomStr = (length = 6) => {
+	const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+	let result = '';
+	for (let i = 0; i < length; i++) {
+		result += characters.charAt(Math.floor(Math.random() * characters.length));
+	}
+	return result;
+}

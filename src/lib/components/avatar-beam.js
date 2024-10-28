@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { hashCode, getUnit, getBoolean, getRandomColor, getContrast } from '../utilities';
+import { hashCode, getUnit, getBoolean, getRandomColor, getContrast, getRandomStr } from '../utilities';
 
 const SIZE = 36;
 
@@ -36,10 +36,11 @@ function generateData(name, colors) {
 
 const AvatarBeam = (props) => {
   const { name, colors, title, square, size, random, ...otherProps } = props;
+  const recalculate = random || !name;
   const randomStr = React.useMemo(() => {
-    return random ? Math.random().toString() : '';
-  }, [random]);
-  const data = generateData(random ? randomStr : name, colors);
+    return recalculate ? getRandomStr() : '';
+  }, [recalculate]);
+  const data = generateData(recalculate ? randomStr : name, colors);
   const maskID = React.useId();
 
   return (
@@ -52,7 +53,7 @@ const AvatarBeam = (props) => {
       height={size}
       {...otherProps}
     >
-      {title && <title>{name}</title>}
+      {title && name && <title>{name}</title>}
       <mask id={maskID} maskUnits="userSpaceOnUse" x={0} y={0} width={SIZE} height={SIZE}>
         <rect width={SIZE} height={SIZE} rx={square ? undefined : SIZE * 2} fill="#FFFFFF" />
       </mask>
