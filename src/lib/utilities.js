@@ -64,3 +64,7 @@ export const getRandomStr = (length = 6) => {
 	}
 	return result;
 }
+
+export const getRandomPalette = (palettes) => {
+	return palettes[Math.floor(Math.random() * palettes.length)];
+}

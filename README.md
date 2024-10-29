@@ -23,15 +23,16 @@ import Avatar from 'boring-avatars';
 
 ### Props
 
-| Prop    | Type                                                         | Default                                                   |
-|---------|--------------------------------------------------------------|-----------------------------------------------------------|
-| size    | number or string                                             | `40px`                                                    |
-| square  | boolean                                                      | `false`                                                   |
-| title   | boolean                                                      | `false`                                                   |
-| name    | string                                                       | `""`                                                      |
-| variant | oneOf: `marble`, `beam`, `pixel`,`sunset`, `ring`, `bauhaus` | `marble`                                                  |
-| colors  | array                                                        | `['#92A1C6', '#146A7C', '#F0AB3D', '#C271B4', '#C20D90']` |
-| random  | boolean                                                      | `false`                                                   | 
+| Prop           | Type                                                         | Default                                                   |
+|----------------|--------------------------------------------------------------|-----------------------------------------------------------|
+| size           | number or string                                             | `40px`                                                    |
+| square         | boolean                                                      | `false`                                                   |
+| title          | boolean                                                      | `false`                                                   |
+| name           | string                                                       | `""`                                                      |
+| variant        | oneOf: `marble`, `beam`, `pixel`,`sunset`, `ring`, `bauhaus` | `marble`                                                  |
+| colors         | array                                                        | `['#92A1C6', '#146A7C', '#F0AB3D', '#C271B4', '#C20D90']` |
+| random         | boolean                                                      | `false`                                                   |
+| randompalette  | boolean                                                      | `false`                                                   | 
 
 
 #### Name
@@ -86,6 +87,14 @@ Or you can not use it at all.
 
 ```jsx
 <Avatar />
+```
+
+#### Random Palette
+
+The `randompalette` prop is used to change the color palette of the avatar with a random color palette.
+
+```jsx
+<Avatar name="Lucy Stone" randompalette/>
 ```
 
 ## API service

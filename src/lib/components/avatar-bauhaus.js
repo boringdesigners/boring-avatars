@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { hashCode, getUnit, getRandomColor, getBoolean, getRandomStr } from '../utilities';
+import palettes from 'nice-color-palettes/1000';
+import { hashCode, getUnit, getRandomColor, getBoolean, getRandomStr, getRandomPalette } from '../utilities';
 
 const ELEMENTS = 4;
 const SIZE = 80;
@@ -20,12 +21,15 @@ function generateColors(name, colors) {
 }
 
 const AvatarBauhaus = (props) => {
-  const { name, colors, title, square, size, random, ...otherProps } = props;
+  const { name, colors, title, square, size, random, randompalette, ...otherProps } = props;
   const recalculate = random || !name;
   const randomStr = React.useMemo(() => {
     return recalculate ? getRandomStr() : '';
   }, [recalculate]);
-  const properties = generateColors(recalculate ? randomStr : name, colors);
+  const randomPlt = React.useMemo(() => {
+    return randompalette ? getRandomPalette(palettes) : [];
+  }, [randompalette]);
+  const properties = generateColors(recalculate ? randomStr : name, randompalette ? randomPlt : colors);
   const maskID = React.useId();
 
   return (

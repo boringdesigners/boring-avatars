@@ -8,6 +8,7 @@ declare module 'boring-avatars' {
     variant?: 'marble' | 'beam' | 'pixel' | 'sunset' | 'ring' | 'bauhaus';
     colors?: string[];
     random?: boolean;
+    randompalette?: boolean;
     [key: string]: any; // Allows any additional prop
   }
 

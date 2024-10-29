@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { hashCode, getUnit, getBoolean, getRandomColor, getContrast, getRandomStr } from '../utilities';
+import palettes from 'nice-color-palettes/1000';
+import { hashCode, getUnit, getBoolean, getRandomColor, getContrast, getRandomStr, getRandomPalette } from '../utilities';
 
 const SIZE = 36;
 
@@ -35,12 +36,15 @@ function generateData(name, colors) {
 }
 
 const AvatarBeam = (props) => {
-  const { name, colors, title, square, size, random, ...otherProps } = props;
+  const { name, colors, title, square, size, random, randompalette, ...otherProps } = props;
   const recalculate = random || !name;
   const randomStr = React.useMemo(() => {
     return recalculate ? getRandomStr() : '';
   }, [recalculate]);
-  const data = generateData(recalculate ? randomStr : name, colors);
+  const randomPlt = React.useMemo(() => {
+    return randompalette ? getRandomPalette(palettes) : [];
+  }, [randompalette]);
+  const data = generateData(recalculate ? randomStr : name, randompalette ? randomPlt : colors);
   const maskID = React.useId();
 
   return (

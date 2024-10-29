@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { hashCode, getRandomColor, getRandomStr } from '../utilities';
+import palettes from 'nice-color-palettes/1000';
+import { hashCode, getRandomColor, getRandomStr, getRandomPalette } from '../utilities';
 
 const ELEMENTS = 4;
 const SIZE = 80;
@@ -16,13 +17,15 @@ function generateColors(name, colors) {
 }
 
 const AvatarSunset = (props) => {
-  const { name, colors, title, square, size, random, ...otherProps } = props;
+  const { name, colors, title, square, size, random, randompalette, ...otherProps } = props;
   const recalculate = random || !name;
   const randomStr = React.useMemo(() => {
     return recalculate ? getRandomStr() : '';
   }, [recalculate]);
-  const sunsetColors = generateColors(recalculate ? randomStr : name, colors);
-  const nameWithoutSpace = recalculate ? randomStr : name.replace(/\s/g, '');
+  const randomPlt = React.useMemo(() => {
+    return randompalette ? getRandomPalette(palettes) : [];
+  }, [randompalette]);
+  const sunsetColors = generateColors(recalculate ? randomStr : name, randompalette ? randomPlt : colors);
   const maskID = React.useId();
 
   return (
@@ -40,12 +43,12 @@ const AvatarSunset = (props) => {
         <rect width={SIZE} height={SIZE} rx={square ? undefined : SIZE * 2} fill="#FFFFFF" />
       </mask>
       <g mask={`url(#${maskID})`}>
-        <path fill={'url(#gradient_paint0_linear_' + nameWithoutSpace + ')'} d="M0 0h80v40H0z" />
-        <path fill={'url(#gradient_paint1_linear_' + nameWithoutSpace + ')'} d="M0 40h80v40H0z" />
+        <path fill={`url(#gradient_paint0_linear_${maskID})`} d="M0 0h80v40H0z" />
+        <path fill={`url(#gradient_paint1_linear_${maskID})`} d="M0 40h80v40H0z" />
       </g>
       <defs>
         <linearGradient
-          id={'gradient_paint0_linear_' + nameWithoutSpace}
+          id={`gradient_paint0_linear_${maskID}`}
           x1={SIZE / 2}
           y1={0}
           x2={SIZE / 2}
@@ -56,7 +59,7 @@ const AvatarSunset = (props) => {
           <stop offset={1} stopColor={sunsetColors[1]} />
         </linearGradient>
         <linearGradient
-          id={'gradient_paint1_linear_' + nameWithoutSpace}
+          id={`gradient_paint1_linear_${maskID}`}
           x1={SIZE / 2}
           y1={SIZE / 2}
           x2={SIZE / 2}
