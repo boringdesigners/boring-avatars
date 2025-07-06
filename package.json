@@ -32,12 +32,12 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
-  "dependencies": {
-    "react": "^19.1.0"
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",
-    "@tailwindcss/vite": "^4.1.11",
     "@types/react-color": "^3.0.13",
     "@types/react-dom": "^19.1.6",
     "@types/react": "^19.1.8",
@@ -48,6 +48,7 @@
     "globals": "^16.2.0",
     "nice-color-palettes": "^4.0.0",
     "react-color": "^2.19.3",
+    "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "styled-components": "^6.1.19",
     "typescript-eslint": "^8.34.1",
