@@ -1,6 +1,5 @@
-import React from 'react'
 import styled from 'styled-components'
-import Button from '../button'
+import Button from './button'
 
 const SegmentGroupWrapper = styled.div`
   background-color: var(--c-button);
@@ -9,7 +8,11 @@ const SegmentGroupWrapper = styled.div`
   display: inline-flex;
 `
 
-const SegmentWrapper = styled(Button)`
+interface SegmentWrapperProps {
+  isSelected?: boolean;
+}
+
+const SegmentWrapper = styled(Button)<SegmentWrapperProps>`
   &:not(:hover) {
     background-color: ${p => p.isSelected ? `var(--c-background)` : `transparent`};
   }
@@ -18,13 +21,22 @@ const SegmentWrapper = styled(Button)`
   ${p => !p.isSelected && `color: var(--c-fade)`};
 `
 
-export const SegmentGroup = ({ children }) => {
+interface SegmentGroupProps {
+  children?: React.ReactNode;
+}
+
+export const SegmentGroup = ({ children }: SegmentGroupProps) => {
   return (
     <SegmentGroupWrapper>{children}</SegmentGroupWrapper>
   )
 }
 
-const Segment = ({ children, isSelected, ...props }) => {
+interface SegmentProps extends React.HTMLAttributes<HTMLDivElement> {
+  children?: React.ReactNode;
+  isSelected?: boolean;
+}
+
+const Segment = ({ children, isSelected, ...props }: SegmentProps) => {
   return (
     <SegmentWrapper isSelected={isSelected} {...props}>{children}</SegmentWrapper>
   )

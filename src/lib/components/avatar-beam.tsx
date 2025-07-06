@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { hashCode, getUnit, getBoolean, getRandomColor, getContrast } from '../utilities';
+import type { AvatarProps } from './types';
 
 const SIZE = 36;
 
-function generateData(name, colors) {
+function generateData(name: string, colors: string[]) {
   const numFromName = hashCode(name);
   const range = colors && colors.length;
   const wrapperColor = getRandomColor(numFromName, colors, range);
@@ -34,8 +35,7 @@ function generateData(name, colors) {
   return data;
 }
 
-const AvatarBeam = (props) => {
-  const { name, colors, title, square, size, ...otherProps } = props;
+const AvatarBeam = ({ name, colors, title, square, size, ...otherProps }: AvatarProps) => {
   const data = generateData(name, colors);
   const maskID = React.useId();
 
