@@ -2,9 +2,7 @@
   "name": "boring-avatars",
   "description": "Boring avatars is a tiny JavaScript React library that generates custom, SVG-based, round avatars from any username and color palette.",
   "homepage": "https://boringavatars.com/",
-  "version": "1.11.2",
-  "main": "build/index.js",
-  "types": "index.d.ts",
+  "version": "2.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/boringdesigners/boring-avatars"
@@ -20,144 +18,41 @@
     "avatar generator",
     "avatar placeholder"
   ],
-  "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "demo": "node scripts/demo.js",
-    "test": "node scripts/test.js"
-  },
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
   "files": [
     "build/*",
     "index.d.ts"
   ],
   "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -p tsconfig.lib.json",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
   "devDependencies": {
-    "@babel/core": "7.6.0",
-    "@svgr/webpack": "4.3.2",
-    "@typescript-eslint/eslint-plugin": "^2.2.0",
-    "@typescript-eslint/parser": "^2.2.0",
-    "babel-eslint": "10.0.3",
-    "babel-jest": "^24.9.0",
-    "babel-loader": "8.0.6",
-    "babel-plugin-named-asset-import": "^0.3.4",
-    "babel-preset-react-app": "^9.0.2",
-    "camelcase": "^5.2.0",
-    "case-sensitive-paths-webpack-plugin": "2.2.0",
-    "css-loader": "2.1.1",
-    "dotenv": "6.2.0",
-    "dotenv-expand": "5.1.0",
-    "eslint": "^6.1.0",
-    "eslint-config-react-app": "^5.0.2",
-    "eslint-loader": "3.0.2",
-    "eslint-plugin-flowtype": "3.13.0",
-    "eslint-plugin-import": "2.18.2",
-    "eslint-plugin-jsx-a11y": "6.2.3",
-    "eslint-plugin-react": "7.14.3",
-    "eslint-plugin-react-hooks": "^1.6.1",
-    "file-loader": "3.0.1",
-    "fs-extra": "7.0.1",
-    "html-webpack-plugin": "4.0.0-beta.5",
-    "identity-obj-proxy": "3.0.0",
-    "is-wsl": "^1.1.0",
-    "jest": "24.9.0",
-    "jest-environment-jsdom-fourteen": "0.1.0",
-    "jest-resolve": "24.9.0",
-    "jest-watch-typeahead": "0.4.0",
-    "mini-css-extract-plugin": "0.8.0",
-    "nice-color-palettes": "^3.0.0",
-    "optimize-css-assets-webpack-plugin": "5.0.3",
-    "pnp-webpack-plugin": "1.5.0",
-    "postcss-flexbugs-fixes": "4.1.0",
-    "postcss-loader": "3.0.0",
-    "postcss-normalize": "7.0.1",
-    "postcss-preset-env": "6.7.0",
-    "postcss-safe-parser": "4.0.1",
-    "react": "^18.2.0",
-    "react-app-polyfill": "^1.0.4",
+    "@eslint/js": "^9.29.0",
+    "@types/react-color": "^3.0.13",
+    "@types/react-dom": "^19.1.6",
+    "@types/react": "^19.1.8",
+    "@vitejs/plugin-react": "^4.5.2",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "eslint": "^9.29.0",
+    "globals": "^16.2.0",
+    "nice-color-palettes": "^4.0.0",
     "react-color": "^2.19.3",
-    "react-copy-to-clipboard": "^5.1.0",
-    "react-dev-utils": "^9.1.0",
-    "react-dom": "^18.2.0",
-    "resolve": "1.12.0",
-    "resolve-url-loader": "3.1.0",
-    "sass-loader": "7.2.0",
-    "semver": "6.3.0",
-    "style-loader": "1.0.0",
-    "styled-components": "^5.2.1",
-    "terser-webpack-plugin": "1.4.1",
-    "ts-pnp": "1.1.4",
-    "url-loader": "2.1.0",
-    "webpack": "4.41.0",
-    "webpack-dev-server": "3.2.1",
-    "webpack-manifest-plugin": "2.1.1",
-    "workbox-webpack-plugin": "4.3.1"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "jest": {
-    "roots": [
-      "<rootDir>/src"
-    ],
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}",
-      "!src/**/*.d.ts"
-    ],
-    "setupFiles": [
-      "react-app-polyfill/jsdom"
-    ],
-    "setupFilesAfterEnv": [],
-    "testMatch": [
-      "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
-      "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
-    ],
-    "testEnvironment": "jest-environment-jsdom-fourteen",
-    "transform": {
-      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
-      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
-      "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
-    },
-    "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
-      "^.+\\.module\\.(css|sass|scss)$"
-    ],
-    "modulePaths": [],
-    "moduleNameMapper": {
-      "^react-native$": "react-native-web",
-      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
-    },
-    "moduleFileExtensions": [
-      "web.js",
-      "js",
-      "web.ts",
-      "ts",
-      "web.tsx",
-      "tsx",
-      "json",
-      "web.jsx",
-      "jsx",
-      "node"
-    ],
-    "watchPlugins": [
-      "jest-watch-typeahead/filename",
-      "jest-watch-typeahead/testname"
-    ]
-  },
-  "babel": {
-    "presets": [
-      "react-app"
-    ]
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "styled-components": "^6.1.19",
+    "typescript-eslint": "^8.34.1",
+    "typescript": "~5.8.3",
+    "vite": "^7.0.0"
   }
 }

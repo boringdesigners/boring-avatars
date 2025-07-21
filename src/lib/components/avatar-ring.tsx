@@ -1,10 +1,11 @@
 import React from 'react';
 import { hashCode, getRandomColor } from '../utilities';
+import type { AvatarProps } from './types';
 
 const SIZE = 90;
 const COLORS = 5;
 
-function generateColors(colors, name) {
+function generateColors(name: string, colors: string[]) {
   const numFromName = hashCode(name);
   const range = colors && colors.length;
   const colorsShuffle = Array.from({ length: COLORS }, (_, i) =>
@@ -24,9 +25,8 @@ function generateColors(colors, name) {
   return colorsList;
 }
 
-const AvatarRing = (props) => {
-  const { name, colors, title, square, size, ...otherProps } = props;
-  const ringColors = generateColors(colors, name);
+const AvatarRing = ({ name, colors, title, square, size, ...otherProps }: AvatarProps) => {
+  const ringColors = generateColors(name, colors);
   const maskID = React.useId();
 
   return (

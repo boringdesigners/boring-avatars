@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { hashCode, getRandomColor } from '../utilities';
+import type { AvatarProps } from './types';
 
 const ELEMENTS = 64;
 const SIZE = 80;
 
-function generateColors(name, colors) {
+function generateColors(name: string, colors: string[]) {
   const numFromName = hashCode(name);
   const range = colors && colors.length;
 
@@ -15,8 +16,7 @@ function generateColors(name, colors) {
   return colorList;
 }
 
-const AvatarPixel = (props) => {
-  const { name, colors, title, square, size, ...otherProps } = props;
+const AvatarPixel = ({ name, colors, title, square, size, ...otherProps }: AvatarProps) => {
   const pixelColors = generateColors(name, colors);
   const maskID = React.useId();
 

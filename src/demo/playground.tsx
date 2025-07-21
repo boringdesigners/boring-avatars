@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { SegmentGroup, Segment, Button, BaseStyles, ColorDot } from './ui-system';
-import colors from 'nice-color-palettes/1000';
+import colors from 'nice-color-palettes/1000.json';
 import { exampleNames } from './example-names';
 import Avatar from '../lib';
 
@@ -70,11 +70,19 @@ const Input = styled.input`
   }
 `;
 
-const AvatarWrapper = ({ name, playgroundColors, size, square, variant }) => {
-  const [avatarName, setAvatarName] = useState(name);
-  const handleFocus = (event) => event.target.select();
-  const ref = useRef();
-  const [copyValue, setCopyValue] = useState(name);
+interface AvatarWrapperProps {
+  name: string;
+  playgroundColors: string[];
+  size: number;
+  square: boolean;
+  variant: 'beam' | 'bauhaus' | 'ring' | 'sunset' | 'pixel' | 'marble';
+}
+
+const AvatarWrapper = ({ name, playgroundColors, size, square, variant }: AvatarWrapperProps) => {
+  const [avatarName, setAvatarName] = useState<string>(name);
+  const handleFocus = (event: React.FocusEvent<HTMLInputElement>) => event.target.select();
+  const ref = useRef<HTMLDivElement>(null);
+  const [copyValue, setCopyValue] = useState<string>(name);
 
   useEffect(() => {
     if (ref.current) {
@@ -94,29 +102,29 @@ const AvatarWrapper = ({ name, playgroundColors, size, square, variant }) => {
           name={avatarName}
           colors={playgroundColors}
           size={size}
-          variant={variants[variant]}
+          variant={variant}
           square={square}
         />
       </AvatarSection>
       <Input
         value={avatarName}
-        onChange={(e) => setAvatarName(e.target.value)}
-        onFocus={(e) => handleFocus(e)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setAvatarName(e.target.value)}
+        onFocus={handleFocus}
       />
     </AvatarContainer>
   );
 };
 
-const getRandomPaletteIndex = () => Math.floor(Math.random() * paletteColors.length);
+const getRandomPaletteIndex = (): number => Math.floor(Math.random() * paletteColors.length);
 
-const avatarSizes = {
+const avatarSizes: Record<string, number> = {
   small: 40,
   medium: 80,
   large: 128,
 };
 
-const SizeDotWrapper = styled(Button)`
-  ${(p) => p.isSelected && `background-color: var(--c-background)`};
+const SizeDotWrapper = styled(Button)<{ isSelected: boolean }>`
+  ${(p) => (p.isSelected ? `background-color: var(--c-background)` : null)};
   ${(p) => !p.isSelected && `color: var(--c-fade)`};
 
   &:hover {
@@ -124,14 +132,22 @@ const SizeDotWrapper = styled(Button)`
   }
 `;
 
-const Dot = styled.div`
+const Dot = styled.div<{ size: number }>`
   width: ${(p) => p.size}px;
   height: ${(p) => p.size}px;
   background-color: currentColor;
   border-radius: 10rem;
 `;
 
-const SizeDot = ({ size, isSelected, ...props }) => {
+const SizeDot = ({
+  size,
+  isSelected,
+  onClick,
+}: {
+  size: number;
+  isSelected: boolean;
+  onClick?: () => void;
+}) => {
   const getSize = () => {
     switch (size) {
       case avatarSizes.small:
@@ -144,19 +160,10 @@ const SizeDot = ({ size, isSelected, ...props }) => {
         return 0;
     }
   };
-  return <SizeDotWrapper isSelected={isSelected} icon={<Dot size={getSize()} />} {...props} />;
+  return <SizeDotWrapper isSelected={isSelected} icon={<Dot size={getSize()} />} onClick={onClick} />;
 };
 
-const variants = {
-  beam: 'beam',
-  bauhaus: 'bauhaus',
-  ring: 'ring',
-  sunset: 'sunset',
-  pixel: 'pixel',
-  marble: 'marble',
-};
-
-const Playground = () => {
+export const Playground = () => {
   const defaultPlaygroundColors = paletteColors[493];
   const [playgroundColors, setPlaygroundColors] = useState(defaultPlaygroundColors);
 
@@ -181,7 +188,7 @@ const Playground = () => {
   }, [playgroundColors]);
 
   const [avatarSize, setAvatarSize] = useState(avatarSizes.medium);
-  const [variant, setVariant] = useState(variants.beam);
+  const [variant, setVariant] = useState<AvatarWrapperProps['variant']>('beam');
   const [isSquare, setSquare] = useState(false);
 
   return (
@@ -203,15 +210,17 @@ const Playground = () => {
       .
       <Header>
         <SegmentGroup>
-          {Object.keys(variants).map((variantItem, i) => (
-            <Segment
-              key={i}
-              onClick={() => setVariant(variants[variantItem])}
-              isSelected={variantItem === variant}
-            >
-              {variantItem}
-            </Segment>
-          ))}
+          {(['beam', 'bauhaus', 'ring', 'sunset', 'pixel', 'marble'] as const).map(
+            (variantItem, i) => (
+              <Segment
+                key={i}
+                onClick={() => setVariant(variantItem)}
+                isSelected={variantItem === variant}
+              >
+                {variantItem}
+              </Segment>
+            ),
+          )}
         </SegmentGroup>
         <ColorsSection>
           <ColorDot value={dotColor0} onChange={(color) => setDotColor0(color)} />
@@ -224,7 +233,7 @@ const Playground = () => {
         <Button onClick={() => handleRandomColors()}>Random palette</Button>
         <Button onClick={() => setSquare(!isSquare)}>{isSquare ? 'Round' : 'Square'}</Button>
         <SegmentGroup>
-          {Object.entries(avatarSizes).map(([key, value], index) => (
+          {Object.entries(avatarSizes).map(([, value], index) => (
             <SizeDot
               key={index}
               onClick={() => setAvatarSize(value)}
@@ -249,5 +258,3 @@ const Playground = () => {
     </>
   );
 };
-
-export default Playground;

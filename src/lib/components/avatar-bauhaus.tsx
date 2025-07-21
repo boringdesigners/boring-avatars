@@ -1,26 +1,26 @@
 import * as React from 'react';
-import { hashCode, getUnit, getRandomColor } from '../utilities';
+import { hashCode, getUnit, getRandomColor, getBoolean } from '../utilities';
+import type { AvatarProps } from './types';
 
-const ELEMENTS = 3;
+const ELEMENTS = 4;
 const SIZE = 80;
 
-function generateColors(name, colors) {
+function generateColors(name: string, colors: string[]) {
   const numFromName = hashCode(name);
   const range = colors && colors.length;
 
   const elementsProperties = Array.from({ length: ELEMENTS }, (_, i) => ({
     color: getRandomColor(numFromName + i, colors, range),
-    translateX: getUnit(numFromName * (i + 1), SIZE / 10, 1),
-    translateY: getUnit(numFromName * (i + 1), SIZE / 10, 2),
-    scale: 1.2 + getUnit(numFromName * (i + 1), SIZE / 20) / 10,
-    rotate: getUnit(numFromName * (i + 1), 360, 1),
+    translateX: getUnit(numFromName * (i + 1), SIZE / 2 - (i + 17), 1),
+    translateY: getUnit(numFromName * (i + 1), SIZE / 2 - (i + 17), 2),
+    rotate: getUnit(numFromName * (i + 1), 360),
+    isSquare: getBoolean(numFromName, 2),
   }));
 
   return elementsProperties;
 }
 
-const AvatarMarble = (props) => {
-  const { name, colors, title, square, size, ...otherProps } = props;
+const AvatarBauhaus = ({ name, colors, title, square, size, ...otherProps }: AvatarProps) => {
   const properties = generateColors(name, colors);
   const maskID = React.useId();
 
@@ -40,9 +40,11 @@ const AvatarMarble = (props) => {
       </mask>
       <g mask={`url(#${maskID})`}>
         <rect width={SIZE} height={SIZE} fill={properties[0].color} />
-        <path
-          filter={`url(#filter_${maskID})`}
-          d="M32.414 59.35L50.376 70.5H72.5v-71H33.728L26.5 13.381l19.057 27.08L32.414 59.35z"
+        <rect
+          x={(SIZE - 60) / 2}
+          y={(SIZE - 20) / 2}
+          width={SIZE}
+          height={properties[1].isSquare ? SIZE : SIZE / 8}
           fill={properties[1].color}
           transform={
             'translate(' +
@@ -55,48 +57,40 @@ const AvatarMarble = (props) => {
             SIZE / 2 +
             ' ' +
             SIZE / 2 +
-            ') scale(' +
-            properties[2].scale +
             ')'
           }
         />
-        <path
-          filter={`url(#filter_${maskID})`}
-          style={{
-            mixBlendMode: 'overlay',
-          }}
-          d="M22.216 24L0 46.75l14.108 38.129L78 86l-3.081-59.276-22.378 4.005 12.972 20.186-23.35 27.395L22.215 24z"
+        <circle
+          cx={SIZE / 2}
+          cy={SIZE / 2}
           fill={properties[2].color}
+          r={SIZE / 5}
+          transform={'translate(' + properties[2].translateX + ' ' + properties[2].translateY + ')'}
+        />
+        <line
+          x1={0}
+          y1={SIZE / 2}
+          x2={SIZE}
+          y2={SIZE / 2}
+          strokeWidth={2}
+          stroke={properties[3].color}
           transform={
             'translate(' +
-            properties[2].translateX +
+            properties[3].translateX +
             ' ' +
-            properties[2].translateY +
+            properties[3].translateY +
             ') rotate(' +
-            properties[2].rotate +
+            properties[3].rotate +
             ' ' +
             SIZE / 2 +
             ' ' +
             SIZE / 2 +
-            ') scale(' +
-            properties[2].scale +
             ')'
           }
         />
       </g>
-      <defs>
-        <filter
-          id={`filter_${maskID}`}
-          filterUnits="userSpaceOnUse"
-          colorInterpolationFilters="sRGB"
-        >
-          <feFlood floodOpacity={0} result="BackgroundImageFix" />
-          <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-          <feGaussianBlur stdDeviation={7} result="effect1_foregroundBlur" />
-        </filter>
-      </defs>
     </svg>
   );
 };
 
-export default AvatarMarble;
+export default AvatarBauhaus;
