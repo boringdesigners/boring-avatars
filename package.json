@@ -2,7 +2,7 @@
   "name": "boring-avatars",
   "description": "Boring avatars is a tiny JavaScript React library that generates custom, SVG-based, round avatars from any username and color palette.",
   "homepage": "https://boringavatars.com/",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/boringdesigners/boring-avatars"
@@ -18,17 +18,16 @@
     "avatar generator",
     "avatar placeholder"
   ],
-  "main": "build/index.js",
-  "types": "build/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "build/*",
-    "index.d.ts"
+    "dist/*"
   ],
   "license": "MIT",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -p tsconfig.lib.json",
+    "build": "tsc --p ./tsconfig.lib.json && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -38,21 +37,23 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",
+    "@types/node": "^24.1.0",
+    "@types/react": "^19.1.8",
     "@types/react-color": "^3.0.13",
     "@types/react-dom": "^19.1.6",
-    "@types/react": "^19.1.8",
     "@vitejs/plugin-react": "^4.5.2",
+    "eslint": "^9.29.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
-    "eslint": "^9.29.0",
     "globals": "^16.2.0",
     "nice-color-palettes": "^4.0.0",
-    "react-color": "^2.19.3",
     "react": "^19.1.0",
+    "react-color": "^2.19.3",
     "react-dom": "^19.1.0",
     "styled-components": "^6.1.19",
-    "typescript-eslint": "^8.34.1",
     "typescript": "~5.8.3",
+    "typescript-eslint": "^8.34.1",
+    "vite-plugin-dts": "^4.5.4",
     "vite": "^7.0.0"
   }
 }
