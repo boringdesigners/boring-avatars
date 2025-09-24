@@ -25,7 +25,7 @@ const Avatar = ({
   size = '40px',
   square = false,
   ...otherProps
-}: AvatarProps & { variant?: keyof typeof AVATAR_VARIANTS; }) => {
+}: Partial<AvatarProps> & { variant?: keyof typeof AVATAR_VARIANTS }) => {
   const AvatarComponent = AVATAR_VARIANTS[variant] || AvatarMarble;
 
   return (
