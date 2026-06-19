@@ -1,6 +1,7 @@
 # Boring avatars
 
-Boring avatars is a tiny JavaScript React library that generates custom, SVG-based avatars from any username and color palette.
+Boring avatars is an open source React library and a subscription-based service that generates unique SVG-based user profile avatars from usernames, emails or any random strings.
+
 <a href="https://www.npmjs.com/package/boring-avatars">
 
 ![hi](https://badgen.net/npm/v/boring-avatars)
