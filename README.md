@@ -30,7 +30,7 @@ import Avatar from 'boring-avatars';
 | title   | boolean                                                      | `false`                                                   |
 | name    | string                                                       | `Clara Barton`                                            |
 | variant | oneOf: `marble`, `beam`, `pixel`,`sunset`, `ring`, `bauhaus` | `marble`                                                  |
-| colors  | array                                                        | `['#92A1C6', '#146A7C', '#F0AB3D', '#C271B4', '#C20D90']` | 
+| colors  | array                                                        | `['#92A1C6', '#146A7C', '#F0AB3D', '#C271B4', '#C20D90']` |
 
 
 #### Name
@@ -70,10 +70,10 @@ The `square` prop is used to make the avatar square.
 
 ## API service
 
-> [!IMPORTANT]  
-> Please note that the old service was paused in July 31st 2024. We recommend transitioning to our new API service to ensure uninterrupted access and support.
+If you need to generate avatars on a large scale or if you just want to avoid using the React library, we offer a subscription plan for our API service.
 
-Get access to the Boring avatars API service [here →](https://boringdesigners.gumroad.com/l/boring-avatars-service).
+
+ [Gumroad subscription](https://boringdesigners.gumroad.com/l/boring-avatars-service).
 
 ## Sponsors
 
