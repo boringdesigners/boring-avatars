@@ -1,6 +1,7 @@
 # Boring avatars
 
-Boring avatars is a tiny JavaScript React library that generates custom, SVG-based avatars from any username and color palette.
+Boring avatars is an open source React library and a subscription-based service that generates unique SVG-based user profile avatars from usernames, emails or any random strings.
+
 <a href="https://www.npmjs.com/package/boring-avatars">
 
 ![hi](https://badgen.net/npm/v/boring-avatars)
@@ -30,7 +31,7 @@ import Avatar from 'boring-avatars';
 | title   | boolean                                                      | `false`                                                   |
 | name    | string                                                       | `Clara Barton`                                            |
 | variant | oneOf: `marble`, `beam`, `pixel`,`sunset`, `ring`, `bauhaus` | `marble`                                                  |
-| colors  | array                                                        | `['#92A1C6', '#146A7C', '#F0AB3D', '#C271B4', '#C20D90']` | 
+| colors  | array                                                        | `['#92A1C6', '#146A7C', '#F0AB3D', '#C271B4', '#C20D90']` |
 
 
 #### Name
@@ -70,7 +71,17 @@ The `square` prop is used to make the avatar square.
 
 ## API service
 
-> [!IMPORTANT]  
-> Please note that the old service was paused in July 31st 2024. We recommend transitioning to our new API service to ensure uninterrupted access and support.
+If you need to generate avatars on a large scale or if you just want to avoid using the React library, we offer a subscription plan for our API service.
 
-Get access to the Boring avatars API service [here →](https://boringdesigners.gumroad.com/l/boring-avatars-service).
+
+ [Gumroad subscription](https://boringdesigners.gumroad.com/l/boring-avatars-service).
+
+## Sponsors
+
+[![TestMu AI](assets/testmu-ai-logo.png)](https://www.testmuai.com)
+
+Boring avatars is generously sponsored by [TestMu AI](https://www.testmuai.com).
+
+TestMu AI (formerly LambdaTest) is the world's first full-stack agentic AI quality engineering platform. Autonomous AI agents plan, author, execute, analyze, and optimize tests with humans in the loop, across 3,000+ browser/OS combinations and 10,000+ real devices. Trusted by 18,000+ enterprises including Microsoft, OpenAI, NVIDIA, and Vimeo.
+
+Explore the platform: https://www.testmuai.com
