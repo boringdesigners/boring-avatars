@@ -74,3 +74,13 @@ The `square` prop is used to make the avatar square.
 > Please note that the old service was paused in July 31st 2024. We recommend transitioning to our new API service to ensure uninterrupted access and support.
 
 Get access to the Boring avatars API service [here →](https://boringdesigners.gumroad.com/l/boring-avatars-service).
+
+## Sponsors
+
+[![TestMu AI](assets/testmu-ai-logo.png)](https://www.testmuai.com)
+
+Boring avatars is generously sponsored by [TestMu AI](https://www.testmuai.com).
+
+TestMu AI (formerly LambdaTest) is the world's first full-stack agentic AI quality engineering platform. Autonomous AI agents plan, author, execute, analyze, and optimize tests with humans in the loop, across 3,000+ browser/OS combinations and 10,000+ real devices. Trusted by 18,000+ enterprises including Microsoft, OpenAI, NVIDIA, and Vimeo.
+
+Explore the platform: https://www.testmuai.com
